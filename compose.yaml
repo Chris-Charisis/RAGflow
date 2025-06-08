@@ -1,0 +1,52 @@
+services:
+
+  minio:
+    image: quay.io/minio/minio:RELEASE.2025-04-22T22-12-26Z
+    container_name: minio
+    restart: unless-stopped
+    ports:
+      - 9000:9000
+      - 9001:9001
+    env_file:
+      - .env
+    volumes:
+      - minio_data:/data
+    networks:
+      - app
+    command: server /data --console-address ":9001"
+
+  rabbitmq:
+    image: rabbitmq:4.1.0-management-alpine
+    container_name: rabbitmq
+    restart: unless-stopped
+    ports:
+      - 5672:5672
+      - 15672:15672
+    env_file:
+      - .env
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+    networks:
+      - app
+
+  postgres:
+    image: postgres:17.5-alpine
+    container_name: postgres
+    restart: unless-stopped
+    ports:
+      - 5432:5432
+    env_file:
+      - .env
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - app
+
+volumes:
+  minio_data:
+  rabbitmq_data:
+  postgres_data:
+
+networks:
+  app:
+    driver: bridge
