@@ -1,4 +1,4 @@
-## Architecture
+## RAGflow Architecture (PROJECT UNDER DEVELOPMENT)
 
 ![alt text](architecture.png)
 
