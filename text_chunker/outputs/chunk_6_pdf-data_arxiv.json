@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "arxiv.pdf",
+        "etag": "870920e84617d15f5be7ceddb080ee6d"
+    },
+    "metadata": {
+        "title": null,
+        "authors": "",
+        "keywords": "",
+        "abstract": "",
+        "doi": null
+    },
+    "doc_id": "pdf-data/arxiv",
+    "chunk": {
+        "index": 6,
+        "start": 6000,
+        "end": 7200,
+        "num_chars": 1200,
+        "text": "ion functions D,(z) for hard photon production, where z is the light-cone fraction of the interme- diate parton\u2019s momentum carried by the photon. These single-photon \u201cone-fragmentation\u201d and \u201ctwo-fragmentation\u201d contributions, corresponding to one or both photons produced in independent fragmentation processes, are illustrated by the diagrams in Figs. [I] (f) and (g). In addition, a fragmentation contribution of entirely different nature arises when the yy pair is relatively light and produced from fragmentation of one parton, as discussed in Secs. [IC 2] and{M1A 3} A full and consistent treatment of the final-state logarithms beyond lowest order would require a joint resummation of the initial- and final-state logarithmic singularities. . In the work reported here, we are guided by our interest in describing the cross section for isolated photons, in which the fragmentation contributions are largely suppressed. A typical isolation condition requires the hadronic activity to be minimal (e.g., comparable to the underlying event) in the immediate neighborhood of each candidate photon. Candidate photons can be rejected by energy deposit nearby in the hadronic calorimeter or the presence"
+    }
+}

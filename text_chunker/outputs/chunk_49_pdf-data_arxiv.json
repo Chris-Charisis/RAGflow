@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "arxiv.pdf",
+        "etag": "870920e84617d15f5be7ceddb080ee6d"
+    },
+    "metadata": {
+        "title": null,
+        "authors": "",
+        "keywords": "",
+        "abstract": "",
+        "doi": null
+    },
+    "doc_id": "pdf-data/arxiv",
+    "chunk": {
+        "index": 49,
+        "start": 49000,
+        "end": 50200,
+        "num_chars": 1200,
+        "text": " preditions. The transverse momentum and invariant mass dis- tributions in the q\u00afq + qg hannel from the two approahes are shown in Fig. 12. In both state photons and partons when QT > Eiso T = 15 GeV, but not when QT is below Eiso T . Concentrating first on yy events with Q; > E'$?, we observe that, at Qr > 80 GeV, the resummed q\u00a2+qg cross section reduces to the direct fixed-order cross section, evaluated in the same way as in the DIPHOX code. Our resummed and the direct DIPHOX cross sections, shown as solid and dashed curves, respectively, in Fig. 12a) consequently agree well at large Qr. At smaller Q7, the resummed cross section is enhanced by towers of higher-order logarithmic contributions. On the other hand, the full gg + gg DIPHOX rate (shown as a dotted line) also includes single-photon fragmentation contributions, which add to the direct production cross section. For the nominal isolation parameters, the explicit fragmentation contribution constitutes about 25% of the full DIPHOX rate for 60 < Qr < 120 GeV. Its magnitude increases approximately linearly with the assumed E%%\u00b0 value. For Qr < E%?, the final-state collinear region of the direct contribution is regulated by the"
+    }
+}

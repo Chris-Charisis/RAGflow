@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "mdpi_2.pdf",
+        "etag": "e2052416ec26026a2e2ba8f2fad9b22e"
+    },
+    "metadata": {
+        "title": "Affordable Small Molecules as Promising Fluorescent Labelsfor Biomolecules",
+        "authors": "Raquel Eust\u00e1quio, Jo\u00e3o P. Prates Ramalho, S\u00edlvia Arantes, Ant\u00f3nio Candeias, Ana Teresa Caldeira and Ant\u00f3nio Pereira",
+        "keywords": "fluorescent labels; 4-diethylaminobenzaldehyde derivatives; biomolecules; RNA-FISH probes",
+        "abstract": "Fluorescent labels, commonly used in highly sensitive analytical techniques for detecting and tracking biomolecules in critical fields like cellular biology, medicine, medicinal chemistry, and environmental science, are currently too expensive for routine use in standard applications, with most exhibiting small Stokes shifts. This limitation underscores the potential of 4-diethylaminobenzaldehyde derivatives as a cost-effective alternative for developing new, bright fluorophores with larger Stokes shifts. In this work, using 4-diethylaminobenzaldehyde as starting material, we developed a simple, cost-effective, and efficient synthetic strategy to produce new affordable small molecules as effective fluorescent labels for biomolecules. Density functional theory and time-dependent density functional theory calculations were also conducted to gain insights into the observed photophysical properties.",
+        "doi": "10.3390/molecules29225237"
+    },
+    "doc_id": "pdf-data/mdpi_2",
+    "chunk": {
+        "index": 21,
+        "start": 21000,
+        "end": 22200,
+        "num_chars": 1200,
+        "text": " of unlabeled bacterial cells (BA) (Figure S4A). This fluorescence indicates that the EUB338-Cy3 probe has high hybridization rates. In contrast, cells hybridized with the EUK516-Cy3 probe exhibited fluorescence intensities (FI) like the autofluorescence of unlabeled cells, indicating no hybridization (Figure S4B). In the case of cells hybridized with the EUB338 probes with the synthesized labels, it should be noted that the cells labeled with the EUB338-(4) and EUB338-(7) probes (Figure S4C,E) show greater fluorescence than the cells hybridized with the EUB338-(10) probe (Figure S4G). The EUB338-(10) probe shows less promising results, since the cells labeled with this probe show the same fluorescence intensity as the autofluorescence of unlabeled yeast cells (Figure S4H). The percentage of fluorescent cells from Bacillus sp. (BA) hybridized with the synthesized oligonucleotide probes EUB338-(4) and EUB338-(7) results in a notable increase in the percentage of fluorescent cells compared to unlabeled cells (Figure 3). When Bacillus sp. cells were hybridized with the synthesized oligonu- cleotide probe EUB338-(4), there was a statistically significant increase in the percentage of f"
+    }
+}

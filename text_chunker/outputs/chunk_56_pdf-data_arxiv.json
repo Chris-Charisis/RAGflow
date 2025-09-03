@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "arxiv.pdf",
+        "etag": "870920e84617d15f5be7ceddb080ee6d"
+    },
+    "metadata": {
+        "title": null,
+        "authors": "",
+        "keywords": "",
+        "abstract": "",
+        "doi": null
+    },
+    "doc_id": "pdf-data/arxiv",
+    "chunk": {
+        "index": 56,
+        "start": 56000,
+        "end": 57200,
+        "num_chars": 1200,
+        "text": "-state radiation. About 80% of the diphoton rate is provided by the qq+ qg channel, implying a narrower Qr distribution of the background, if based on the value of A\u201c) alone. The continuum background contribution is also enhanced by final-state radiation in qg scattering. The Qr profile of the final-state collinear terms depends more on the isolation model (including \u00a38? and AR) than on the initial-state Sudakov exponent. For the nominal ATLAS cuts, the final-state collinear contribution in our calculation hardens the background Qr distribution, diminishing its difference from the Higgs boson signal distribution. More effective isolation may reduce the impact of the final-state radiation on Q7 distributions. Another difference between the signal and continuum is observed in the distribution in he azimuthal angle of the photons, such as the angle y, in the Collins-Soper frame shown in the top-right panel of Fig. 15} This distribution is qualitatively the same if integrated over all Qr, as in Fig. or integrated above some minimal Qr value, as in an experimental measurement. Without isolation imposed, the spin-0 Higgs boson signal must be flat in \u00bb., but the QCD background peaks towar"
+    }
+}

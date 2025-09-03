@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "arxiv.pdf",
+        "etag": "870920e84617d15f5be7ceddb080ee6d"
+    },
+    "metadata": {
+        "title": null,
+        "authors": "",
+        "keywords": "",
+        "abstract": "",
+        "doi": null
+    },
+    "doc_id": "pdf-data/arxiv",
+    "chunk": {
+        "index": 46,
+        "start": 46000,
+        "end": 47200,
+        "num_chars": 1200,
+        "text": "3 suppress diphoton production at small Qr, and (Qr/Q) grows toward 1 as Q decreases (corresponding to production only at Qr close to Q). For Q ~ 80 GeV and above, we see a saturation of the growth of (Qr), a reflection of the influences of the x dependence of the PDFs and other factors. Similar saturation behavior is observed in calculations of (Qr) in other processes . It would be interesting to see a comparison of our prediction with data from the CDF and D@ collaborations. The cuts listed above, optimized for the Higgs boson search, may require adjustments in order to test perturbative QCD predictions in the full yy invariant mass range accessible at he LHC. The values of the p> cuts on the photons in Eq. preserve a large fraction of Higgs boson events with Q > 115 GeV. These cuts may be too restrictive in studies of yy roduction at smaller Q, considering that the two final-state photons most likely originate rom a 77 pair with small Qr and have similar values of py of about Q/2. The pr cuts interfere with the expected Sudakov broadening of Qr distributions with increasing diphoton invariant mass, as discussed in Section [[1.A 5| We further note that the asymmetry between he p}"
+    }
+}

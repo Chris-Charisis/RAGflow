@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "mdpi_2.pdf",
+        "etag": "e2052416ec26026a2e2ba8f2fad9b22e"
+    },
+    "metadata": {
+        "title": "Affordable Small Molecules as Promising Fluorescent Labelsfor Biomolecules",
+        "authors": "Raquel Eust\u00e1quio, Jo\u00e3o P. Prates Ramalho, S\u00edlvia Arantes, Ant\u00f3nio Candeias, Ana Teresa Caldeira and Ant\u00f3nio Pereira",
+        "keywords": "fluorescent labels; 4-diethylaminobenzaldehyde derivatives; biomolecules; RNA-FISH probes",
+        "abstract": "Fluorescent labels, commonly used in highly sensitive analytical techniques for detecting and tracking biomolecules in critical fields like cellular biology, medicine, medicinal chemistry, and environmental science, are currently too expensive for routine use in standard applications, with most exhibiting small Stokes shifts. This limitation underscores the potential of 4-diethylaminobenzaldehyde derivatives as a cost-effective alternative for developing new, bright fluorophores with larger Stokes shifts. In this work, using 4-diethylaminobenzaldehyde as starting material, we developed a simple, cost-effective, and efficient synthetic strategy to produce new affordable small molecules as effective fluorescent labels for biomolecules. Density functional theory and time-dependent density functional theory calculations were also conducted to gain insights into the observed photophysical properties.",
+        "doi": "10.3390/molecules29225237"
+    },
+    "doc_id": "pdf-data/mdpi_2",
+    "chunk": {
+        "index": 43,
+        "start": 43000,
+        "end": 44200,
+        "num_chars": 1200,
+        "text": ", again discarding the supernatant. Next, the cell pellets were fixed and permeabilized by adding 2.0 mL of absolute ethanol and incubating at room temperature for 1 h. After incubation, 6.0 mL of PBS 10X was added. The cells were then resuspended in a 50:50 mixture of ethanol and PBS 10X and stored in the freezer at \u221220.0 \u25e6C. Cell count. The fixed yeast and bacterial cells were thawed and centrifuged at 1600\u00d7 g for 5 min at 4 \u25e6C and 13,000\u00d7 g for 15 min at 4 \u25e6C, respectively, after which the supernatant was discarded. The cells were then resuspended in 1.0 mL of PBS 10X. Next, in a microtube, 10.0 \u00b5L of the cell suspension was mixed with 990.0 \u00b5L of methylene blue, vortexed, and incubated at room temperature for 15 min. The stained cells were counted using a Neubauer chamber to calculate the volume of the cell suspension. Hybridization. For hybridization, microtubes were prepared with equal aliquots containing 106 yeast or 108 bacterial cells, which had been previously fixed. After centrifugation at 1600\u00d7 g for 5 min at 4 \u25e6C for yeast cells and at 13,000\u00d7 g for 15 min at 4 \u25e6C for bacterial cells, 80 \u00b5L of hybridization buffer (HB) composed of 0.9 M NaCl, 20 mM Tris-HCl, 0.1% SDS ("
+    }
+}

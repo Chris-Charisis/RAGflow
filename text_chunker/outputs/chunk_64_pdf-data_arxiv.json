@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "arxiv.pdf",
+        "etag": "870920e84617d15f5be7ceddb080ee6d"
+    },
+    "metadata": {
+        "title": null,
+        "authors": "",
+        "keywords": "",
+        "abstract": "",
+        "doi": null
+    },
+    "doc_id": "pdf-data/arxiv",
+    "chunk": {
+        "index": 64,
+        "start": 64000,
+        "end": 65200,
+        "num_chars": 1200,
+        "text": " which the effects of both the initial- and final-state multiple parton emissions are treated simultaneously. Although we emphasize that better agreement of our predictions with data should be apparent if the selection Qr < Q is made, we also point out that the region Qr > Q should manifest very interesting physics of a different sort. Additional logarithmic singularities of the form log(Q/Qr) are encountered in the region Qr >> Q. These logarithms are associated with the fragmentation of a_parton carrying large transverse momentum Qr into a system of small invariant mass Q |27, |28], a light yy pair in our case. Small-Q yy fragmentation of this kind is not implemented yet in theoretical models. Experimental study of the region Qr > Q may offer the opportunity to measure the parton to two-photon fragmentation function D,.(21, 22). ===acknowledgments=== The value of a perturbative coefficient F) for a set of scales C,/b and C2Q can be expressed in terms of its value F(\u00b0 obtained for the \u201ccanonical\u201d combination C,; = cy and Cy = 1. Here co = 2e77 & 1.123, where yg = 0.5772... is the Euler constant. The relationships between F\u2122 and F\\9 take the form They depend on the QCD beta-functio"
+    }
+}

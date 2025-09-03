@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "arxiv.pdf",
+        "etag": "870920e84617d15f5be7ceddb080ee6d"
+    },
+    "metadata": {
+        "title": null,
+        "authors": "",
+        "keywords": "",
+        "abstract": "",
+        "doi": null
+    },
+    "doc_id": "pdf-data/arxiv",
+    "chunk": {
+        "index": 30,
+        "start": 30000,
+        "end": 31200,
+        "num_chars": 1200,
+        "text": "iated with initial-state radiation are sub- tracted from the NLO cross section P to form a regular piece Y, which is added to the small-Qr resummed cross section W to predict the production rate for small and intermedi- ate values of Qr. In the gg + gqg channel, we also subtract from P a new singular spin-flip contribution that affects azimuthal angle (y,) dependence in the Collins-Soper reference frame. We switch our prediction to the fixed-order perturbative result P at the point in Qr where the cross section W+Y drops below P. This crossing point is located at Qr of order Q in both qq + qg and gg + gqs channels. Our calculation of the differential cross section da /(dQdQrdydQ..) is especially pertinent for the transverse momentum Qr distribution in the region Qr < Q, for fixed values of diphoton mass Q (cf. Section [TIA J). It would be best to compare our multiple differential distribution with experiment, but published collider data tend to be presented in the form of singly differential distributions in Q, Qr, and Ay = 3 \u2014 Yq in the lab frame, after integration over the other independent kinematic variables. We follow suit in order to make comparisons with Tevatron collider da"
+    }
+}

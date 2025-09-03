@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "mdpi.pdf",
+        "etag": "17f1dd801c005a1237c7c42b9a9feada"
+    },
+    "metadata": {
+        "title": "Monitoring Mushroom Growth with Machine Learning",
+        "authors": "Vasileios Moysiadis, Georgios Kokkonis, Stamatia Bibi, Ioannis Moscholios, Nikolaos Maropoulos, Panagiotis Sarigiannidis",
+        "keywords": "mushroom; YOLOv5; Detectron2; machine learning; object detection; instance segmentation",
+        "abstract": "Mushrooms contain valuable nutrients, proteins, minerals, and vitamins, and it is suggested to include them in our diet. Many farmers grow mushrooms in restricted environments with specific atmospheric parameters in greenhouses. In addition, recent technologies of the Internet of things intend to give solutions in the agriculture area. In this paper, we evaluate the effectiveness of machine learning for mushroom growth monitoring for the genus Pleurotus. We use YOLOv5 to detect mushrooms' growing stage and indicate those ready to harvest. The results show that it can detect mushrooms in the greenhouse with an F1-score of up to 76.5%. The classification in the final stage of mushroom growth gives an accuracy of up to 70%, which is acceptable considering the complexity of the photos used. In addition, we propose a method for mushroom growth monitoring based on Detectron2. Our method shows that the average growth period of the mushrooms is 5.22 days. Moreover, our method is also adequate to indicate the harvesting day. The evaluation results show that it could improve the time to harvest for 14.04% of the mushrooms.",
+        "doi": "10.3390/agriculture13010223"
+    },
+    "doc_id": "pdf-data/mdpi",
+    "chunk": {
+        "index": 4,
+        "start": 4000,
+        "end": 5200,
+        "num_chars": 1200,
+        "text": "tion algorithms in order to localise and classify mushrooms in a photo. The authors in [19] developed a system that used object detection to localise and recognise mushrooms that were ready to harvest. In [20], the authors evaluated the poten- tial of mushroom hunting using a custom-made unmanned aerial vehicle (UAV). Finally, the authors in [21] presented an automatic robotic mechanism for mushroom harvesting using machine learning for detection. Object detection algorithms have gained signi\ufb01cant momentum in recent years due to the success of deep learning [22], a speci\ufb01c area of machine learning. As a result, many object detection algorithms have been available in recent years that can detect and provide the exact location of an object in an image or video. In addition, some of them are also capable of providing a corresponding mask of the object. This category is called instance segmentation. Detectron2 [23] is the most popular in this category, while some other variants, such as Mask Scoring RCNN [24], try to return better results of the provided masks. In addition, YOLOv5 [25] is one of the most popular object detection algorithms, delivering accurate and rapid results. With r"
+    }
+}

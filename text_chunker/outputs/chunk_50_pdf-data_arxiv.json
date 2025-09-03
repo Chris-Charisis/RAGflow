@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "arxiv.pdf",
+        "etag": "870920e84617d15f5be7ceddb080ee6d"
+    },
+    "metadata": {
+        "title": null,
+        "authors": "",
+        "keywords": "",
+        "abstract": "",
+        "doi": null
+    },
+    "doc_id": "pdf-data/arxiv",
+    "chunk": {
+        "index": 50,
+        "start": 50000,
+        "end": 51200,
+        "num_chars": 1200,
+        "text": "OX rate for 60 < Qr < 120 GeV. Its magnitude increases approximately linearly with the assumed E%%\u00b0 value. For Qr < E%?, the final-state collinear region of the direct contribution is regulated by the collinear subtraction prescription adopted in the resummation calculation, whereas the fragmentation singularity is subtracted from the direct contribution and replaced by photon fragmentation functions in the DIPHOX calculation. Subtraction of singularities in DIPHOX introduces integrable singularities in dx/dQr at different values of Qr below EX?. The origin of the final-state logarithmic singularities at values of Qr below E\u2019{? is discussed in Refs. (22), (23), {24}. For Qr < E\u00a58?, the DIPHOX curves represent the average over singular contributions in this Q;r interval. After the fragmentation singularity is subtracted, the DIPHOX direct contribution (dashed line) is on average below our resummed qq + qg rate (solid line) over most of the range of Qr shown in Fig.[12(a). After integration over all Q7, our resummed and DIPHOX qq + ag cross sections agree within 10-20% at most values of Q (cf. Fig. [12(b)), with our resummed rate being below the DIPHOX rate at all Q. The largest diff"
+    }
+}

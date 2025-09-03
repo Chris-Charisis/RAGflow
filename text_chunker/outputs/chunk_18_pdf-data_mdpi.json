@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "mdpi.pdf",
+        "etag": "17f1dd801c005a1237c7c42b9a9feada"
+    },
+    "metadata": {
+        "title": "Monitoring Mushroom Growth with Machine Learning",
+        "authors": "Vasileios Moysiadis, Georgios Kokkonis, Stamatia Bibi, Ioannis Moscholios, Nikolaos Maropoulos, Panagiotis Sarigiannidis",
+        "keywords": "mushroom; YOLOv5; Detectron2; machine learning; object detection; instance segmentation",
+        "abstract": "Mushrooms contain valuable nutrients, proteins, minerals, and vitamins, and it is suggested to include them in our diet. Many farmers grow mushrooms in restricted environments with specific atmospheric parameters in greenhouses. In addition, recent technologies of the Internet of things intend to give solutions in the agriculture area. In this paper, we evaluate the effectiveness of machine learning for mushroom growth monitoring for the genus Pleurotus. We use YOLOv5 to detect mushrooms' growing stage and indicate those ready to harvest. The results show that it can detect mushrooms in the greenhouse with an F1-score of up to 76.5%. The classification in the final stage of mushroom growth gives an accuracy of up to 70%, which is acceptable considering the complexity of the photos used. In addition, we propose a method for mushroom growth monitoring based on Detectron2. Our method shows that the average growth period of the mushrooms is 5.22 days. Moreover, our method is also adequate to indicate the harvesting day. The evaluation results show that it could improve the time to harvest for 14.04% of the mushrooms.",
+        "doi": "10.3390/agriculture13010223"
+    },
+    "doc_id": "pdf-data/mdpi",
+    "chunk": {
+        "index": 18,
+        "start": 18000,
+        "end": 19200,
+        "num_chars": 1200,
+        "text": " generations for the speci\ufb01c hyperparameter. The horizontal axis corresponds to the value of the hyperparameter, and the vertical value corresponds to the calculated \ufb01tness. The yellow areas indicate a high concentration of values. Subplots with vertical distributions indicate that the speci\ufb01c hyperparameter was disabled and did not mutate. Figure 4. Graphical representation for the calculated values of all hyperparameters, after evolving for 600 generations for YOLOv5l. The mAP@0.5 metric corresponds to the average precision over a threshold of 0.5 for the object detection. In addition, the mAP@0.5:0.95 denotes the average precision with a threshold between 0.5 and 0.95. The precision metric indicates the correctly identi\ufb01ed trees divided by the total number of detected trees and is given by Equation (1). The recall metric indicates the falsely identi- \ufb01ed trees divided by the total number of actual existing trees and is given by Equation (2). where TP (true positive) is the number of correctly detected objects in the class, FP (false positive) is the number of falsely detected objects in the speci\ufb01c class, and FN (false negative) is the number of objects that are not detected in "
+    }
+}

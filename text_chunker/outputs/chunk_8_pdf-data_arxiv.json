@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "arxiv.pdf",
+        "etag": "870920e84617d15f5be7ceddb080ee6d"
+    },
+    "metadata": {
+        "title": null,
+        "authors": "",
+        "keywords": "",
+        "abstract": "",
+        "doi": null
+    },
+    "doc_id": "pdf-data/arxiv",
+    "chunk": {
+        "index": 8,
+        "start": 8000,
+        "end": 9200,
+        "num_chars": 1200,
+        "text": " the fragmentation ontribution may depend strongly on the values of Eiso T and zmin as a onsequene of rapid variation of D\u03b3(z) with z. In our work we treat the final-state singularity using a prescription that reproduces desir- able features of the isolated cross sections while bypassing some of the technical difficulties alluded to above. For Qr > E%S?, we avoid the final-state collinear singularity in the qg scattering channel by applying quasi-experimental isolation. When Qr < E%$\u00b0, we apply an auxiliary regulator which approximates on average the full NLO rate from direct qg and fragmentation cross sections in this Qr range. Two prescriptions for the auxiliary regulator (subtraction and smooth-cone isolation inside the photon\u2019s isolation cone) are considered and lead to similar predictions at the Tevatron and the LHC. data. Resummation is shown to be important for the successful description of physical Qr distributions, as well as for stable estimates of the effects of experimental acceptance on distributions in the diphoton invariant mass. We compare our results with the DIPHOX calculation (14) and demonstrate that the requirement Qr < Q further suppresses the effects of the f"
+    }
+}

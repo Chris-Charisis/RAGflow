@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "arxiv.pdf",
+        "etag": "870920e84617d15f5be7ceddb080ee6d"
+    },
+    "metadata": {
+        "title": null,
+        "authors": "",
+        "keywords": "",
+        "abstract": "",
+        "doi": null
+    },
+    "doc_id": "pdf-data/arxiv",
+    "chunk": {
+        "index": 47,
+        "start": 47000,
+        "end": 48200,
+        "num_chars": 1200,
+        "text": "he pr cuts interfere with the expected Sudakov broadening of Qr distributions with increasing diphoton invariant mass, as discussed in Section [[1.A 5| We further note that the asymmetry between he p}. cuts on the harder and softer photons is necessary in a fixed-order perturbative QCD calculation, but it is not required in the resummed calculation. At a fixed order of as, asymmetry in the pp cuts prevents instabilities in do/dQ caused by logarithmic divergences in do/dQr at small Qr. Such instabilities are eliminated altogether once the small-Qr logarithmic terms are resummed to all orders of a,. Here we do not consider alternative py cuts, although experimental collaborations are encouraged to employ relaxed and/or symmetric cuts to increase the yy event sample in their data analysis. variant masses. The average \u03b3\u03b3 transverse momentum grows with Q, as demonstrated by Fig. 11. However, the rate of the growth dereases monotonially with Q, for similar reasons as at the Tevatron. The yy distributions in Q and Ay for different combinations of scattering subchannels and choices of theoretical parameters are discussed in Refs. [2,|3]. In all ranges of Q, the yy production rate is domina"
+    }
+}

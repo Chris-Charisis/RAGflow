@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "arxiv.pdf",
+        "etag": "870920e84617d15f5be7ceddb080ee6d"
+    },
+    "metadata": {
+        "title": null,
+        "authors": "",
+        "keywords": "",
+        "abstract": "",
+        "doi": null
+    },
+    "doc_id": "pdf-data/arxiv",
+    "chunk": {
+        "index": 3,
+        "start": 3000,
+        "end": 4200,
+        "num_chars": 1200,
+        "text": "rived in Ref. (7, ig}. as well as 4-leg two-loop diagrams (1) computed in Ref. ata In this study we also include subleading contributions from the process (k), 94s > Yy4s via the quark loop, where gg = >> combination of quark scattering channels. (qi + G) denotes the flavor-singlet i=u,d,s,... Factorization is a central principle of hadronic calculations in perturbative QCD, in which a high-energy scattering cross section is expressed as a convolution of a perturbative partonic cross section with nonperturbative parton distribution functions (PDFs), thus separating short-distance from long-distance physics. The common factorization is a longitudinal no- tion, in the sense that the convolution is an integral over longitudinal momentum fractions, even if some partons in the hard-scattering process have transverse momenta that border the nonperturbative regime. Unphysical features may then arise in the transverse momentum (Qr) distribution of a color-neutral object with high invariant mass (Q), such as a pair of photons produced in hadron-hadron collisions. When calculated in the common factorization approach at any finite order in perturbation theory, this distribution diverges as Qr"
+    }
+}

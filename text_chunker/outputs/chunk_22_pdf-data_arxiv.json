@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "arxiv.pdf",
+        "etag": "870920e84617d15f5be7ceddb080ee6d"
+    },
+    "metadata": {
+        "title": null,
+        "authors": "",
+        "keywords": "",
+        "abstract": "",
+        "doi": null
+    },
+    "doc_id": "pdf-data/arxiv",
+    "chunk": {
+        "index": 22,
+        "start": 22000,
+        "end": 23200,
+        "num_chars": 1200,
+        "text": "ag 7)\u201d denotes collinear production of one hard photon from a quark, described by a function D,(z, (1) at a light- cone momentum fraction z and factorization scale ju. Single-photon \u201ctwo-fragmentation\u201d \u03b3) + (\u00afq ontributions arise in proesses like g + g \u03b3) and involve onvolutions (q \u2212\u2192 \u2192 \u2212\u2192 with two funtions D\u03b3(z,\u00b5) (one per photon). The lowest-order Feynman diagrams for the Parameterizations must be adopted for the nonperturbative funtions D\u03b3(z,\u00b5) at an initial sale \u00b5 = \u00b50. This is the approah followed in the DIPHOX alulation [14\u2104, in whih the sum of real and virtual NLO orretions to diret and single-\u03b3 fragmentation ross setions rate is inreased by higher-order ontributions from photon prodution within hadroni jets. An infrared-safe procedure can be formulated to apply isolation cuts at each order of As (22, 23, [a4}. This procedure encounters difficulties in reproducing the effects of isolation on fragmentation contributions, because theoretical models reflect only basic features of the experimental isolation and may introduce new logarithmic singularities near the edges of the isolation cones. As mentioned in the Introduction, the magnitude of the fragmentation contribution de- e"
+    }
+}

@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "arxiv.pdf",
+        "etag": "870920e84617d15f5be7ceddb080ee6d"
+    },
+    "metadata": {
+        "title": null,
+        "authors": "",
+        "keywords": "",
+        "abstract": "",
+        "doi": null
+    },
+    "doc_id": "pdf-data/arxiv",
+    "chunk": {
+        "index": 55,
+        "start": 55000,
+        "end": 56200,
+        "num_chars": 1200,
+        "text": " Higgs boson signal is substantially smaller than the QCD continuum. To better illustrate their differences, Fig.[5]presents distributions normalized to the respective total rates. The top-left panel shows normalized transverse momentum distributions of photon pairs. The signal and background peak at about 12 and 5 GeV, respectively. The average values of Qr are 26 and 23 GeV, computed over the range 0 to 75 GeV. Differences in the shapes of these Qr spectra can be attributed to the different structure of the leading terms in the initial-state Sudakov exponents and to the effects of final-state photon fragmentation. The Higgs boson signal is controlled by the characteristics of the 99+ 94s initial state, whereas the continuum is controlled primarily by the g\u00a2+qq initial state. Because the dominant Sudakov coefficient A x Cr in the qq case is smaller than Aw) = (C4/Cr) A in the gg case, the resummed gq + qq initial-state radiation produces narrower Qr distributions than gg + gqg initial-state radiation. About 80% of the diphoton rate is provided by the qq+ qg channel, implying a narrower Qr distribution of the background, if based on the value of A\u201c) alone. The continuum background "
+    }
+}

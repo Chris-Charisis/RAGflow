@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "arxiv.pdf",
+        "etag": "870920e84617d15f5be7ceddb080ee6d"
+    },
+    "metadata": {
+        "title": null,
+        "authors": "",
+        "keywords": "",
+        "abstract": "",
+        "doi": null
+    },
+    "doc_id": "pdf-data/arxiv",
+    "chunk": {
+        "index": 60,
+        "start": 60000,
+        "end": 61200,
+        "num_chars": 1200,
+        "text": "eatest. It is also needed for stable estimates of the effects of Our analytical results are included in a fully updated RESBos code (31), 3g]. This nu- merical program allows us to impose selections on the transverse momenta and angles of the final photons, in order to match those employed by the CDF and D@ collaborations, as well as those anticipated in experiments at the LHC. Our predictions are especially pertinent in he region Qr < Q. We show that our results at the Tevatron and at the LHC are insensitive o the choice of the resummation scheme and of the nonperturbative functions required by he integration into the region of large impact parameter. The published collider data are presented in the form of singly differential distributions. We follow suit in order to make comparisons, and we find excellent agreement with data, as shown in Sec. We recommend that more differential studies be made, and, to motivate hese, we present predictions for the changes expected in the Qr distribution as a function of mass Q, and for the dependence of the mean transverse momentum on Q. Another approach to the computation of continuum diphoton production is presented by the DIPHOX collaboration"
+    }
+}

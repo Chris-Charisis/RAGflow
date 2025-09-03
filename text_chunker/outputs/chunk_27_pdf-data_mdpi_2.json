@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "mdpi_2.pdf",
+        "etag": "e2052416ec26026a2e2ba8f2fad9b22e"
+    },
+    "metadata": {
+        "title": "Affordable Small Molecules as Promising Fluorescent Labelsfor Biomolecules",
+        "authors": "Raquel Eust\u00e1quio, Jo\u00e3o P. Prates Ramalho, S\u00edlvia Arantes, Ant\u00f3nio Candeias, Ana Teresa Caldeira and Ant\u00f3nio Pereira",
+        "keywords": "fluorescent labels; 4-diethylaminobenzaldehyde derivatives; biomolecules; RNA-FISH probes",
+        "abstract": "Fluorescent labels, commonly used in highly sensitive analytical techniques for detecting and tracking biomolecules in critical fields like cellular biology, medicine, medicinal chemistry, and environmental science, are currently too expensive for routine use in standard applications, with most exhibiting small Stokes shifts. This limitation underscores the potential of 4-diethylaminobenzaldehyde derivatives as a cost-effective alternative for developing new, bright fluorophores with larger Stokes shifts. In this work, using 4-diethylaminobenzaldehyde as starting material, we developed a simple, cost-effective, and efficient synthetic strategy to produce new affordable small molecules as effective fluorescent labels for biomolecules. Density functional theory and time-dependent density functional theory calculations were also conducted to gain insights into the observed photophysical properties.",
+        "doi": "10.3390/molecules29225237"
+    },
+    "doc_id": "pdf-data/mdpi_2",
+    "chunk": {
+        "index": 27,
+        "start": 27000,
+        "end": 28200,
+        "num_chars": 1200,
+        "text": "9,20 = 8.4, H-19, H-23), 8.29 (1H, d, J17,16 = 15.5, H-17). 13C NMR (100 MHz, CD3OD, \u03b4, ppm): 12.9 (C-25, C-27), 26.6 (C-14), 27.4 (C-13), 27.5 (C-8, C-9), 28.9 (C-12), 37.3 (C-15), 46.1 (C-24, C-26), 46.3 (C-11), 52.4 (C-3), 104.6 (C-10), 113.6 (C-20, C-22), 114.3 (C-7), 123.6 (C-18), 123.8 (C-4), 128.8 (C-5), 130.2 (C-6), 135.1 (C-19, C-23), 142.7 (C-7a), 144.0 (C-3a), 155.0 (C-21), 156.3 (C-17), 180.7 (C-2, COOH). UV \u03bbmax (nm, CH3CN): 280, 556. \u03b5 (cm\u22121\u00b7M\u22121): 90,000. \u03a6 F = 0.57. A mixture of compound 3 (117 mg, 0.228 mmol, 1.0 eq), DCC (56 mg, 0.273 mmol, 1.2 eq), and DMAP (3 mg, 0.023 mmol, 0.1 eq) in dry DMF (2 mL) and dry acetonitrile (8 mL) was stirred at room temperature for 5 min. After this period, N-hydroxysuccinimide (31 mg, 0.273 mmol, 1.2 eq) was added, and the reaction was stirred at room tempera- ture for an additional 6 h. The progress of the reaction was monitored by TLC, using a CHCl3/CH3OH/H2O (65:20:2) eluent. Following evaporation to dryness, the residue was purified by flash chromatography, using CHCl3, CHCl3/CH3OH (99:1), CHCl3/CH3OH (95:5), CHCl3/CH3OH (9:1) and CHCl3/CH3OH (8:2) as eluents, to yield (E)-2-(4- (diethylamino)styryl)-1-(6-((2,5-dioxopyrrolidin"
+    }
+}

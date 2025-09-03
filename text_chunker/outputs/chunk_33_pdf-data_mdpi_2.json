@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "mdpi_2.pdf",
+        "etag": "e2052416ec26026a2e2ba8f2fad9b22e"
+    },
+    "metadata": {
+        "title": "Affordable Small Molecules as Promising Fluorescent Labelsfor Biomolecules",
+        "authors": "Raquel Eust\u00e1quio, Jo\u00e3o P. Prates Ramalho, S\u00edlvia Arantes, Ant\u00f3nio Candeias, Ana Teresa Caldeira and Ant\u00f3nio Pereira",
+        "keywords": "fluorescent labels; 4-diethylaminobenzaldehyde derivatives; biomolecules; RNA-FISH probes",
+        "abstract": "Fluorescent labels, commonly used in highly sensitive analytical techniques for detecting and tracking biomolecules in critical fields like cellular biology, medicine, medicinal chemistry, and environmental science, are currently too expensive for routine use in standard applications, with most exhibiting small Stokes shifts. This limitation underscores the potential of 4-diethylaminobenzaldehyde derivatives as a cost-effective alternative for developing new, bright fluorophores with larger Stokes shifts. In this work, using 4-diethylaminobenzaldehyde as starting material, we developed a simple, cost-effective, and efficient synthetic strategy to produce new affordable small molecules as effective fluorescent labels for biomolecules. Density functional theory and time-dependent density functional theory calculations were also conducted to gain insights into the observed photophysical properties.",
+        "doi": "10.3390/molecules29225237"
+    },
+    "doc_id": "pdf-data/mdpi_2",
+    "chunk": {
+        "index": 33,
+        "start": 33000,
+        "end": 34200,
+        "num_chars": 1200,
+        "text": ".2 (C-26, C-27), 26.0 (C-11), 26.9 (C-10), 31.9 (C-9), 34.3 (C-12), 45.5 (C-21, C-23), 60.8 (C-8), 112.7 (C-17, C-19), 117.1 (C-7), 123.4 (C-15), 123.5 (C-3, C-5), 132.0 (C-16, C-20), 144.2 (C-2, C-6), 144.5 (C-14), 151.6 (C-18), 156.4 (C-4), 170.1 (C-13), 171.8 (C-25, C-28). FTMS(+) calc. for C27H34O4N3 [M+H]+ 464.2544 found 464.2540. UV \u03bbmax (nm, CH3CN): 273, 490. \u03b5 (cm\u22121\u00b7M\u22121): 64,000. \u03a6 F = 0.30. A mixture of 4-methylquinoline (250 mg, 1.75 mmol, 1.0 eq) and 6-bromohexanoic acid (513 mg, 2.63 mmol, 1.5 eq) in dry DMF (5 mL) was stirred at 100 \u25e6C for 24 h. The reaction was continuously monitored by TLC using CHCl3/CH3OH (8:2) as the eluent. After evaporation to dryness, the residue was purified by flash chromatography, using CHCl3, CHCl3/CH3OH (9:1), and CHCl3/CH3OH (8:2) as eluents, yielding 1-(5-carboxypentyl)-4- methylquinolin-1-ium bromide as an orange solid (560 mg, 95% yield). 1H NMR (400 MHz, CD3OD, \u03b4, ppm): 1.48\u20131.56 (2H, m, H-12), 1.66\u20131.73 (2H, m, H-13), 2.07\u20132.14 (2H, m, H-11), 2.33 (2H, t, J = 7.2, H-14), 3.07 (3H, s, H-9), 5.06 (2H, t, J = 7.4, H-10), 7.98 (1H, d, J3,2 = 6.0, H-3), 8.06 (1H, dt, J6,7 = 8.4, H-6), 8.28 (1H, dt, J7,6 = 8.4, H-7), 8.57 (2H, dt, J = 9.6,"
+    }
+}

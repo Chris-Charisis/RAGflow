@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "arxiv.pdf",
+        "etag": "870920e84617d15f5be7ceddb080ee6d"
+    },
+    "metadata": {
+        "title": null,
+        "authors": "",
+        "keywords": "",
+        "abstract": "",
+        "doi": null
+    },
+    "doc_id": "pdf-data/arxiv",
+    "chunk": {
+        "index": 41,
+        "start": 41000,
+        "end": 42200,
+        "num_chars": 1200,
+        "text": "gmentation processes. Neither code includes a term in which both photons are fragmentation products of the same final- state parton, i.e., the diphoton fragmentation function D,,(z1, 22). In Ref. 2 we show comparisons of our predictions with those of DIPHOX along with the CDF data. Here in Fig. [7] we show analogous plots of the invariant mass and transverse mo- mentum distributions for DO cuts. We note that our fixed-order g\u00a2+ qg contribution agrees well with the direct contribution in DIPHOX. This agreement is particularly impressive in the region of large Qr, where both codes use the same fixed-order formalism to handle direct contributions. A contribution from the gg channel is also present in both codes, computed at LO in DIPHOX but at NLO+NNLL in our case. Since the gg + gqs contribution is not dominant (especially in the high Qr region), this difference does not have a significant impact on the comparison. fragmentation' ontribution) are quite small for the nominal hadroni energy Eiso 1 GeV T \u223c Eiso in the one around eah photon. Exeptions our in the region QT \u2264 T , where the fragmentation ontributions to d\u03c3/dQT have logarithmi singularities, and in the \u2206\u03d5 0 \u2192 Eiso sription r"
+    }
+}

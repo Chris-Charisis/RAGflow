@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "arxiv.pdf",
+        "etag": "870920e84617d15f5be7ceddb080ee6d"
+    },
+    "metadata": {
+        "title": null,
+        "authors": "",
+        "keywords": "",
+        "abstract": "",
+        "doi": null
+    },
+    "doc_id": "pdf-data/arxiv",
+    "chunk": {
+        "index": 15,
+        "start": 15000,
+        "end": 16200,
+        "num_chars": 1200,
+        "text": "PDFs [19]. We have Wyerr(be) = Wpere(d) at b? < b2,,,, and Woere(b = Woert(Pmax) at b? >> b? \u2018max * Hence this ansatz preserves the exact form of the erturbative form factor Wrert(Q, b, y, Qe) in the perturbative region of small b, while also incorporating the leading nonperturbative contributions (described by a phenomenological unction Fy p(Q, b)) at large b. The form of Fy p(Q,b) found in the global pr fit in Ref. (13) suggests approximate inde- endence of Fy p(Q, b) from the type of gg scattering process. It is used here to describe the nonperturbative terms in the leading gq + yy channel. We neglect possible corrections to he nonperturbative contributions arising from the final-state soft radiation in the qq chan- nel and additional VS dependence affecting Drell-Yan-like processes at 2 < 107? , as hese exceed the accuracy of the present measurements at the Tevatron. The experimentally unknown Fyp(Q,b) in the gg channel is approximated by Fyp(Q,b) for the gq channel, multiplied by the ratio CA/CF = 9/4. This hoie is motivated by the fat that the lead- (k) in the gg and q\u00afq hannels are proportional to CA = 3 and a ing Sudakov olor fators A CF = 4/3, respetively. The unertainties"
+    }
+}

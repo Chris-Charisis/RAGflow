@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "mdpi_2.pdf",
+        "etag": "e2052416ec26026a2e2ba8f2fad9b22e"
+    },
+    "metadata": {
+        "title": "Affordable Small Molecules as Promising Fluorescent Labelsfor Biomolecules",
+        "authors": "Raquel Eust\u00e1quio, Jo\u00e3o P. Prates Ramalho, S\u00edlvia Arantes, Ant\u00f3nio Candeias, Ana Teresa Caldeira and Ant\u00f3nio Pereira",
+        "keywords": "fluorescent labels; 4-diethylaminobenzaldehyde derivatives; biomolecules; RNA-FISH probes",
+        "abstract": "Fluorescent labels, commonly used in highly sensitive analytical techniques for detecting and tracking biomolecules in critical fields like cellular biology, medicine, medicinal chemistry, and environmental science, are currently too expensive for routine use in standard applications, with most exhibiting small Stokes shifts. This limitation underscores the potential of 4-diethylaminobenzaldehyde derivatives as a cost-effective alternative for developing new, bright fluorophores with larger Stokes shifts. In this work, using 4-diethylaminobenzaldehyde as starting material, we developed a simple, cost-effective, and efficient synthetic strategy to produce new affordable small molecules as effective fluorescent labels for biomolecules. Density functional theory and time-dependent density functional theory calculations were also conducted to gain insights into the observed photophysical properties.",
+        "doi": "10.3390/molecules29225237"
+    },
+    "doc_id": "pdf-data/mdpi_2",
+    "chunk": {
+        "index": 45,
+        "start": 45000,
+        "end": 46200,
+        "num_chars": 1200,
+        "text": "or TRITC were employed, with an excitation wavelength of 540/40\u00d7, a 565DCLP dichroic mirror, and a 605/55m barrier filter. Microphotographs were captured using a Moticam PRO 282B camera connected to the microscope, and the images were subsequently analyzed using Motic Images Plus 2.0LM software (Motic, Madrid, Spain). For flow cytome- try (FC) analysis, the Muse\u00ae Cell Analyzer (Merck KGaA, Darmstadt, Germany) was used along with MuseSoft 1.4.0.0 software. For each RNA-FISH assay, the percentage of cells that became fluorescent after FISH treatment was assessed, as well as their fluorescence intensities (FI), using the red (680/30) photodiode detector. A total of 1000 events were acquired for this analysis. FI values were recorded based on a gate defined in a FI versus Forward Scatter (FSC) density plot, considering the results from blanks, controls, and test assays. The fluorescence intensity conferred by the probe (FIpro), which is the sum of the fluorescence intensities of cells detected after RNA-FISH treatment with either of the probes (EUB338 or EUK516), was directly calculated from the flow cytometer results. Each sample was analyzed in triplicate. ===conclusions=== Insummary"
+    }
+}

@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "mdpi.pdf",
+        "etag": "17f1dd801c005a1237c7c42b9a9feada"
+    },
+    "metadata": {
+        "title": "Monitoring Mushroom Growth with Machine Learning",
+        "authors": "Vasileios Moysiadis, Georgios Kokkonis, Stamatia Bibi, Ioannis Moscholios, Nikolaos Maropoulos, Panagiotis Sarigiannidis",
+        "keywords": "mushroom; YOLOv5; Detectron2; machine learning; object detection; instance segmentation",
+        "abstract": "Mushrooms contain valuable nutrients, proteins, minerals, and vitamins, and it is suggested to include them in our diet. Many farmers grow mushrooms in restricted environments with specific atmospheric parameters in greenhouses. In addition, recent technologies of the Internet of things intend to give solutions in the agriculture area. In this paper, we evaluate the effectiveness of machine learning for mushroom growth monitoring for the genus Pleurotus. We use YOLOv5 to detect mushrooms' growing stage and indicate those ready to harvest. The results show that it can detect mushrooms in the greenhouse with an F1-score of up to 76.5%. The classification in the final stage of mushroom growth gives an accuracy of up to 70%, which is acceptable considering the complexity of the photos used. In addition, we propose a method for mushroom growth monitoring based on Detectron2. Our method shows that the average growth period of the mushrooms is 5.22 days. Moreover, our method is also adequate to indicate the harvesting day. The evaluation results show that it could improve the time to harvest for 14.04% of the mushrooms.",
+        "doi": "10.3390/agriculture13010223"
+    },
+    "doc_id": "pdf-data/mdpi",
+    "chunk": {
+        "index": 12,
+        "start": 12000,
+        "end": 13200,
+        "num_chars": 1200,
+        "text": "t is the succes- sor of Mask RCNN [30], which is built on top of Faster RCNN. Thus, apart from providing The architecture of Mask RCNN is divided into three stages. In the \ufb01rst stage, a regional proposal network (RPN) is responsible for returning all regions of possible areas with detected objects. Mask RCNN uses ResNet50 or ResNet101 with FPN support as a backbone network in this stage. In the second stage, a classi\ufb01er is responsible for evaluating the region proposals derived from the \ufb01rst stage and providing the predictions with bounding boxes for each detected object. Finally, the third stage provides the corresponding masks of the detected objects. ===materials and methods=== This section presents the methodology we followed in our research. First, we describe the image acquisition from mushrooms in the greenhouse and the annotation process. Second, we give the basic con\ufb01guration of YOLOv5 for mushroom classi\ufb01cation in three different growing stages. Moreover, we provide the architecture we used for mushroom growth monitoring. Data collection took place in a greenhouse near the city of Grevena, Greece. We collected multiple images in a greenhouse, each containing one or multip"
+    }
+}

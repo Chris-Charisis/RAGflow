@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "arxiv.pdf",
+        "etag": "870920e84617d15f5be7ceddb080ee6d"
+    },
+    "metadata": {
+        "title": null,
+        "authors": "",
+        "keywords": "",
+        "abstract": "",
+        "doi": null
+    },
+    "doc_id": "pdf-data/arxiv",
+    "chunk": {
+        "index": 57,
+        "start": 57000,
+        "end": 58200,
+        "num_chars": 1200,
+        "text": "as in Fig. or integrated above some minimal Qr value, as in an experimental measurement. Without isolation imposed, the spin-0 Higgs boson signal must be flat in \u00bb., but the QCD background peaks toward y, = 0 and 7 (i.e., siny, = 0) as a result of the final-state gg singularity.\u201d * Isolation cuts suppress both the signal and the background for siny, <sin AR. The result is a signal distribution with a broad peak near yp. = 7/2, while he background favors values of y, near 0 and z. A selection of events with y, in the vicinity of 7/2, and Qr large enough, helps to reduce the impact of the gg background.In the lab rame, a related distribution is in the variable |y3r \u2014 Yar| ,where yir is the azimuthal angle between py and Or. The signal (background) processes tend to have more events with large A third potential discriminator between the signal and background is the difference in the rapidities Ay = Ynara \u2014 Ysofi Of the photons with harder and softer values of Dr in the lab frame, calculated on an event by event basis. This distribution is displayed in the lower- left frame of Fig. The background distribution peaks at the origin, while the signal is almost flat over a wide range of Ay."
+    }
+}

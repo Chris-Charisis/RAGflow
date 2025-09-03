@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "mdpi.pdf",
+        "etag": "17f1dd801c005a1237c7c42b9a9feada"
+    },
+    "metadata": {
+        "title": "Monitoring Mushroom Growth with Machine Learning",
+        "authors": "Vasileios Moysiadis, Georgios Kokkonis, Stamatia Bibi, Ioannis Moscholios, Nikolaos Maropoulos, Panagiotis Sarigiannidis",
+        "keywords": "mushroom; YOLOv5; Detectron2; machine learning; object detection; instance segmentation",
+        "abstract": "Mushrooms contain valuable nutrients, proteins, minerals, and vitamins, and it is suggested to include them in our diet. Many farmers grow mushrooms in restricted environments with specific atmospheric parameters in greenhouses. In addition, recent technologies of the Internet of things intend to give solutions in the agriculture area. In this paper, we evaluate the effectiveness of machine learning for mushroom growth monitoring for the genus Pleurotus. We use YOLOv5 to detect mushrooms' growing stage and indicate those ready to harvest. The results show that it can detect mushrooms in the greenhouse with an F1-score of up to 76.5%. The classification in the final stage of mushroom growth gives an accuracy of up to 70%, which is acceptable considering the complexity of the photos used. In addition, we propose a method for mushroom growth monitoring based on Detectron2. Our method shows that the average growth period of the mushrooms is 5.22 days. Moreover, our method is also adequate to indicate the harvesting day. The evaluation results show that it could improve the time to harvest for 14.04% of the mushrooms.",
+        "doi": "10.3390/agriculture13010223"
+    },
+    "doc_id": "pdf-data/mdpi",
+    "chunk": {
+        "index": 17,
+        "start": 17000,
+        "end": 18200,
+        "num_chars": 1200,
+        "text": "t hyperparameters or other user-de\ufb01ned values, if available, and tries to improve a \ufb01tness function in every loop. The default \ufb01tness function is a weighted combination of mAP@0.5 with 10% contribution and mAP@0.5:0.95 with 90% contribution. In every evolving loop, the primary genetic operator is the mutation. The proposed combination for the mutation uses 80% probability and a 0.04 variance to calculate the next combination of hyperparameters based on the best parents from previous generations. We used the hyperparameter evolution approach for the two pretrained models, YOLOv5s and YOLOv5l, and trained them for 600 generations with an image size of 640 pixels and a batch size of 4. Table 1 shows the predicted sets of hyperparameters for each pretrained model. Table 1. Optimised hyperparameters after evolving for YOLOv5s and YOLOv5l. Figure 4 shows a graphical representation for YOLOv5l with each hyperparameter displayed in a different subplot. Each subplot presents all values from all generations for the speci\ufb01c hyperparameter. The horizontal axis corresponds to the value of the hyperparameter, and the vertical value corresponds to the calculated \ufb01tness. The yellow areas indicate "
+    }
+}

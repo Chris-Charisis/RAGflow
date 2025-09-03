@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "arxiv.pdf",
+        "etag": "870920e84617d15f5be7ceddb080ee6d"
+    },
+    "metadata": {
+        "title": null,
+        "authors": "",
+        "keywords": "",
+        "abstract": "",
+        "doi": null
+    },
+    "doc_id": "pdf-data/arxiv",
+    "chunk": {
+        "index": 27,
+        "start": 27000,
+        "end": 28200,
+        "num_chars": 1200,
+        "text": "riptions yield identical predictions outside of this restricted region, notably at Qr > ES, where our NLO perturbative expression P(Q, Qr, y,.) in the gg + gg channel is controlled only by quasi-experimental isolation and coincides with the corresponding direct cross section in DIPHOX. The default subtraction prescription predicts a vanishing do/dQr in the extreme Qr \u2014 0 limit, while the smooth-cone prescription has an integrable singularity in this limit, avoided by an explicit small-Qr cutoff in the calculation of our Y-piece. Both prescriptions are free of the logarithmic singularity at Q; = E%$\u00b0 arising in the fixed-order (DIPHOX) calculation. Another class of large radiative corrections arises when the yy invariant mass Q is smaller than the yy transverse momentum QT. In this case, one final-state quark or gluon fragments into a low-mass yy pair, e.g. as g+g > (q\u00a2 frag yy) + g. The lowest-order contributions of this kind are shown in Fig. The process is described by a 7y-fragmentation func- tion D,,(21, 22,4), different from the single-photon fragmentation function D,(z, 4). This ulations, even though similar fragmentation mehanisms have been studied in large-QT Drell-Yan pair"
+    }
+}

@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "arxiv.pdf",
+        "etag": "870920e84617d15f5be7ceddb080ee6d"
+    },
+    "metadata": {
+        "title": null,
+        "authors": "",
+        "keywords": "",
+        "abstract": "",
+        "doi": null
+    },
+    "doc_id": "pdf-data/arxiv",
+    "chunk": {
+        "index": 44,
+        "start": 44000,
+        "end": 45200,
+        "num_chars": 1200,
+        "text": "constrains the comparison with data o a region where the theory is well understood and has a small uncertainty. Furthermore, with the requirement of Qr < Q, the dependence of differential cross sections on the choices of isolation energy Ei? and factorization scale jr is greatly reduced to the typical size of higher-order corrections. We predict that if a Qr < Q cut, or a Q > 27 GeV cut, is applied o the Tevatron data, the enhancement at low Ay and intermediate Qr associated with the ragmentation contribution will disappear. This is an important conclusion of our study, and we urge the CDF and D@ collaborations to apply these cuts in their future analyses of the An important prediction of the resummation formalism is the change of the transverse momentum distribution with the diphoton invariant mass. This dependence comes, in part, rom the In Q? dependence in the Sudakov exponent, Eq. (17), and it is desirable to identify his feature amid other influences. In Fig. (a), we show normalized resummed transverse momentum distributions for various selections of the invariant mass of the photon pairs. Without kinematical constraints on the decay photons, the Qr distribution is expected to"
+    }
+}

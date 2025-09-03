@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "arxiv.pdf",
+        "etag": "870920e84617d15f5be7ceddb080ee6d"
+    },
+    "metadata": {
+        "title": null,
+        "authors": "",
+        "keywords": "",
+        "abstract": "",
+        "doi": null
+    },
+    "doc_id": "pdf-data/arxiv",
+    "chunk": {
+        "index": 5,
+        "start": 5000,
+        "end": 6200,
+        "num_chars": 1200,
+        "text": "r values. As explained in Sec. II, our resummed calculation is accurate to next-to- next-to-leading-logarithmic (NNLL) order. It is applicable for values of diphoton transverse momentum that are less than the diphoton mass, i.e., for Qr < Q. When Qr ~ Q, terms of the form In\"(Q7r/Q) become small. A perturbative expansion with a single hard scale is then applicable, and the cross section can be obtained from finite-order perturbation theory. In addition to the initial-state logarithmic singularities, there is a set of important final- state singularities which arise in the matrix elements when at least one photon\u2019s momentum is collinear to the momentum of a final-state parton. They are sometimes referred to as \u2018fragmentation\u2019 singularities. At lowest order in az, the final-state singularity appears only in the gg > yyq diagrams, as in Fig. [I] (e). There are various methods used in the literature to deal with the final-state singularity, including the introduction of explicit fragmentation functions D,(z) for hard photon production, where z is the light-cone fraction of the interme- diate parton\u2019s momentum carried by the photon. These single-photon \u201cone-fragmentation\u201d and \u201ctwo-fragm"
+    }
+}

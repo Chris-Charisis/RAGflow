@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "arxiv.pdf",
+        "etag": "870920e84617d15f5be7ceddb080ee6d"
+    },
+    "metadata": {
+        "title": null,
+        "authors": "",
+        "keywords": "",
+        "abstract": "",
+        "doi": null
+    },
+    "doc_id": "pdf-data/arxiv",
+    "chunk": {
+        "index": 14,
+        "start": 14000,
+        "end": 15200,
+        "num_chars": 1200,
+        "text": "ntegral of two functions Aq (C1, @) and By (C1, Co, fi) between momentum scales C,/b and C2Q, and C) and C2 are constants of order co = 2e~7\u201d = 1.123... and 1, respectively. The symbol [Cayas \u00ae fa /n] (x, b; 1) stands for a convolution of the ky\u2014integrated PDF fa, /n(a, 14) and Wilson coefficient function Caja, (x, b; C1 /C2, 11), evaluated at a factorization scale js and summed over intermediate parton flavors a1: The subleading contribution from the nonperturbative region b > 1 GeV~! is included in our calculation using a revised \u201cb,\u201d model , Which provides excellent agreement with pr- dependent data on Drell-Yan pair and Z boson production. In this model, the perturbative orm factor Wpert(Q, be, y, Q\u00ab) in Eq. is evaluated as a function of b, = b/(1+0?/b?,,,)/, with Dinar = 1.5 GeV!. The factorization scale ju in [C @ f] is set equal to co\\/b-2 + Q?,, , where Qjnj is the initial scale of order 1 GeV in the parameterization employed for fosn(a, [4), or instance, 1.3 GeV for the CTEQ6 PDFs [19]. We have Wyerr(be) = Wpere(d) at b? < b2,,,, and Woere(b = Woert(Pmax) at b? >> b? \u2018max * Hence this ansatz preserves the exact form of the erturbative form factor Wrert(Q, b, y, Qe) in the "
+    }
+}

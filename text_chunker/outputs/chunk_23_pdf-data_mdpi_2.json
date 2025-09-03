@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "mdpi_2.pdf",
+        "etag": "e2052416ec26026a2e2ba8f2fad9b22e"
+    },
+    "metadata": {
+        "title": "Affordable Small Molecules as Promising Fluorescent Labelsfor Biomolecules",
+        "authors": "Raquel Eust\u00e1quio, Jo\u00e3o P. Prates Ramalho, S\u00edlvia Arantes, Ant\u00f3nio Candeias, Ana Teresa Caldeira and Ant\u00f3nio Pereira",
+        "keywords": "fluorescent labels; 4-diethylaminobenzaldehyde derivatives; biomolecules; RNA-FISH probes",
+        "abstract": "Fluorescent labels, commonly used in highly sensitive analytical techniques for detecting and tracking biomolecules in critical fields like cellular biology, medicine, medicinal chemistry, and environmental science, are currently too expensive for routine use in standard applications, with most exhibiting small Stokes shifts. This limitation underscores the potential of 4-diethylaminobenzaldehyde derivatives as a cost-effective alternative for developing new, bright fluorophores with larger Stokes shifts. In this work, using 4-diethylaminobenzaldehyde as starting material, we developed a simple, cost-effective, and efficient synthetic strategy to produce new affordable small molecules as effective fluorescent labels for biomolecules. Density functional theory and time-dependent density functional theory calculations were also conducted to gain insights into the observed photophysical properties.",
+        "doi": "10.3390/molecules29225237"
+    },
+    "doc_id": "pdf-data/mdpi_2",
+    "chunk": {
+        "index": 23,
+        "start": 23000,
+        "end": 24200,
+        "num_chars": 1200,
+        "text": "n tests of Bacillus cells with the probes EUK516-Cy3, EUK516-(4), EUK516-(7), and EUK516-(10), no fluorescence signal was detected, as anticipated (Figure S5B,D,F,H). These findings further confirm that these probes lack specificity for prokaryotic cells, emphasizing the selective binding of the synthesized fluorophores to their respective oligonucleotide probes, thus avoiding nonspecific interactions with the cells. ===experimental section=== All starting materials and reagents were of analytical grade, obtained from Aldrich (Waltham, MA, USA), and used as received without further purification. Organic solvents were dried with appropriate desiccants and distilled prior to use. UV-vis absorption spectra were obtained using acetonitrile (CH3CN) as the solvent on a Thermo Electron Corporation (Waltham, MA, USA) spectrophotometer, model Nicolet Evolution 300 (Waltham, MA USA). Fluorescence spectra were measured with a PerkinElmer Model LS 55 spectropho- tometer (Waltham, MA USA). All emission spectra were collected using a slit bandwidth of 5.0 nm for both excitation and emission, along with correction files. Spectroscopic measurements were conducted in 3 mL quartz fluorescence cuvett"
+    }
+}

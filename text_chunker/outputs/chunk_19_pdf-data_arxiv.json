@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "arxiv.pdf",
+        "etag": "870920e84617d15f5be7ceddb080ee6d"
+    },
+    "metadata": {
+        "title": null,
+        "authors": "",
+        "keywords": "",
+        "abstract": "",
+        "doi": null
+    },
+    "doc_id": "pdf-data/arxiv",
+    "chunk": {
+        "index": 19,
+        "start": 19000,
+        "end": 20200,
+        "num_chars": 1200,
+        "text": "ntribution must be resummed in rinciple to all orders to predict the y, dependence in the gg + gqg channel, it is neglected in the present work in view of its small effect on the full yy cross section. When integrated over QT from 0 to sales of order Q, the resummed ross setion be- a few-perent orretion from integrated higher-order terms logarithmi in QT . observables that allow such integration (e.g., the large-Q region of the yy invariant mass distribution) are approximated well both by the resummed and NLO calculations. How- ever, the experimental acceptance constrains the range of the integration over Qr in parts of phase space and may break delicate cancellations between integrable singularities present in the finite-order differential distribution. In this situation (e.g., in the vicinity of the kine- matic cutoff in do/dQ discussed in Sec. the NLO cross section becomes unstable, while the resummed cross section (free of discontinuities) continues to depend smoothly on kine- matic constraints. We see that the resummation is essential not only for the prediction of physical Qr distributions in yy production, but also for credible estimates of the effects of experimental accept"
+    }
+}

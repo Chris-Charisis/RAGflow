@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "arxiv.pdf",
+        "etag": "870920e84617d15f5be7ceddb080ee6d"
+    },
+    "metadata": {
+        "title": null,
+        "authors": "",
+        "keywords": "",
+        "abstract": "",
+        "doi": null
+    },
+    "doc_id": "pdf-data/arxiv",
+    "chunk": {
+        "index": 2,
+        "start": 2000,
+        "end": 3200,
+        "num_chars": 1200,
+        "text": " decays, or from via quasi-collinear radiation off final-state quarks and gluons. We evaluate contributions to continuum diphoton production from the basic short- distance channels for yy production initiated by quark-antiquark and (anti)quark-gluon scattering, as well as by gluon-gluon and gluon-(anti)quark scattering proceeding through a fermion-loop diagram. At lowest order in QCD, a photon pair is produced from q@ anni- hilation [Fig. [I] (a)]. Representative next-to-leading order (NLO) contributions to qq@ + gg scattering are shown in Fig.[I](b)-(e). They are of O(a,) in the strong coupling strength id 5 Production of 77 pairs via a box diagram in gg scattering [Fig. [1] (h)] is suppressed by two powers of a, compared to the lowest-order g@ contribution, but it is enhanced by a product of two large gluon parton distribution functions (PDFs) if typical momentum fractions x are small [6]. The O(a?) or NLO corrections to gg scattering include one-loop gg + yyg diagrams (i) and (j) derived in Ref. (7, ig}. as well as 4-leg two-loop diagrams (1) computed in Ref. ata In this study we also include subleading contributions from the process (k), 94s > Yy4s via the quark loop, where gg "
+    }
+}

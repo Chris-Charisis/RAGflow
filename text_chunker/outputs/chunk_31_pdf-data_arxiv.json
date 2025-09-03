@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "arxiv.pdf",
+        "etag": "870920e84617d15f5be7ceddb080ee6d"
+    },
+    "metadata": {
+        "title": null,
+        "authors": "",
+        "keywords": "",
+        "abstract": "",
+        "doi": null
+    },
+    "doc_id": "pdf-data/arxiv",
+    "chunk": {
+        "index": 31,
+        "start": 31000,
+        "end": 32200,
+        "num_chars": 1200,
+        "text": "ential distributions in Q, Qr, and Ay = 3 \u2014 Yq in the lab frame, after integration over the other independent kinematic variables. We follow suit in order to make comparisons with Tevatron collider data, but we recommend that more differential studies be made, and we comment on the features that can be explored. We show results at the energy of the Tevatron collider and then make predictions for the Large Hadron Collider. The analytical results of Sec. [| are implemented in our computer code. As a first step, resummed and NLO 77 cross sections are computed on a grid of discrete values of Q, Qr, and y by using the resummation program LEGACY described in Refs. 29, 30}. At the second stage, matching of the resummed and NLO cross sections is performed, and fully differential cross sections are evaluated by Monte-Carlo integration of the matched grids in the latest version of the program RESBOS i311 (39). The calculation is done for Ny = 5 active quark flavors and the following values of the electroweak and strong interaction parameters [33 The following choices of the factorization constants are used: C, = C3 = 2e\u00b078 & 1.123..., and Cy = Cy, = 1. The choice Cy = 1 implies that we equat"
+    }
+}

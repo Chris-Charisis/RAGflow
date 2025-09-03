@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "arxiv.pdf",
+        "etag": "870920e84617d15f5be7ceddb080ee6d"
+    },
+    "metadata": {
+        "title": null,
+        "authors": "",
+        "keywords": "",
+        "abstract": "",
+        "doi": null
+    },
+    "doc_id": "pdf-data/arxiv",
+    "chunk": {
+        "index": 39,
+        "start": 39000,
+        "end": 40200,
+        "num_chars": 1200,
+        "text": "og(Q/Qr). We noted in Sec. [1 Clthat these logarithms are associated with the fragmentation of a parton carrying large transverse momentum Q, into a system of small invariant mass Q (27, , alight yy pair in our case. Small-Q yy fragmentation of this kind is not implemented yet in theoretical models. Therefore, we are prepared for the possibility that both the fixed-order calculation and our resummed calculation may be deficient in the region Qr > Q. A detailed experimental study of the region Qr > Q may offer the opportunity to measure the parton to two-photon fragmentation function D,,(z1, 22), provided that the single-photon `one-fragmentation' funtion D\u03b3(z) is determined by single-photon data, and the low-Q logarithmi terms are properly resummed theoretially. In addition to the low-Q fragmentation, the small-\u2206\u03d5 region may be sensitive to large u-hannel exhanges in the q\u00afq t- or \u03b3\u03b3 and \u2192 higher-order ontributions assoiated with t- and \u03b3\u03b3 subproesses. In the Born proesses in Figs. 1(a) and (h), the gg u-hannel \u2192 \u03c0. These singularities are exluded by the p\u03b3 singularities arise at cos\u03b8\u2217 \u2248 \u00b1 1 and \u2206\u03d5 b b T \u2248 b b uts in Eq. (23), but related residual enhanements in the NLO ontribution"
+    }
+}

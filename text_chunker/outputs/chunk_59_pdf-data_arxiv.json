@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "arxiv.pdf",
+        "etag": "870920e84617d15f5be7ceddb080ee6d"
+    },
+    "metadata": {
+        "title": null,
+        "authors": "",
+        "keywords": "",
+        "abstract": "",
+        "doi": null
+    },
+    "doc_id": "pdf-data/arxiv",
+    "chunk": {
+        "index": 59,
+        "start": 59000,
+        "end": 60200,
+        "num_chars": 1200,
+        "text": "istributions are good disriminators between the Higgs boson signal and The theoretial study of ontinuum diphoton prodution in hadron ollisions is interesting diphotons are a large standard-model bakground above whih one may observe the produts In this paper and Refs. bo Bh, we present our calculation of the fully differential cross section da/(dQdQrdydQ.) as a function of the mass Q, transverse momentum Qr, and rapidity y of the diphoton system, and of the polar and azimuthal angles of the individual photons in the diphoton rest frame. Our basic QCD hard-scattering subprocesses are all computed at next-to-leading order (NLO) in the strong coupling strength a,, and we include the state-of-art resummation of initial-state gluon radiation to all orders in a,, valid to next- to-next-to-leading logarithmic accuracy (NNLL). Resummation is essential for a realistic and reliable calculation of the Qr dependence in the region of small and intermediate values of Qr, where the cross section is greatest. It is also needed for stable estimates of the effects of Our analytical results are included in a fully updated RESBos code (31), 3g]. This nu- merical program allows us to impose selections o"
+    }
+}

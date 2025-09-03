@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "arxiv.pdf",
+        "etag": "870920e84617d15f5be7ceddb080ee6d"
+    },
+    "metadata": {
+        "title": null,
+        "authors": "",
+        "keywords": "",
+        "abstract": "",
+        "doi": null
+    },
+    "doc_id": "pdf-data/arxiv",
+    "chunk": {
+        "index": 37,
+        "start": 37000,
+        "end": 38200,
+        "num_chars": 1200,
+        "text": "ctions of Q, Qr and y) cross each other. In contrast to the fixed-order (dashed) curve P in Fig.[{b), the agreement with data is improved at the lowes values of Qr, where resummation brings the rate down, and for Qr = 12 \u2014 32 GeV, where he resummed logarithmic terms increase the rate. The resummed preditions for the Tevatron experiments are pratially insensitive to the the total rate at the Tevatron with CDF uts imposed omes from the q\u00afq+qg+\u00afqg (gg+gqS) initial state. The frations for the uts used by D\u00d8 are 84% and 16%. The gg + gqS ontribution falls steeply after QT > 22 GeV, beause the gluon PDF dereases rapidly with parton frational momentum x [3\u2104. The distribution in the difference Ay of the azimuthal angles of the photons is shown in Fig. [6 As is true for the transverse momentum distribution in the limit Qr \u2014 0, the distribution computed at fixed order is ill-defined at Ay = 7. The resummed distribution shows a larger cross section near Ay = 2.5 rad, in better agreement with the data. In the region of small Ay < 7/2, the fixed-order and the resummed predictions are the same, a result of our matching of the resummed and fixed-order distributions at mid to high values of Qr. Al"
+    }
+}

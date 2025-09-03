@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "mdpi_2.pdf",
+        "etag": "e2052416ec26026a2e2ba8f2fad9b22e"
+    },
+    "metadata": {
+        "title": "Affordable Small Molecules as Promising Fluorescent Labelsfor Biomolecules",
+        "authors": "Raquel Eust\u00e1quio, Jo\u00e3o P. Prates Ramalho, S\u00edlvia Arantes, Ant\u00f3nio Candeias, Ana Teresa Caldeira and Ant\u00f3nio Pereira",
+        "keywords": "fluorescent labels; 4-diethylaminobenzaldehyde derivatives; biomolecules; RNA-FISH probes",
+        "abstract": "Fluorescent labels, commonly used in highly sensitive analytical techniques for detecting and tracking biomolecules in critical fields like cellular biology, medicine, medicinal chemistry, and environmental science, are currently too expensive for routine use in standard applications, with most exhibiting small Stokes shifts. This limitation underscores the potential of 4-diethylaminobenzaldehyde derivatives as a cost-effective alternative for developing new, bright fluorophores with larger Stokes shifts. In this work, using 4-diethylaminobenzaldehyde as starting material, we developed a simple, cost-effective, and efficient synthetic strategy to produce new affordable small molecules as effective fluorescent labels for biomolecules. Density functional theory and time-dependent density functional theory calculations were also conducted to gain insights into the observed photophysical properties.",
+        "doi": "10.3390/molecules29225237"
+    },
+    "doc_id": "pdf-data/mdpi_2",
+    "chunk": {
+        "index": 42,
+        "start": 42000,
+        "end": 43200,
+        "num_chars": 1200,
+        "text": "arvested from the fresh surfaces of the slants using 2.0 mL of physiological saline solution. Subsequently, 250 mL Erlenmeyer flasks containing 100 mL of nutrient broth (NB) and YPD were inoculated and incubated at 30 \u25e6C with continuous shaking at 120 rpm. Cells were collected during the exponential growth phase, which occurred 6 h after inoculation, and then washed with PBS. Preparation of the probe solution (oligonucleotide-labeling). The products obtained from the labeling reaction between the oligonucleotides and the probes were reconstituted in RNase-free water, resulting in solutions with a final concentration of 120 ng/\u00b5L. Cell fixation and permeabilization. The microbial cultures of Saccharomyces cerevisiae and Bacillus sp. were initially prepared in liquid medium and then centrifuged at 1600\u00d7 g for 5 min at 4 \u25e6C and 130,00\u00d7 g for 15 min at 4 \u25e6C, respectively, discarding the supernatant. The cells were washed by adding 3.0 mL of PBS 10X and centrifuged under the same conditions, again discarding the supernatant. Next, the cell pellets were fixed and permeabilized by adding 2.0 mL of absolute ethanol and incubating at room temperature for 1 h. After incubation, 6.0 mL of PBS"
+    }
+}

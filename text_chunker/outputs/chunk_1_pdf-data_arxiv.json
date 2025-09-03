@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "arxiv.pdf",
+        "etag": "870920e84617d15f5be7ceddb080ee6d"
+    },
+    "metadata": {
+        "title": null,
+        "authors": "",
+        "keywords": "",
+        "abstract": "",
+        "doi": null
+    },
+    "doc_id": "pdf-data/arxiv",
+    "chunk": {
+        "index": 1,
+        "start": 1000,
+        "end": 2200,
+        "num_chars": 1200,
+        "text": "ong-sought Higgs boson(s) h of eletroweak symmetry breaking in partile physis deay mode (h \u2192 \u03b3\u03b3). Purely hadroni standard model proesses are a opious soure of diphotons, and a narrow Higgs boson signal at relatively low masses will appear as a of Higgs boson oupling strengths. tributions to diphoton prodution from parton-parton subproesses through next-to-leading with gluon radiation to all orders in the strong oupling strength \u03b1s. This resummation is essential for physially meaningful preditions of the transverse momentum (QT ) distri- bution of the diphotons at small and intermediate values of QT , where the ross setion is Our attention is focused on the production of isolated photons, 7.e., high-energy photons observed at some distance from appreciable hadronic remnants in the particle detector. The rare isolated photons tend to originate directly in hard QCD scattering, in contrast to copiously produced non-isolated photons that arise from nonperturbative processes such as am and 7 decays, or from via quasi-collinear radiation off final-state quarks and gluons. We evaluate contributions to continuum diphoton production from the basic short- distance channels for yy production i"
+    }
+}

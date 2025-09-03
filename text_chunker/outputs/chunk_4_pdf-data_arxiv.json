@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "arxiv.pdf",
+        "etag": "870920e84617d15f5be7ceddb080ee6d"
+    },
+    "metadata": {
+        "title": null,
+        "authors": "",
+        "keywords": "",
+        "abstract": "",
+        "doi": null
+    },
+    "doc_id": "pdf-data/arxiv",
+    "chunk": {
+        "index": 4,
+        "start": 4000,
+        "end": 5200,
+        "num_chars": 1200,
+        "text": "s (Q), such as a pair of photons produced in hadron-hadron collisions. When calculated in the common factorization approach at any finite order in perturbation theory, this distribution diverges as Qr \u2014 0, signaling that infrared singularities associated with Q; \u2014 0 have not been properly iso- lated and regulated. These singularities are associated with soft and collinear radiation from initial-state partons shown by the diagrams in Figs. [I] (b), (d), and (i). A generalized factorization approach that correctly describes the small-Qr region was developed by Collins, Soper, and Sterman (CSS) and applied to photon pair produc- tion rie . In this approach the hadronic cross section is expressed as an integral over the transverse coordinate (impact parameter). The integrable singular functions present in the finite-order differential distribution as Qr \u2014 0 are resummed, to all orders in the strong coupling a,, into a Sudakov exponent, and a well-behaved cross section is obtained for all Qr values. As explained in Sec. II, our resummed calculation is accurate to next-to- next-to-leading-logarithmic (NNLL) order. It is applicable for values of diphoton transverse momentum that are less "
+    }
+}

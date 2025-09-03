@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "arxiv.pdf",
+        "etag": "870920e84617d15f5be7ceddb080ee6d"
+    },
+    "metadata": {
+        "title": null,
+        "authors": "",
+        "keywords": "",
+        "abstract": "",
+        "doi": null
+    },
+    "doc_id": "pdf-data/arxiv",
+    "chunk": {
+        "index": 43,
+        "start": 43000,
+        "end": 44200,
+        "num_chars": 1200,
+        "text": "f. Setion II C). The one-fragmentation ontribution is enhaned on average by 400% if Eiso T is inreased in the alulation from 1 to 4 GeV. The rate in the shoulder region is enhaned further if the fatorization sale \u00b5F is redued. Since the theoretical specifications for isolation and for the fragmentation contribution are admittedly approximate, we question whether great importance should be placed on the agreement of theory and experiment in the region of small Ay or in the shoulder region in the Qr distribution. A straightforward way to reduce sensitivity to fragmentation is to require Q > 27 GeV or Qr < Q, as discussed above. The two cuts have similar effects on he event distributions. Figure [8] shows the effects of the Qr < Q cut on the Qr and Ay distributions. The cut Qr < Q is particularly efficient at suppressing the fragmentation Q; shoulder (and the region of small Ay altogether), while only a small portion of the event sample is lost. This cut is especially favorable, since it constrains the comparison with data o a region where the theory is well understood and has a small uncertainty. Furthermore, with the requirement of Qr < Q, the dependence of differential cross sectio"
+    }
+}

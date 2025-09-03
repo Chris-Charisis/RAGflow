@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "mdpi_2.pdf",
+        "etag": "e2052416ec26026a2e2ba8f2fad9b22e"
+    },
+    "metadata": {
+        "title": "Affordable Small Molecules as Promising Fluorescent Labelsfor Biomolecules",
+        "authors": "Raquel Eust\u00e1quio, Jo\u00e3o P. Prates Ramalho, S\u00edlvia Arantes, Ant\u00f3nio Candeias, Ana Teresa Caldeira and Ant\u00f3nio Pereira",
+        "keywords": "fluorescent labels; 4-diethylaminobenzaldehyde derivatives; biomolecules; RNA-FISH probes",
+        "abstract": "Fluorescent labels, commonly used in highly sensitive analytical techniques for detecting and tracking biomolecules in critical fields like cellular biology, medicine, medicinal chemistry, and environmental science, are currently too expensive for routine use in standard applications, with most exhibiting small Stokes shifts. This limitation underscores the potential of 4-diethylaminobenzaldehyde derivatives as a cost-effective alternative for developing new, bright fluorophores with larger Stokes shifts. In this work, using 4-diethylaminobenzaldehyde as starting material, we developed a simple, cost-effective, and efficient synthetic strategy to produce new affordable small molecules as effective fluorescent labels for biomolecules. Density functional theory and time-dependent density functional theory calculations were also conducted to gain insights into the observed photophysical properties.",
+        "doi": "10.3390/molecules29225237"
+    },
+    "doc_id": "pdf-data/mdpi_2",
+    "chunk": {
+        "index": 30,
+        "start": 30000,
+        "end": 31200,
+        "num_chars": 1200,
+        "text": " H-12), 2.69 (3H, s, H-7), 4.61 (2H, t, J = 7.4, H-8), 7.95 (2H, d, J3,2 = 6.9, H-3, H-5), 8.85 (2H, d, J2,3 = 6.9, H-2, H-6). 13C NMR (100 MHz, CD3OD, \u03b4, ppm): 22.0 (C-7), 25.2 (C-11), 26.5 (C-10), 32.0 (C-9), 34.4 (C-12), 61.9 (C-8), 129.9 (C-3, C-5), 144.9 (C-2, C-6), 161.2 (C-4), 177.1 (COOH). A mixture of compound 5 (100 mg, 0.347 mmol, 1.0 eq), 4-diethylaminobenzaldehyde (62 mg, 0.347 mmol, 1.0 eq), and piperidine (69 \u00b5L, 0.694 mmol, 2.0 eq) in dry acetonitrile (10 mL) was stirred at 85 \u25e6C for 4 h. The reaction was continuously monitored by TLC using CHCl3/CH3OH/H2O (65:20:2) as the eluent. After evaporation to dryness, the residue was purified by flash chromatography, using CHCl3/CH3OH (8:2) and CHCl3/CH3OH/H2O (65:35:5) as eluents, to yield (E)-1-(5-carboxypentyl)-4-(4-(diethylamino)styryl)pyridin-1- ium bromide as a red solid (146 mg, 94%). 1H NMR (400 MHz, CD3OD, \u03b4, ppm): 1.20 (6H, t, J = 7.1, N(CH2CH3)2), 1.35\u20131.41 (2H, m, H-10), 1.62\u20131.70 (2H, m, H-11), 1.92\u20132.00 (2H, m, H-9), 2.24 (2H, t, J = 7.2, H-12), 3.47 (4H q, J = 7.1, N(CH2CH3)2), 4.39 (2H, t, J = 7.4, H-8), 6.74 (2H, d, J17,16 = 9.0, H-17, H-19), 7.03 (1H, d, J7,14 = 15.9, H-7), 7.58 (2H, d, J16,17 = 9.0, H-16,"
+    }
+}

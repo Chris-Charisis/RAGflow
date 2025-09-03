@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "arxiv.pdf",
+        "etag": "870920e84617d15f5be7ceddb080ee6d"
+    },
+    "metadata": {
+        "title": null,
+        "authors": "",
+        "keywords": "",
+        "abstract": "",
+        "doi": null
+    },
+    "doc_id": "pdf-data/arxiv",
+    "chunk": {
+        "index": 12,
+        "start": 12000,
+        "end": 13200,
+        "num_chars": 1200,
+        "text": "al functions describing soft and collinear scattering, and process-dependent corrections from NLO virtual diagrams. The q\u00afq + qg asymptoti ross setion Aq\u00afq(Q,QT,y,\u2126\u2217) is proportional to the angular funtion \u03a3i(\u03b8\u2217), the same as in the Born q\u00afq \u03b3\u03b3 ross setion, f. Eq. (7). Similarly, the \u2192 gg+gqS asymptoti ross setion Agg(Q,QT,y,\u2126\u2217) inludes a term proportional to the Born angular funtion \u03a3g(\u03b8\u2217). In addition, Agg(Q,QT,y,\u2126\u2217) ontains another term proportional to \u03a3\u2032 g(\u03b8\u2217,\u03d5\u2217) \u2261 L\u2032 g(\u03b8\u2217)cos2\u03d5\u2217, where L\u2032 g(\u03b8\u2217) is derived in Ref. [3\u2104. This term arises due to the the azimuthal angle (\u03d5\u2217) distribution of the photons in the Collins-Soper frame [3\u2104. The small-Qr representations in Eqs. and can be used to compute fixed-order article distributions in the phase-space slicing method. In this method, we choose a small Qr value Q;\u201d in the range of validity of Eqs. and (14). If the actual Qr in the computation exceeds Q7\u201d, we calculate the differential cross section using the full 2 > 3 matrix element. When Qr is smaller than Q7\u201d, we calculate the event rate using the small- Qr asymptotic approximation A(Q, Qr, y, 2.) and 2 \u2014 2 phase space. Hence, the lowest bin of the Qr distribution is approximated in "
+    }
+}

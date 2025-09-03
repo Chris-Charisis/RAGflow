@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "mdpi.pdf",
+        "etag": "17f1dd801c005a1237c7c42b9a9feada"
+    },
+    "metadata": {
+        "title": "Monitoring Mushroom Growth with Machine Learning",
+        "authors": "Vasileios Moysiadis, Georgios Kokkonis, Stamatia Bibi, Ioannis Moscholios, Nikolaos Maropoulos, Panagiotis Sarigiannidis",
+        "keywords": "mushroom; YOLOv5; Detectron2; machine learning; object detection; instance segmentation",
+        "abstract": "Mushrooms contain valuable nutrients, proteins, minerals, and vitamins, and it is suggested to include them in our diet. Many farmers grow mushrooms in restricted environments with specific atmospheric parameters in greenhouses. In addition, recent technologies of the Internet of things intend to give solutions in the agriculture area. In this paper, we evaluate the effectiveness of machine learning for mushroom growth monitoring for the genus Pleurotus. We use YOLOv5 to detect mushrooms' growing stage and indicate those ready to harvest. The results show that it can detect mushrooms in the greenhouse with an F1-score of up to 76.5%. The classification in the final stage of mushroom growth gives an accuracy of up to 70%, which is acceptable considering the complexity of the photos used. In addition, we propose a method for mushroom growth monitoring based on Detectron2. Our method shows that the average growth period of the mushrooms is 5.22 days. Moreover, our method is also adequate to indicate the harvesting day. The evaluation results show that it could improve the time to harvest for 14.04% of the mushrooms.",
+        "doi": "10.3390/agriculture13010223"
+    },
+    "doc_id": "pdf-data/mdpi",
+    "chunk": {
+        "index": 21,
+        "start": 21000,
+        "end": 22200,
+        "num_chars": 1200,
+        "text": "t for mushroom growth monitoring. ===results=== In the following subsections, we evaluate the results of the mushroom classi\ufb01cation for different growth stages. Next, we provide the results of mushroom monitoring for their growth rate. In this subsection, we compared different con\ufb01gurations of YOLOv5 for mushroom detection and classi\ufb01cation in three classes, as described previously. We used the metrics mAP@0.5, mAP@0.5:0.95, precision, recall, and F1-score to compare the accuracy of each trained model. Table 2 shows a comparison of all con\ufb01gurations. More speci\ufb01cally, we use the pretrained models YOLOv5s and YOLOv5l with the default (D) con\ufb01guration for the hyperparameters and with the con\ufb01guration derived from evolution (E). Moreover, our con\ufb01gurations used an image size of 640 pixels and three different values for the batch size (2, 4, 8). Table 2. Evaluation results for mAP@0.5 and mAP@0.5:0.95 for different hyperparameter con\ufb01gura- tions (HC), for default values (D) and optimised values with evolution (E). It seems that there was not much difference in all con\ufb01gurations. Based on mAP@50 and mAP@50:95, con\ufb01gurations with hyperparameters derived from evolution showed a slightly b"
+    }
+}

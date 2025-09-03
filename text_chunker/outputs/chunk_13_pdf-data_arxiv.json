@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "arxiv.pdf",
+        "etag": "870920e84617d15f5be7ceddb080ee6d"
+    },
+    "metadata": {
+        "title": null,
+        "authors": "",
+        "keywords": "",
+        "abstract": "",
+        "doi": null
+    },
+    "doc_id": "pdf-data/arxiv",
+    "chunk": {
+        "index": 13,
+        "start": 13000,
+        "end": 14200,
+        "num_chars": 1200,
+        "text": "Qr is smaller than Q7\u201d, we calculate the event rate using the small- Qr asymptotic approximation A(Q, Qr, y, 2.) and 2 \u2014 2 phase space. Hence, the lowest bin of the Qr distribution is approximated in the NLO prediction by its average value in the interval 0 < Qr < Q7?, computed by integration of the asymptotic approximations. The phase-space slicing procedure is sufficient for predictions of observables inclusive in Qr, but not of the shape of do/dQr distributions. The latter goal is met by all-orders summa- tion of singular asymptotic contributions with the help of the Collins-Soper-Sterman (CSS) metho {it [16, . The small-Qr resummed cross section is denoted as W(Q, Qr, y, Qs) and given by a two-dimensional Fourier transform of a function W(Q, b, y, 2.) that depends on the impact parameter b: The \u201chard-vertex\u201d function \u00a5, (0. )hZ(Q, 6.) is the normalized cross section for the Born scat- tering aa > yy, with a = u,u,d,d,... in qq yy, and a=a=gq in gg > yy. The Sudakov exponent is an integral of two functions Aq (C1, @) and By (C1, Co, fi) between momentum scales C,/b and C2Q, and C) and C2 are constants of order co = 2e~7\u201d = 1.123... and 1, respectively. The symbol [Cayas \u00ae fa /n]"
+    }
+}

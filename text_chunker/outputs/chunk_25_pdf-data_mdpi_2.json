@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "mdpi_2.pdf",
+        "etag": "e2052416ec26026a2e2ba8f2fad9b22e"
+    },
+    "metadata": {
+        "title": "Affordable Small Molecules as Promising Fluorescent Labelsfor Biomolecules",
+        "authors": "Raquel Eust\u00e1quio, Jo\u00e3o P. Prates Ramalho, S\u00edlvia Arantes, Ant\u00f3nio Candeias, Ana Teresa Caldeira and Ant\u00f3nio Pereira",
+        "keywords": "fluorescent labels; 4-diethylaminobenzaldehyde derivatives; biomolecules; RNA-FISH probes",
+        "abstract": "Fluorescent labels, commonly used in highly sensitive analytical techniques for detecting and tracking biomolecules in critical fields like cellular biology, medicine, medicinal chemistry, and environmental science, are currently too expensive for routine use in standard applications, with most exhibiting small Stokes shifts. This limitation underscores the potential of 4-diethylaminobenzaldehyde derivatives as a cost-effective alternative for developing new, bright fluorophores with larger Stokes shifts. In this work, using 4-diethylaminobenzaldehyde as starting material, we developed a simple, cost-effective, and efficient synthetic strategy to produce new affordable small molecules as effective fluorescent labels for biomolecules. Density functional theory and time-dependent density functional theory calculations were also conducted to gain insights into the observed photophysical properties.",
+        "doi": "10.3390/molecules29225237"
+    },
+    "doc_id": "pdf-data/mdpi_2",
+    "chunk": {
+        "index": 25,
+        "start": 25000,
+        "end": 26200,
+        "num_chars": 1200,
+        "text": " (919 mg, 4.71 mmol, 1.5 eq) in dry DMF (10 mL) was stirred at 100 \u25e6C for a period of 24 h. The reaction was continuously monitored by TLC, using CHCl3/CH3OH (8:2) as the eluent. The reaction mixture was evaporated to dryness and the residue purified by flash chromatography, using CHCl3, CHCl3/CH3OH (9:1) and CHCl3/CH3OH (8:2) as eluents, to yield (1-(5-carboxypentyl)-2,3,3-trimethyl-3H-indol-1-ium bromide as a rose solid (700 mg, 63%). 1H NMR (400 MHz, CD3OD, \u03b4, ppm): 1.50\u20131.57 (2H, m, H-13), 1.62 (6H, s, H-8, H-9), 1.66\u20131.74 (2H, m, H-14), 1.95\u20132.03 (2H, m, H-12), 2.33 (2H, t, J = 7.3, H-15), 2.71 (3H, s, H-10), 4.53 (2H, t, J = 7.3, H-11), 7.63\u20137.68 (2H, m, H-5, H-6), 7.77\u20137.79 (1H, m, H-7), 7.88\u20137.92 (1H, m, H-4). 13C NMR (100 MHz, CD3OD, \u03b4, ppm): 22.8 (C-10), 25.4 (C-14), 27.1 (C-13), 28.6 (C-8, C-9), 34.4 (C-12), 35.4 (C-15), 49.2 (C-11), 55.9 (C-3), 116.6 (C-7), 124.7 (C-4), 130.5 (C-5), 131.2 (C-6), 142.5 (C-7a), 143.4 (C-3a), 177.1 (C-2), 197.9 (COOH). A mixture of compound 2 (50 mg, 0.141 mmol, 1.0 eq), 4-diethylaminobenzaldehyde (25 mg, 0.141 mmol, 1.0 eq), and piperidine (28 \u00b5L, 0.282 mmol, 2.0 eq) in dry acetonitrile (5 mL) was stirred at 85 \u25e6C for 1 h. The reaction wa"
+    }
+}

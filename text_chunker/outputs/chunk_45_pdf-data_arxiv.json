@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "arxiv.pdf",
+        "etag": "870920e84617d15f5be7ceddb080ee6d"
+    },
+    "metadata": {
+        "title": null,
+        "authors": "",
+        "keywords": "",
+        "abstract": "",
+        "doi": null
+    },
+    "doc_id": "pdf-data/arxiv",
+    "chunk": {
+        "index": 45,
+        "start": 45000,
+        "end": 46200,
+        "num_chars": 1200,
+        "text": "ed resummed transverse momentum distributions for various selections of the invariant mass of the photon pairs. Without kinematical constraints on the decay photons, the Qr distribution is expected to broaden with increasing Q, and the position of the peak in do/dQr to shift to larger Qr values. The shift of the peak may or may not be observed in the data depending on the chosen lower cuts on pr of the photons, which suppress the event rate at low Q and Qr. The interplay of the Sudakov broadening of the Qr distribution and kinematical suppression by he photon pr cuts is reflected in the shape of do/dQr in different Q bins. where the scaling function F(Q/V'S) reflects phase space constraints, dependence on the Sudakoy logarithm, and the a dependence of the PDFs. Figure [Q(b) shows our calculated diphoton mass dependence of (Qr). The linear increase shown in Eq. is observed over the range 30 < Q < 80 GeV. For values of Q below the kinematic cutoff at about 30 GeV, the cuts shown in Fig. 3 suppress diphoton production at small Qr, and (Qr/Q) grows toward 1 as Q decreases (corresponding to production only at Qr close to Q). For Q ~ 80 GeV and above, we see a saturation of the growth of"
+    }
+}

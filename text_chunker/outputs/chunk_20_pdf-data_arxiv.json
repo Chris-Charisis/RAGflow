@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "arxiv.pdf",
+        "etag": "870920e84617d15f5be7ceddb080ee6d"
+    },
+    "metadata": {
+        "title": null,
+        "authors": "",
+        "keywords": "",
+        "abstract": "",
+        "doi": null
+    },
+    "doc_id": "pdf-data/arxiv",
+    "chunk": {
+        "index": 20,
+        "start": 20000,
+        "end": 21200,
+        "num_chars": 1200,
+        "text": "c constraints. We see that the resummation is essential not only for the prediction of physical Qr distributions in yy production, but also for credible estimates of the effects of experimental acceptance on distributions in the diphoton invariant mass and other variables. In addition to the QCD singularities associated with initial-state radiation [described by the asymptotic terms in Eqs. and (14)], other singularities arise in the O(a,) process q(p1) + 9(p2) > y(p3) + (ps) + 9(ps) [Fig. Hl (e)| when a photon is collinear to the final-state quark. In this limit, the gg + qyy squared matrix element grows as 1/s,5, when s,; \u2014 0, where 5,5, is the squared invariant mass of the collinear yq pair. In this limit, the squared matrix element factors as into the product of the squared matrix element |M(qg > a) for the production of a photon and an intermediate quark, and a splitting function P),(z) = (1+ (1 \u2014 2)?)/z for fragmentation of the intermediate quark into a collinear yq pair. In Eq. (20) z is the light- cone fraction of the intermediate quark\u2019s momentum carried by the fragmentation photon, and ee; is the charge of the intermediate quark. When the photon-quark separation Ar = V(n5"
+    }
+}

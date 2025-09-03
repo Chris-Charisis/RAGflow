@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "mdpi_2.pdf",
+        "etag": "e2052416ec26026a2e2ba8f2fad9b22e"
+    },
+    "metadata": {
+        "title": "Affordable Small Molecules as Promising Fluorescent Labelsfor Biomolecules",
+        "authors": "Raquel Eust\u00e1quio, Jo\u00e3o P. Prates Ramalho, S\u00edlvia Arantes, Ant\u00f3nio Candeias, Ana Teresa Caldeira and Ant\u00f3nio Pereira",
+        "keywords": "fluorescent labels; 4-diethylaminobenzaldehyde derivatives; biomolecules; RNA-FISH probes",
+        "abstract": "Fluorescent labels, commonly used in highly sensitive analytical techniques for detecting and tracking biomolecules in critical fields like cellular biology, medicine, medicinal chemistry, and environmental science, are currently too expensive for routine use in standard applications, with most exhibiting small Stokes shifts. This limitation underscores the potential of 4-diethylaminobenzaldehyde derivatives as a cost-effective alternative for developing new, bright fluorophores with larger Stokes shifts. In this work, using 4-diethylaminobenzaldehyde as starting material, we developed a simple, cost-effective, and efficient synthetic strategy to produce new affordable small molecules as effective fluorescent labels for biomolecules. Density functional theory and time-dependent density functional theory calculations were also conducted to gain insights into the observed photophysical properties.",
+        "doi": "10.3390/molecules29225237"
+    },
+    "doc_id": "pdf-data/mdpi_2",
+    "chunk": {
+        "index": 7,
+        "start": 7000,
+        "end": 8200,
+        "num_chars": 1200,
+        "text": "dol condensation reactions. Scheme 1 illustrates the synthetic routes used to prepare the fluorescent labels for biomolecules 4, 7, and 10, achieving very good to high yields. The lower yield observed in the intermediate derivative 9 could be attributed to a decrease in acidity of the methyl protons within the quinoline derivative 8. This decrease may have resulted from enhanced electronic delocalization across the molecular structure, facilitated by the additional presence of the phenyl group, when compared with pyridine derivative 5. The highly stereoselective and efficient aldol condensation reaction between the 4-diethylaminobenzaldehyde 1 and the indole, pyridine, and quinoline derivatives, with effective electron-accepting groups, allowed the synthesis of intermediates 3, 6, and 9. The presence, in these intermediates, of an electron-donating group (EDG) and an electron-accepting group (EWG), would clearly increase both the \u03c0-delocalization and the push\u2013pull nature of the chromophore. The abovementioned new products 4, 7, and 10 (Scheme 1) were readily isolated via silica column chromatography and fully characterized using NMR spectroscopy (1D and 2D), as well as HRMS (SI). A"
+    }
+}

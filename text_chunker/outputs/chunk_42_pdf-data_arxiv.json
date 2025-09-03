@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "arxiv.pdf",
+        "etag": "870920e84617d15f5be7ceddb080ee6d"
+    },
+    "metadata": {
+        "title": null,
+        "authors": "",
+        "keywords": "",
+        "abstract": "",
+        "doi": null
+    },
+    "doc_id": "pdf-data/arxiv",
+    "chunk": {
+        "index": 42,
+        "start": 42000,
+        "end": 43200,
+        "num_chars": 1200,
+        "text": "y Eiso 1 GeV T \u223c Eiso in the one around eah photon. Exeptions our in the region QT \u2264 T , where the fragmentation ontributions to d\u03c3/dQT have logarithmi singularities, and in the \u2206\u03d5 0 \u2192 Eiso sription reprodues the integrated DIPHOX rate well for 0 QT \u2264 T , leading to lose \u2264 agreement between the resummed and DIPHOX inlusive rates for most Q values. setions for the same Eiso T = 1 GeV underestimate the data within two standard deviations for Q . 27 GeV, QT > 25 GeV, and \u2206\u03d5 < 1 rad (f. a muh larger isolation energy (Eiso T = 4 GeV) is hosen, and smaller fatorization and renormalization sales are used (\u00b5F = \u00b5R = Q/2). These are the hoies made in the CDF study [1\u2104. Sine Eiso T is an approximate harateristi of the experimental isolation, one might argue that both Eiso T = 1 and 4 GeV an be appropriate in a alulation to math the onditions of the CDF measurement. The diret ontribution is weakly sensitive to Eiso T , while the one-fragmentation part of d\u03c3/dQT is roughly proportional to Eiso T (f. Setion II C). The one-fragmentation ontribution is enhaned on average by 400% if Eiso T is inreased in the alulation from 1 to 4 GeV. The rate in the shoulder region is enhaned further if the fator"
+    }
+}

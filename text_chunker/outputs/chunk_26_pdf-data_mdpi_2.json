@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "mdpi_2.pdf",
+        "etag": "e2052416ec26026a2e2ba8f2fad9b22e"
+    },
+    "metadata": {
+        "title": "Affordable Small Molecules as Promising Fluorescent Labelsfor Biomolecules",
+        "authors": "Raquel Eust\u00e1quio, Jo\u00e3o P. Prates Ramalho, S\u00edlvia Arantes, Ant\u00f3nio Candeias, Ana Teresa Caldeira and Ant\u00f3nio Pereira",
+        "keywords": "fluorescent labels; 4-diethylaminobenzaldehyde derivatives; biomolecules; RNA-FISH probes",
+        "abstract": "Fluorescent labels, commonly used in highly sensitive analytical techniques for detecting and tracking biomolecules in critical fields like cellular biology, medicine, medicinal chemistry, and environmental science, are currently too expensive for routine use in standard applications, with most exhibiting small Stokes shifts. This limitation underscores the potential of 4-diethylaminobenzaldehyde derivatives as a cost-effective alternative for developing new, bright fluorophores with larger Stokes shifts. In this work, using 4-diethylaminobenzaldehyde as starting material, we developed a simple, cost-effective, and efficient synthetic strategy to produce new affordable small molecules as effective fluorescent labels for biomolecules. Density functional theory and time-dependent density functional theory calculations were also conducted to gain insights into the observed photophysical properties.",
+        "doi": "10.3390/molecules29225237"
+    },
+    "doc_id": "pdf-data/mdpi_2",
+    "chunk": {
+        "index": 26,
+        "start": 26000,
+        "end": 27200,
+        "num_chars": 1200,
+        "text": "(50 mg, 0.141 mmol, 1.0 eq), 4-diethylaminobenzaldehyde (25 mg, 0.141 mmol, 1.0 eq), and piperidine (28 \u00b5L, 0.282 mmol, 2.0 eq) in dry acetonitrile (5 mL) was stirred at 85 \u25e6C for 1 h. The reaction was monitored continuously by TLC, using a CHCl3/CH3OH/H2O (65:20:2) eluent. After evaporation to dryness, the residue was purified by flash chromatography, using CHCl3/CH3OH/H2O (65:20:2) as eluent, to yield (E)-1-(5-carboxypentyl)-2-(4-(diethylamino)styryl)-3,3-dimethyl-3H-indol-1-ium bromide as a pink solid (59 mg, 82%). 1H NMR (400 MHz, CD3OD, \u03b4, ppm): 1.27 (6H, t, J = 7.1, N(CH2CH3)2), 1.49\u20131.57 (2H, m, H-13), 1.67\u20131.74 (2H, m, H-14), 1.80 (6H, s, H-8, H-9), 1.89\u20131.97 (2H, m, H-12), 2.23 (2H, t, J = 7.3, H-15), 3.60 (4H q, J = 7.1, N(CH2CH3)2), 4.45 (2H, t, J = 7.3, H-11), 6.91 (2H, d, J20,19 = 9.2, H-20, H-22), 7.16 (1H, d, J10,17 = 15.5, H-10), 7.47 (1H, dt, J5,4 = 7.4, H-5), 7.54 (1H, dt, J6,7 = 7.9, H-6), 7.61 (1H, d, J7,6 = 7.9, H-7), 7.65 (1H, dd, J4,5 = 7.4, H-4), 7.93 (2H, d, J19,20 = 8.4, H-19, H-23), 8.29 (1H, d, J17,16 = 15.5, H-17). 13C NMR (100 MHz, CD3OD, \u03b4, ppm): 12.9 (C-25, C-27), 26.6 (C-14), 27.4 (C-13), 27.5 (C-8, C-9), 28.9 (C-12), 37.3 (C-15), 46.1 (C-24, C-26),"
+    }
+}

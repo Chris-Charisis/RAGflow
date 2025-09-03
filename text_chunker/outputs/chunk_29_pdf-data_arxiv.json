@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "arxiv.pdf",
+        "etag": "870920e84617d15f5be7ceddb080ee6d"
+    },
+    "metadata": {
+        "title": null,
+        "authors": "",
+        "keywords": "",
+        "abstract": "",
+        "doi": null
+    },
+    "doc_id": "pdf-data/arxiv",
+    "chunk": {
+        "index": 29,
+        "start": 29000,
+        "end": 30200,
+        "num_chars": 1200,
+        "text": "on of large b. In our default calculation_of the resummed cross section, we adopt the nonperturbative functions introduced in Ref. . We consider two resummation schemes, the traditional scheme introduced in the CSS paper as well as an alternative scheme . The comparison allows us to estimate the magnitude of yet higher- order corrections that are not included. The size of these effects is different in the gg + qg and gg + gqs channels but not particularly significant in either The final-state collinear singularity in the qg scattering channel i is avoided by applying quasi-experimental isolation when Q; > E%\u00b0 and an auxiliary regulator when Qr < ES? to approximate on average the full NLO rate from direct gg and fragmentation cross sections in this Qr range. Two prescriptions for the auxiliary regulator (subtraction and smooth isolation inside the photon\u2019s isolation cone) are considered and lead to similar predictions at the Tevatron and LHC. The singular logarithmic contributions associated with initial-state radiation are sub- tracted from the NLO cross section P to form a regular piece Y, which is added to the small-Qr resummed cross section W to predict the production rate for s"
+    }
+}

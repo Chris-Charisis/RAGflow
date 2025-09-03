@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "arxiv.pdf",
+        "etag": "870920e84617d15f5be7ceddb080ee6d"
+    },
+    "metadata": {
+        "title": null,
+        "authors": "",
+        "keywords": "",
+        "abstract": "",
+        "doi": null
+    },
+    "doc_id": "pdf-data/arxiv",
+    "chunk": {
+        "index": 7,
+        "start": 7000,
+        "end": 8200,
+        "num_chars": 1200,
+        "text": "e.g., comparable to the underlying event) in the immediate neighborhood of each candidate photon. Candidate photons can be rejected by energy deposit nearby in the hadronic calorimeter or the presence of hadronic tracks near the photons. A theory calculation may approximate the experimental isolation by requiring the full energy of the hadronic remnants to be less than a threshold \u201cisolation energy\u201d ES? in a cone of size AR around each photon. The two photons must be also separated in the plane of the rapidity 7 and azimuthal angle y by an amount exceeding the resolution AR,, of the detector. The values of E?, AR, and AR,, serve as crude characteristics of the actual measurement. The magnitude of the final-state fragmentation contribution depends on the assumed values of \u00a37\u00b0, AR, and AR,,. An additional ompliation arises when the fragmentation radiation is assumed to be tions D\u03b3(z). The ollinear approximation onstrains from below the values of z aessible to D\u03b3(z): z > zmin. The size of the fragmentation ontribution may depend strongly on the values of Eiso T and zmin as a onsequene of rapid variation of D\u03b3(z) with z. In our work we treat the final-state singularity using a prescrip"
+    }
+}

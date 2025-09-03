@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "arxiv.pdf",
+        "etag": "870920e84617d15f5be7ceddb080ee6d"
+    },
+    "metadata": {
+        "title": null,
+        "authors": "",
+        "keywords": "",
+        "abstract": "",
+        "doi": null
+    },
+    "doc_id": "pdf-data/arxiv",
+    "chunk": {
+        "index": 53,
+        "start": 53000,
+        "end": 54200,
+        "num_chars": 1200,
+        "text": "he DIPHOX cross section is enhanced by photon fragmentation contributions. As at the energy of the Tevatron, theoretical uncertainties are greater at small Ay. Predictions are most reliable when Qr < Q (and the angles 0, and y, are away from 0 or 7). With the Qr < Q cut imposed, the uncertain large-Qr photon fragmentation contributions are suppressed, and the resummed and DIPHOX cross sections agree well at large Qr (cf. Fig. [4(b)). The Qr distribution in the interval 70 < Q < 115 GeV with the Qr < Q constraint is shown in Fig. [10] by a dotted curve. Distributions in the other two mass bins in Fig. [10] are essentially not affected by this cut in the Qr range presented. Our alulation aptures the dominant ontributions to \u03b3\u03b3 prodution at the LHC. How- ever, as we noted, diret qg sattering, evaluated at order O (\u03b1s) in our alulation, is the behind the enhanement of the qg rate, whih is inreased predominantly by ontributions from non-singular phase spae regions. Consequently, the q\u00afq + qg diret rate is only weakly sensitive to adjustments in the isolation parameters Eiso T and \u2206R [10\u2104. The unknown O ontributions to qg sattering may be non-negligible, and it would be valuable to omput"
+    }
+}

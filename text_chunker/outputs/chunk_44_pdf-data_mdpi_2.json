@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "mdpi_2.pdf",
+        "etag": "e2052416ec26026a2e2ba8f2fad9b22e"
+    },
+    "metadata": {
+        "title": "Affordable Small Molecules as Promising Fluorescent Labelsfor Biomolecules",
+        "authors": "Raquel Eust\u00e1quio, Jo\u00e3o P. Prates Ramalho, S\u00edlvia Arantes, Ant\u00f3nio Candeias, Ana Teresa Caldeira and Ant\u00f3nio Pereira",
+        "keywords": "fluorescent labels; 4-diethylaminobenzaldehyde derivatives; biomolecules; RNA-FISH probes",
+        "abstract": "Fluorescent labels, commonly used in highly sensitive analytical techniques for detecting and tracking biomolecules in critical fields like cellular biology, medicine, medicinal chemistry, and environmental science, are currently too expensive for routine use in standard applications, with most exhibiting small Stokes shifts. This limitation underscores the potential of 4-diethylaminobenzaldehyde derivatives as a cost-effective alternative for developing new, bright fluorophores with larger Stokes shifts. In this work, using 4-diethylaminobenzaldehyde as starting material, we developed a simple, cost-effective, and efficient synthetic strategy to produce new affordable small molecules as effective fluorescent labels for biomolecules. Density functional theory and time-dependent density functional theory calculations were also conducted to gain insights into the observed photophysical properties.",
+        "doi": "10.3390/molecules29225237"
+    },
+    "doc_id": "pdf-data/mdpi_2",
+    "chunk": {
+        "index": 44,
+        "start": 44000,
+        "end": 45200,
+        "num_chars": 1200,
+        "text": "ntrifugation at 1600\u00d7 g for 5 min at 4 \u25e6C for yeast cells and at 13,000\u00d7 g for 15 min at 4 \u25e6C for bacterial cells, 80 \u00b5L of hybridization buffer (HB) composed of 0.9 M NaCl, 20 mM Tris-HCl, 0.1% SDS (pH 7.2) was added. The corresponding volume of the RNA-FISH probe stock solution (120 ng/\u00b5L) was then added to each FISH assay. The samples were mixed and incubated in a water bath at 46 \u25e6C for 2 h. The FISH assays included the following: (i) a blank without added probe, (ii) controls for natural autofluorescence and FISH-induced autofluorescence, For microscopic analysis, small portions of the samples were placed onto the micro- scope slides. These samples were then examined using an epifluorescence microscope (Motic BA410E) equipped with a 100 W quartz halogen K\u00f6hler illumination system that fea- tures intensity control, an epi-attachment EF-UPR-III, and a power supply unit MXH-100, all sourced from Motic (Madrid, Spain). To facilitate this analysis, Motic filters specifically designed for TRITC were employed, with an excitation wavelength of 540/40\u00d7, a 565DCLP dichroic mirror, and a 605/55m barrier filter. Microphotographs were captured using a Moticam PRO 282B camera connected to t"
+    }
+}

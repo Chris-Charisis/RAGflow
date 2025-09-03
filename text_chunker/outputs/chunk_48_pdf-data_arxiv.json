@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "arxiv.pdf",
+        "etag": "870920e84617d15f5be7ceddb080ee6d"
+    },
+    "metadata": {
+        "title": null,
+        "authors": "",
+        "keywords": "",
+        "abstract": "",
+        "doi": null
+    },
+    "doc_id": "pdf-data/arxiv",
+    "chunk": {
+        "index": 48,
+        "start": 48000,
+        "end": 49200,
+        "num_chars": 1200,
+        "text": "distributions in Q and Ay for different combinations of scattering subchannels and choices of theoretical parameters are discussed in Refs. [2,|3]. In all ranges of Q, the yy production rate is dominated by a large qg contribution, accounting for about 50% of the fixed-order (NLO) rate. Although this number depends on the choice of the factorization scheme and scale, and, on the other hand, separate treatment of the gg and qg cross sections is not meaningful in the resummation calculation [3], it nonetheless reflects, in a crude way, the increased relative importance of the gg cross section. The gg + gqs channel contributes about 25% at Q ~ 80 GeV (the location of the cutoff in da/dQ due to the cuts on py) and less at larger Q. As at the Tevatron, the dependence of the cross sections on the resummation scheme is small ia]. The dependence on the nonperturbative model can also be neglected, as long as the nonperturbative function does not vary strongly with x [3]. our results with DIPHOX preditions. The transverse momentum and invariant mass dis- tributions in the q\u00afq + qg hannel from the two approahes are shown in Fig. 12. In both state photons and partons when QT > Eiso T = 15 GeV,"
+    }
+}

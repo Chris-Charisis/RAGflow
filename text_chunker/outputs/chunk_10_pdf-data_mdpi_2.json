@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "mdpi_2.pdf",
+        "etag": "e2052416ec26026a2e2ba8f2fad9b22e"
+    },
+    "metadata": {
+        "title": "Affordable Small Molecules as Promising Fluorescent Labelsfor Biomolecules",
+        "authors": "Raquel Eust\u00e1quio, Jo\u00e3o P. Prates Ramalho, S\u00edlvia Arantes, Ant\u00f3nio Candeias, Ana Teresa Caldeira and Ant\u00f3nio Pereira",
+        "keywords": "fluorescent labels; 4-diethylaminobenzaldehyde derivatives; biomolecules; RNA-FISH probes",
+        "abstract": "Fluorescent labels, commonly used in highly sensitive analytical techniques for detecting and tracking biomolecules in critical fields like cellular biology, medicine, medicinal chemistry, and environmental science, are currently too expensive for routine use in standard applications, with most exhibiting small Stokes shifts. This limitation underscores the potential of 4-diethylaminobenzaldehyde derivatives as a cost-effective alternative for developing new, bright fluorophores with larger Stokes shifts. In this work, using 4-diethylaminobenzaldehyde as starting material, we developed a simple, cost-effective, and efficient synthetic strategy to produce new affordable small molecules as effective fluorescent labels for biomolecules. Density functional theory and time-dependent density functional theory calculations were also conducted to gain insights into the observed photophysical properties.",
+        "doi": "10.3390/molecules29225237"
+    },
+    "doc_id": "pdf-data/mdpi_2",
+    "chunk": {
+        "index": 10,
+        "start": 10000,
+        "end": 11200,
+        "num_chars": 1200,
+        "text": "igher energy gap between the ground and excited states, resulting in absorption at shorter wavelengths. The molar coefficients and the fluorescence quantum yields were strongly affected, both in the same direction, by the nature of the EWGs presents in the 4-styryl-N,N-diethylaniline derivatives. The analysis of Table 1 confirms that the indole moiety enhances both the extinction coefficient and fluorescence quantum yield compared to the lower values observed with the quinoline moiety. This significant decrease in fluorescence quantum yield is likely attributed to non-radiative relaxation or competing deactivation pathways occurring in the quinoline moiety. This difference may also stem from the varying resonance energy effects of the electron-withdrawing groups (EWGs). The lower energy band of the spectra comprises a single, well-separated S1 excitation. This band is mainly of HOMO \u2192 LUMO nature and is strongly dipole-allowed, with an oscillator strength (ff) greater than 1, for all the studied compounds (Figure 1 and Table S1). For all the compounds, both the HOMO and LUMO orbitals display minimal involvement around the attached reactive group, suggesting that this group does not"
+    }
+}

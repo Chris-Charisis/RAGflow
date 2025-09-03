@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "arxiv.pdf",
+        "etag": "870920e84617d15f5be7ceddb080ee6d"
+    },
+    "metadata": {
+        "title": null,
+        "authors": "",
+        "keywords": "",
+        "abstract": "",
+        "doi": null
+    },
+    "doc_id": "pdf-data/arxiv",
+    "chunk": {
+        "index": 9,
+        "start": 9000,
+        "end": 10200,
+        "num_chars": 1200,
+        "text": " acceptance on distributions in the diphoton invariant mass. We compare our results with the DIPHOX calculation (14) and demonstrate that the requirement Qr < Q further suppresses the effects of the final-state fragmentation contribution, beyond the reduction associated with isolation. Next, we present our predictions for distributions of diphoton pairs produced at the energy of the LHC. Various distributions of the diphoton pairs produced from the decay of a Higgs boson are contrasted with those produced from QCD continuum processes at the LHC, showing that enhanced sensitivity to the signal can be obtained with judicious event selection. Our conclusions are presented in Sec. We onsider the sattering proess h1(P1) + h2(P2) \u03b3(P3) + \u03b3(P4) + X , where h1 and \u2192 In terms of the enter-of-mass ollision energy \u221aS , the h2 are the initial-state hadrons. invariant mass Q, transverse momentum QT , and rapidity y of the \u03b3\u03b3 pair, the laboratory frame momenta P \u00b5 3 + P \u00b5 1 and P \u00b5 P \u00b5 2 of the initial hadrons and q\u00b5 4 of the \u03b3\u03b3 pair are Deay of the \u03b3\u03b3 pairs is desribed in the hadroni Collins-Soper frame [15\u2104. The Collins- Soper frame is a rest frame of the \u03b3\u03b3 pair (with q\u00b5 = Q,0,0,0 { } in this"
+    }
+}

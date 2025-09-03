@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "arxiv.pdf",
+        "etag": "870920e84617d15f5be7ceddb080ee6d"
+    },
+    "metadata": {
+        "title": null,
+        "authors": "",
+        "keywords": "",
+        "abstract": "",
+        "doi": null
+    },
+    "doc_id": "pdf-data/arxiv",
+    "chunk": {
+        "index": 11,
+        "start": 11000,
+        "end": 12200,
+        "num_chars": 1200,
+        "text": " parton distribution function (PDF) for a quark of a flavor i, evaluated at a factorization scale up of order Q. The prefactor The NLO direct contributions, represnt by_ Figs. [] (b)-(e), (i)-(1) and denoted as P(Q, Qr,y, 2x), are computed in Refs. (3, Bid ran Ch NLO 2 > 3 differen- tial cross section grows logarithmically if i i Ie state. parton is soft or collinear to the initial-state quark or gluon, i.e., when Qr of the yy pair is much smaller than Q. These \u201cinitial-state\u201d logarithmic contributions are summed to all orders later in this subsection. The NLO qg cross section also contains a large logarithm when one of the photons is pro- duced from a collinear \u2018q\u2019 3 Vy splitting in the final state. This \u201cfinal-state\u201d collinear limit is discussed in Section [ILC] in the gg+gqgs scattering channel. The functions F.,5(Q, y, 0.) and FO. Q,y, Qr) for relevant arton flavors a are listed in Appendix They include \u2018plus function\u2019 contributions of he type [Qp7 In? (Q\u00b0/Q;)|, with p > 0, universal functions describing soft and collinear scattering, and process-dependent corrections from NLO virtual diagrams. The q\u00afq + qg asymptoti ross setion Aq\u00afq(Q,QT,y,\u2126\u2217) is proportional to the angular fu"
+    }
+}

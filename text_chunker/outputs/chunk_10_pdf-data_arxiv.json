@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "arxiv.pdf",
+        "etag": "870920e84617d15f5be7ceddb080ee6d"
+    },
+    "metadata": {
+        "title": null,
+        "authors": "",
+        "keywords": "",
+        "abstract": "",
+        "doi": null
+    },
+    "doc_id": "pdf-data/arxiv",
+    "chunk": {
+        "index": 10,
+        "start": 10000,
+        "end": 11200,
+        "num_chars": 1200,
+        "text": "ial hadrons and q\u00b5 4 of the \u03b3\u03b3 pair are Deay of the \u03b3\u03b3 pairs is desribed in the hadroni Collins-Soper frame [15\u2104. The Collins- Soper frame is a rest frame of the \u03b3\u03b3 pair (with q\u00b5 = Q,0,0,0 { } in this frame), hosen ~P1 and ~P2 of the initial hadrons lie in the Oxz plane (with zero so that (a) the momenta azimuthal angle), and (b) the z axis bisets the angle between ~P1 and \u2212 ~P2. The photon momenta are antiparallel in the Collins-Soper frame: where 6, and y, are the photon\u2019s polar and azimuthal angles. In this section, we derive resummed predictions for the fully differential yy cross section do/(dQ?dydQ7.dQ..), where dQ, = dcos6@,dy, is a solid angle element around the direction of Py in the Collins-Soper frame defined in Eq. (). The angles in the Collins-Soper frame are denoted by a \u201cx\u201d subscript, in contrast to angles in the lab frame, which do not have such a subscript. The parton momenta and helicities are denoted by lowercase p; and ;, respectively. where fg,/n(x, 47) denotes the parton distribution function (PDF) for a quark of a flavor i, evaluated at a factorization scale up of order Q. The prefactor The NLO direct contributions, represnt by_ Figs. [] (b)-(e), (i)-(1) and "
+    }
+}

@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "arxiv.pdf",
+        "etag": "870920e84617d15f5be7ceddb080ee6d"
+    },
+    "metadata": {
+        "title": null,
+        "authors": "",
+        "keywords": "",
+        "abstract": "",
+        "doi": null
+    },
+    "doc_id": "pdf-data/arxiv",
+    "chunk": {
+        "index": 54,
+        "start": 54000,
+        "end": 55200,
+        "num_chars": 1200,
+        "text": "g diret rate is only weakly sensitive to adjustments in the isolation parameters Eiso T and \u2206R [10\u2104. The unknown O ontributions to qg sattering may be non-negligible, and it would be valuable to ompute (\u03b12 s) Higgs boson signal and the QCD bakground disussed in this paper. We fous on the anism, gg \u2192 h0 \u2192 \u03b3\u03b3 , where the Higgs boson prodution ross setion is alulated at the ontributions at O(\u03b13 s) (NLO) and resummed ontributions at NNLL auray. These on- tributions are also coded in RESBos 33], and we can apply the same cuts on the momenta of the photons to the signal and background. Our findings should remain broadly applicable after the NNLO corrections to Higgs boson production [30 are included. We compute the background in the range 128 < Q < 132 GeV, and the signal at a fixed Higgs boson mass my = 130 GeV. We impose the kinematic selection Qr < Q, but its influence is not important at the large values of diphoton mass of interest here. b The cross section times branching ratio for the Higgs boson signal is substantially smaller than the QCD continuum. To better illustrate their differences, Fig.[5]presents distributions normalized to the respective total rates. The top-left panel "
+    }
+}

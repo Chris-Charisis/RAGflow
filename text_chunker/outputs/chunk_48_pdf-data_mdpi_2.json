@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "mdpi_2.pdf",
+        "etag": "e2052416ec26026a2e2ba8f2fad9b22e"
+    },
+    "metadata": {
+        "title": "Affordable Small Molecules as Promising Fluorescent Labelsfor Biomolecules",
+        "authors": "Raquel Eust\u00e1quio, Jo\u00e3o P. Prates Ramalho, S\u00edlvia Arantes, Ant\u00f3nio Candeias, Ana Teresa Caldeira and Ant\u00f3nio Pereira",
+        "keywords": "fluorescent labels; 4-diethylaminobenzaldehyde derivatives; biomolecules; RNA-FISH probes",
+        "abstract": "Fluorescent labels, commonly used in highly sensitive analytical techniques for detecting and tracking biomolecules in critical fields like cellular biology, medicine, medicinal chemistry, and environmental science, are currently too expensive for routine use in standard applications, with most exhibiting small Stokes shifts. This limitation underscores the potential of 4-diethylaminobenzaldehyde derivatives as a cost-effective alternative for developing new, bright fluorophores with larger Stokes shifts. In this work, using 4-diethylaminobenzaldehyde as starting material, we developed a simple, cost-effective, and efficient synthetic strategy to produce new affordable small molecules as effective fluorescent labels for biomolecules. Density functional theory and time-dependent density functional theory calculations were also conducted to gain insights into the observed photophysical properties.",
+        "doi": "10.3390/molecules29225237"
+    },
+    "doc_id": "pdf-data/mdpi_2",
+    "chunk": {
+        "index": 48,
+        "start": 48000,
+        "end": 49200,
+        "num_chars": 1200,
+        "text": "e phenomenon. Supplementary Materials: The following supporting information can be downloaded at: https:// www.mdpi.com/article/10.3390/molecules29225237/s1, Figure S1. Optimized molecular geometry for the compounds in acetonitrile at the m06-2x/6-31G(d,p) level (left) where oxygen, carbon, nitrogen, and hydrogen atoms are marked in red, gray, blue, and white, respectively. Contour plots of the electron density difference (\u2206\u03c1) of the lowest energy excitation for the different compounds where magenta indicates an increase in electron density, while green represents a depletion of electron density; Figure S2. Flow cytometry (FC) results (fluorescence intensity (FI)/forward scattering (FSC)) referring to the hybridization assays of Saccharomyces cerevisiae cells with the oligonucleotide probes: (A) EUK516-Cy3; (B) EUB338-Cy3; (C) EUK516-(4); (D) EUB338-(4); (E) EUK516-(7); (F) EUB338-(7); (G) EUK516-(10); (H) EUB338-(10); Figure S3 Microphotographs obtained through epifluorescence microscopy in objective amplification of 50 X with the TRITC filter referring to the hybridization assays of Saccharomyces cerevisiae cells with the oligonucleotide probes: (A) EUK516-Cy3; (B) EUB338-Cy3; (C"
+    }
+}

@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "mdpi.pdf",
+        "etag": "17f1dd801c005a1237c7c42b9a9feada"
+    },
+    "metadata": {
+        "title": "Monitoring Mushroom Growth with Machine Learning",
+        "authors": "Vasileios Moysiadis, Georgios Kokkonis, Stamatia Bibi, Ioannis Moscholios, Nikolaos Maropoulos, Panagiotis Sarigiannidis",
+        "keywords": "mushroom; YOLOv5; Detectron2; machine learning; object detection; instance segmentation",
+        "abstract": "Mushrooms contain valuable nutrients, proteins, minerals, and vitamins, and it is suggested to include them in our diet. Many farmers grow mushrooms in restricted environments with specific atmospheric parameters in greenhouses. In addition, recent technologies of the Internet of things intend to give solutions in the agriculture area. In this paper, we evaluate the effectiveness of machine learning for mushroom growth monitoring for the genus Pleurotus. We use YOLOv5 to detect mushrooms' growing stage and indicate those ready to harvest. The results show that it can detect mushrooms in the greenhouse with an F1-score of up to 76.5%. The classification in the final stage of mushroom growth gives an accuracy of up to 70%, which is acceptable considering the complexity of the photos used. In addition, we propose a method for mushroom growth monitoring based on Detectron2. Our method shows that the average growth period of the mushrooms is 5.22 days. Moreover, our method is also adequate to indicate the harvesting day. The evaluation results show that it could improve the time to harvest for 14.04% of the mushrooms.",
+        "doi": "10.3390/agriculture13010223"
+    },
+    "doc_id": "pdf-data/mdpi",
+    "chunk": {
+        "index": 25,
+        "start": 25000,
+        "end": 26200,
+        "num_chars": 1200,
+        "text": "nt mushrooms. Each mushroom is indicated with a different colour. The horizontal axis of the graph contains the number of the growth day, starting from number one for the \ufb01rst day of the mushroom\u2019s appearance. The vertical axis indicates the size of the mushroom counted in pixels. Moreover, we calculated the maximum size of each mushroom based on all photos before it was harvested. We set its size as 100%, and we calculated the size of the same mushroom for all other days accordingly. Figure 11 shows the growth rate of the same mushrooms but as a percentage of the maximum size of each mushroom. Both graphs show that the three mushrooms (M1, M2, M3) followed an almost linear growth rate. The fourth mushroom (M4) also followed a linear growth rate for the \ufb01rst four days, but from the \ufb01fth day, it seemed not to change in size. In fact, on the \ufb01fth day, that speci\ufb01c mushroom should have been harvested, but it was accidentally forgotten. Figure 12 shows the captured photos of this mushroom (M4), from which it seemed that the mushroom was ready to harvest on day \ufb01ve. Figure 12. Mushroom growth example photos. We manually evaluated the harvesting status of each mushroom and decided that 1"
+    }
+}

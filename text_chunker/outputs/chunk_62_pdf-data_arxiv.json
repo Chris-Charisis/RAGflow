@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "arxiv.pdf",
+        "etag": "870920e84617d15f5be7ceddb080ee6d"
+    },
+    "metadata": {
+        "title": null,
+        "authors": "",
+        "keywords": "",
+        "abstract": "",
+        "doi": null
+    },
+    "doc_id": "pdf-data/arxiv",
+    "chunk": {
+        "index": 62,
+        "start": 62000,
+        "end": 63200,
+        "num_chars": 1200,
+        "text": "ombined gg + gqs channel, leading to more accurate predictions at the LHC, where the gg + gqs contribution is generally not small. long-distane dynamis of QCD. The isolated diphoton prodution rate is modeled in the parton showering in the presene of isolation onstraints. There is inevitable ambiguity and Se. III, the DIPHOX ross setion an vary by a large fator in some regions of phase spae at the Tevatron when Eiso is hanged from 1 GeV to 4 GeV. Our approach is to concentrate on physical observables which are less sensitive to the frag- mentation contributions. We apply the \u201ccollinear subtraction\u201d prescription or the \u201csmooth- cone isolation\u201d prescription to define an isolated photon in our calculation. We find good agreement with the data, exept in the region with small Q and \u2206\u03d5 < \u03c0/2, onsistent with tation ontributions an strongly modify the rate of diphoton pairs in this region. We suggest that muh better agreement with urrent and future data will be obtained if an addition requirement of QT < Q is applied. With this ut, the fragmentation ontributions are largely suppressed. With the ut QT < Q ut applied to the Tevatron data, the enhanement at low \u2206\u03d5 and intermediate QT (the shou"
+    }
+}

@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "arxiv.pdf",
+        "etag": "870920e84617d15f5be7ceddb080ee6d"
+    },
+    "metadata": {
+        "title": null,
+        "authors": "",
+        "keywords": "",
+        "abstract": "",
+        "doi": null
+    },
+    "doc_id": "pdf-data/arxiv",
+    "chunk": {
+        "index": 36,
+        "start": 36000,
+        "end": 37200,
+        "num_chars": 1200,
+        "text": " a small value of Qr, that is, not drawn all the way to Qr = 0. The curves for P and A are close at small values of Qr, signaling that the initial-state logarithmic singularities dominate the NLO distribution. The difference Y between the P and A distributions includes the finite regular terms not included in A and logarithmic terms from the final-state fragmentation singularities, with the latter subtracted when Qr < E%\u00b0, as described in Sec. The data clearly disfavor the fixed-order prediction in the region of low Qr. Figure 5(b) features the resummed W + Y contribution (solid curve). Resummation o he initial-state logarithmic terms renders W finite in the region of small Qr. The sum of W and Y includes the resummed initial-state singular contributions plus the remaining relevan erms in P. Since P provides a reliable fixed-order estimate at large Qr, we present our final resummed prediction by switching from W + Y to P at the point at which the two differential cross sections (as functions of Q, Qr and y) cross each other. In contrast to the fixed-order (dashed) curve P in Fig.[{b), the agreement with data is improved at the lowes values of Qr, where resummation brings the rate d"
+    }
+}

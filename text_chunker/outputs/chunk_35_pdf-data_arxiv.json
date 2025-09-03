@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "arxiv.pdf",
+        "etag": "870920e84617d15f5be7ceddb080ee6d"
+    },
+    "metadata": {
+        "title": null,
+        "authors": "",
+        "keywords": "",
+        "abstract": "",
+        "doi": null
+    },
+    "doc_id": "pdf-data/arxiv",
+    "chunk": {
+        "index": 35,
+        "start": 35000,
+        "end": 36200,
+        "num_chars": 1200,
+        "text": "e momenta py of the two photons. In addition to being responsible for the characteristic cutoff at Q * 27 GeV explained in the previous subsection, the cuts on the individual transverse momenta p7 also introduce a dependence of the invariant mass distribution on the shape of the Qr spectrum of the yy pairs. Because of this correlation between the Q and Qr distributions, the discontinuities in do/dQr as Qr \u2014 0, when computed at finite order, make finite-order predictions for do/dQ somewhat unstable. The finite-order expectation for the transverse momentum distribution do/dQr (i.e., the integral of P(Q, Qr, y,Q.) over Q, y, and Q,, or P for brevity) is shown as a dashed curve in Fig. B(a). It exhibits an integrable singularity in the small-Qr limit. Terms with inverse power and logarithmic dependence on Qr, associated with initial-state radiation as Qr \u2014 0, are extracted from P and form the asymptotic contribution, denoted as A (dotted curve). In the figure, both P and A are truncated at a small value of Qr, that is, not drawn all the way to Qr = 0. The curves for P and A are close at small values of Qr, signaling that the initial-state logarithmic singularities dominate the NLO dist"
+    }
+}

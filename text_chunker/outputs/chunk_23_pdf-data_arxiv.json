@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "arxiv.pdf",
+        "etag": "870920e84617d15f5be7ceddb080ee6d"
+    },
+    "metadata": {
+        "title": null,
+        "authors": "",
+        "keywords": "",
+        "abstract": "",
+        "doi": null
+    },
+    "doc_id": "pdf-data/arxiv",
+    "chunk": {
+        "index": 23,
+        "start": 23000,
+        "end": 24200,
+        "num_chars": 1200,
+        "text": "he experimental isolation and may introduce new logarithmic singularities near the edges of the isolation cones. As mentioned in the Introduction, the magnitude of the fragmentation contribution de- ends on the values of isolation parameters E?\u00b0, AR, and AR,,, modeled only approximately in a theoretical calculation. The collinear approximation constrains from below the values of z accessible to Dy(z, 1): 2 > Zmin = (1+ Ef8/Er,)~'. If D,(z, u) varies rapidly with z, he fragmentation cross section is particularly sensitive to the assumed values of E7\u00b0\u00b0 and Zmin- For instance, if D(z, ) ~ 1/z, the fragmentation cross section is roughly proportional o Ey? under a typical condition Ej\u00b0/Ey, < 1. Such nearly linear dependence on Ef? of he fragmentation cross section da/dQr is indeed observed in the DIPHOX calculation, as reviewed in Sec. In reality, some spread of the parton radiation in the direction trans- verse to the photon\u2019s motion is expected. The treatment of kinematics in parton showering rograms like PYTHIA results in somewhat different dependence on z (12 compared to the collinear approximation, hence in a different magnitude of the fragmentation cross section. In this work we a"
+    }
+}

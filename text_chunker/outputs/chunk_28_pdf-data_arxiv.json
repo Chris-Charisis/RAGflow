@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "arxiv.pdf",
+        "etag": "870920e84617d15f5be7ceddb080ee6d"
+    },
+    "metadata": {
+        "title": null,
+        "authors": "",
+        "keywords": "",
+        "abstract": "",
+        "doi": null
+    },
+    "doc_id": "pdf-data/arxiv",
+    "chunk": {
+        "index": 28,
+        "start": 28000,
+        "end": 29200,
+        "num_chars": 1200,
+        "text": "tion func- tion D,,(21, 22,4), different from the single-photon fragmentation function D,(z, 4). This ulations, even though similar fragmentation mehanisms have been studied in large-QT Drell-Yan pair prodution [27, 28\u2104. The importane of low-Q \u03b3\u03b3-fragmentation may be el- evated in some kinemati regions for typial experimental uts. They an be removed by We conclude this section by summarizing the main features of our calculation. Full direct NLO cross sections, represented by the graphs (a)-(e), (h)-(1) in Fig. H] are computed, and their initial-state soft/collinear logarithmic singularities are resummed at small Qr in both the qg+qg and gg+gqs channels. The perturbative Sudakov functions A and B and Wilson coefficient functions C in the resummed cross section W are computed up to orders a2, a2, and as, respectively, corresponding to resummation at NNLL accuracy. Our resummation calculation requires an integration over all values of impact parameter b, including the nonperturbative region of large b. In our default calculation_of the resummed cross section, we adopt the nonperturbative functions introduced in Ref. . We consider two resummation schemes, the traditional scheme introdu"
+    }
+}

@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "mdpi_2.pdf",
+        "etag": "e2052416ec26026a2e2ba8f2fad9b22e"
+    },
+    "metadata": {
+        "title": "Affordable Small Molecules as Promising Fluorescent Labelsfor Biomolecules",
+        "authors": "Raquel Eust\u00e1quio, Jo\u00e3o P. Prates Ramalho, S\u00edlvia Arantes, Ant\u00f3nio Candeias, Ana Teresa Caldeira and Ant\u00f3nio Pereira",
+        "keywords": "fluorescent labels; 4-diethylaminobenzaldehyde derivatives; biomolecules; RNA-FISH probes",
+        "abstract": "Fluorescent labels, commonly used in highly sensitive analytical techniques for detecting and tracking biomolecules in critical fields like cellular biology, medicine, medicinal chemistry, and environmental science, are currently too expensive for routine use in standard applications, with most exhibiting small Stokes shifts. This limitation underscores the potential of 4-diethylaminobenzaldehyde derivatives as a cost-effective alternative for developing new, bright fluorophores with larger Stokes shifts. In this work, using 4-diethylaminobenzaldehyde as starting material, we developed a simple, cost-effective, and efficient synthetic strategy to produce new affordable small molecules as effective fluorescent labels for biomolecules. Density functional theory and time-dependent density functional theory calculations were also conducted to gain insights into the observed photophysical properties.",
+        "doi": "10.3390/molecules29225237"
+    },
+    "doc_id": "pdf-data/mdpi_2",
+    "chunk": {
+        "index": 6,
+        "start": 6000,
+        "end": 7200,
+        "num_chars": 1200,
+        "text": "ra. Three of these probes target the rRNA region of eukaryotic cells (EUK516), while the other three target the rRNA region of prokaryotic cells (EUB338). To provide additional insights to this study, Density Functional Theory (DFT) and Time-Dependent Density Functional Theory (TD-DFT) were employed to analyze the electronic, structural, and optical properties of the 4-styryl-N,N-diethylaniline derivatives in both the ground state and the lowest-lying singlet-excited states. ===results and discussion=== In this work, we develop a simple and cost-effective synthetic strategy, through three steps, to produce new cost-effective small molecules as promising fluorescent labels for biomolecules, using 4-diethylaminobenzaldehyde (1) as a starting material. The main synthetic approach for producing 4-styryl-N,N-diethylaniline derivatives relied on the high acidity of methyl protons present in indole, pyridine, and quinoline derivatives (compounds 2, 5, and 8, respectively), which facilitate aldol condensation reactions. Scheme 1 illustrates the synthetic routes used to prepare the fluorescent labels for biomolecules 4, 7, and 10, achieving very good to high yields. The lower yield observed"
+    }
+}

@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "arxiv.pdf",
+        "etag": "870920e84617d15f5be7ceddb080ee6d"
+    },
+    "metadata": {
+        "title": null,
+        "authors": "",
+        "keywords": "",
+        "abstract": "",
+        "doi": null
+    },
+    "doc_id": "pdf-data/arxiv",
+    "chunk": {
+        "index": 51,
+        "start": 51000,
+        "end": 52200,
+        "num_chars": 1200,
+        "text": "ion over all Q7, our resummed and DIPHOX qq + ag cross sections agree within 10-20% at most values of Q (cf. Fig. [12(b)), with our resummed rate being below the DIPHOX rate at all Q. The largest difference occurs at the lowest values of Q (below the cutoff), where the rates can differ by a factor of 2. In this region, corresponding to diphoton events with small Ay and Qr larger than Q, the photon ragmentation contributions included in the DIPHOX calculation are large in comparison to he direct rate. Finally, we note that the integrated rate in DIPHOX is more stable with respect to variations in E%\u00b0 than the differential distributions in DIPHOX, because ES? dependence for Qr > E%\u00b0 is canceled to a good degree by E#8? dependence for Qr < EX?. To obtain the final yy production cross sections, after inclusion of all channels, we combine he respective gg+qg results with the resummed NLO gg+ gqs cross section in our case and with the LO gg cross section in the DIPHOX case. The distributions in the yy invariant mass Q, the transverse momentum Qr, and the azimuthal angle separation Ay in the lab rame are shown in Fig. For the cuts chosen, the LO gg and the resummed gg+ gqg total rates con"
+    }
+}

@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "arxiv.pdf",
+        "etag": "870920e84617d15f5be7ceddb080ee6d"
+    },
+    "metadata": {
+        "title": null,
+        "authors": "",
+        "keywords": "",
+        "abstract": "",
+        "doi": null
+    },
+    "doc_id": "pdf-data/arxiv",
+    "chunk": {
+        "index": 24,
+        "start": 24000,
+        "end": 25200,
+        "num_chars": 1200,
+        "text": "ring rograms like PYTHIA results in somewhat different dependence on z (12 compared to the collinear approximation, hence in a different magnitude of the fragmentation cross section. In this work we adopt a procedure that reproduces desirable features of the isolated cross sections, while bypassing some of the difficulties summarized above. To simulate experimen- al isolation, we reject an event if (a) the separation Ar between the final-state parton and one of the photons is less than AR, and (b) Eps of the parton is larger than E}\u00b0. This condition is applied to the NLO cross section P(Q, Qr, y, Qs), but not to W(Q, Qr, y, Q\u00ab) and A(Q, Qr,y, 9), as these correspond to initial-state QCD radiation and are free of the final-state collinear singularity. This quasi-experimental isolation excludes the singular final-state direct contributions at Eps > Eis? and Ar < AR (or S45 < Ep, Er; AR\u2019). It is effective for Qr > Ex, but he collinear direct contributions survive when Qr < E\u2018S\u00b0. The integrated (but not the differential) fragmentation rate in the region Q; < Eis? may be estimated from a calculation with explicit fragmentation functions. In our approach, we do not introduce fragmentatio"
+    }
+}

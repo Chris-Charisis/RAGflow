@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "arxiv.pdf",
+        "etag": "870920e84617d15f5be7ceddb080ee6d"
+    },
+    "metadata": {
+        "title": null,
+        "authors": "",
+        "keywords": "",
+        "abstract": "",
+        "doi": null
+    },
+    "doc_id": "pdf-data/arxiv",
+    "chunk": {
+        "index": 21,
+        "start": 21000,
+        "end": 22200,
+        "num_chars": 1200,
+        "text": "(20) z is the light- cone fraction of the intermediate quark\u2019s momentum carried by the fragmentation photon, and ee; is the charge of the intermediate quark. When the photon-quark separation Ar = V(n5 \u2014 my)? + (es \u2014 5)? in the plane of pseudorapidity 7 = \u2014log(tan(@/2)) and azimuthal angle y in the lab frame is small, as in the collinear limit, sj; ~ Ep, ErsAr?, where Ey, and Fr; are the transverse energies of the photon and quark, with Ey = Esin@. Note that Ets = Qr at the order in a, at which we are working. Therefore, contributions from the final-state collinear, or fragmentation, region are most pronounced at small Ar and relatively small Qr.! A fully consistent treatment of the initial- and final-state singularities would require a joint initial- and final-state resummation. In the approaches taken to date, the fragmentation singularity may be subtracted from the direct cross section and replaced by a single-photon \u201cone-fragmentation\u201d contribution g +g \u2014 (q frag y) +7, where \u201c(q frag 7)\u201d denotes collinear production of one hard photon from a quark, described by a function D,(z, (1) at a light- cone momentum fraction z and factorization scale ju. Single-photon \u201ctwo-fragmentation"
+    }
+}

@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "mdpi_2.pdf",
+        "etag": "e2052416ec26026a2e2ba8f2fad9b22e"
+    },
+    "metadata": {
+        "title": "Affordable Small Molecules as Promising Fluorescent Labelsfor Biomolecules",
+        "authors": "Raquel Eust\u00e1quio, Jo\u00e3o P. Prates Ramalho, S\u00edlvia Arantes, Ant\u00f3nio Candeias, Ana Teresa Caldeira and Ant\u00f3nio Pereira",
+        "keywords": "fluorescent labels; 4-diethylaminobenzaldehyde derivatives; biomolecules; RNA-FISH probes",
+        "abstract": "Fluorescent labels, commonly used in highly sensitive analytical techniques for detecting and tracking biomolecules in critical fields like cellular biology, medicine, medicinal chemistry, and environmental science, are currently too expensive for routine use in standard applications, with most exhibiting small Stokes shifts. This limitation underscores the potential of 4-diethylaminobenzaldehyde derivatives as a cost-effective alternative for developing new, bright fluorophores with larger Stokes shifts. In this work, using 4-diethylaminobenzaldehyde as starting material, we developed a simple, cost-effective, and efficient synthetic strategy to produce new affordable small molecules as effective fluorescent labels for biomolecules. Density functional theory and time-dependent density functional theory calculations were also conducted to gain insights into the observed photophysical properties.",
+        "doi": "10.3390/molecules29225237"
+    },
+    "doc_id": "pdf-data/mdpi_2",
+    "chunk": {
+        "index": 19,
+        "start": 19000,
+        "end": 20200,
+        "num_chars": 1200,
+        "text": "d to yeast autofluorescence (SC). In contrast, the cells hy- bridized with the EUB338-(4), EUB338-(7), and EUB338-(10) probes exhibited fluorescence signals identical to the autofluorescence of the yeast cells, as expected (Figure S2D,F,H). The percentage of fluorescent cells from Saccharomyces cerevisiae (SC) hybridized with the synthesized oligonucleotide probes EUK516-(4) and EUK516-(7) show a high value, close to the values of the commercial probe EUK516-Cy3. These values indicate that these probes have a high specificity for labeling SC cells. On the other hand, in the cells hybridized with the EUK516-(10) probe, a low percentage of fluorescent cells of less than 25% was observed, which indicates that this probe has little specificity for labeling these cells. Analysis of the hybridization of Saccharomyces cerevisiae cells with the oligonucleotide probes EUB338-(4), EUB338-(7), and EUB338-(10) revealed that they showed identical values for the percentage of fluorescent cells to those of unmarked Saccharomyces cerevisiae cells and cells labeled with the EUB338-Cy3 probe. This result once again reinforces the lack of specificity of these probes for eukaryotic cells (Figure 2). E"
+    }
+}

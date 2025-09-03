@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "arxiv.pdf",
+        "etag": "870920e84617d15f5be7ceddb080ee6d"
+    },
+    "metadata": {
+        "title": null,
+        "authors": "",
+        "keywords": "",
+        "abstract": "",
+        "doi": null
+    },
+    "doc_id": "pdf-data/arxiv",
+    "chunk": {
+        "index": 26,
+        "start": 26000,
+        "end": 27200,
+        "num_chars": 1200,
+        "text": " AR and Eps < ES? by rejecting events in the AR cone that satisfy Ers < (Ar), where y(Ar)_is a smooth function satisfying y(0) = 0, y(AR) = E's\u2019. This \u201csmooth-cone isolation\u201d transforms the fragmentation singularity associated with D,(z, 2) into an integrable singularity, which depends on the assumed functional form of x(Ar). The cross section for direct contributions is rendered finite by this prescription without explicit introduction of fragmentation functions D,(z, 1). For our smooth function, we choose y(Ar) = E%\u00b0(1\u2014cos Ar)?/(1\u2014cos AR)\u2019, which differs from the specific form considered in Ref. 25], but still satisfies the condition y(0) = 0. Our earlier results in Ref. (2 are computed with this prescription. Here we employ it only in a few instances for comparison with the subtraction method and obtain similar results. Differences between the two prescriptions can be used to quantify sensitivity of the pre- dictions to the treatment of the Qr < E%? and Ar < AR region. The two prescriptions yield identical predictions outside of this restricted region, notably at Qr > ES, where our NLO perturbative expression P(Q, Qr, y,.) in the gg + gg channel is controlled only by quasi-exper"
+    }
+}

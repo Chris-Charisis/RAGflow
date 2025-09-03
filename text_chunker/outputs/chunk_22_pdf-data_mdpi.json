@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "mdpi.pdf",
+        "etag": "17f1dd801c005a1237c7c42b9a9feada"
+    },
+    "metadata": {
+        "title": "Monitoring Mushroom Growth with Machine Learning",
+        "authors": "Vasileios Moysiadis, Georgios Kokkonis, Stamatia Bibi, Ioannis Moscholios, Nikolaos Maropoulos, Panagiotis Sarigiannidis",
+        "keywords": "mushroom; YOLOv5; Detectron2; machine learning; object detection; instance segmentation",
+        "abstract": "Mushrooms contain valuable nutrients, proteins, minerals, and vitamins, and it is suggested to include them in our diet. Many farmers grow mushrooms in restricted environments with specific atmospheric parameters in greenhouses. In addition, recent technologies of the Internet of things intend to give solutions in the agriculture area. In this paper, we evaluate the effectiveness of machine learning for mushroom growth monitoring for the genus Pleurotus. We use YOLOv5 to detect mushrooms' growing stage and indicate those ready to harvest. The results show that it can detect mushrooms in the greenhouse with an F1-score of up to 76.5%. The classification in the final stage of mushroom growth gives an accuracy of up to 70%, which is acceptable considering the complexity of the photos used. In addition, we propose a method for mushroom growth monitoring based on Detectron2. Our method shows that the average growth period of the mushrooms is 5.22 days. Moreover, our method is also adequate to indicate the harvesting day. The evaluation results show that it could improve the time to harvest for 14.04% of the mushrooms.",
+        "doi": "10.3390/agriculture13010223"
+    },
+    "doc_id": "pdf-data/mdpi",
+    "chunk": {
+        "index": 22,
+        "start": 22000,
+        "end": 23200,
+        "num_chars": 1200,
+        "text": "alues with evolution (E). It seems that there was not much difference in all con\ufb01gurations. Based on mAP@50 and mAP@50:95, con\ufb01gurations with hyperparameters derived from evolution showed a slightly better performance. Moreover, con\ufb01gurations based on YOLOv5l returned a slightly better performance. The model based on YOLOv5l with hyperparameters de- rived from evolution and with a batch size of eight achieved the best performance. More speci\ufb01cally, it reached an mAP@0.5 of 0.79353 and an mAP@0.5:0.95 of 0.54582. Another type of evaluation was based on the F1-Score metric. Table 3 shows the comparison of all con\ufb01gurations based on the best occurrence of the F1-Score. Better performance on this metric was achieved by the same con\ufb01guration with YOLOv5l, hy- perparameters derived from evolution, and a batch size of eight, as it reached an F1-Score of 76.65%. Table 3. Evaluation results for the F1-Score for different hyperparameter con\ufb01gurations (HC), for default values (D) and optimised values with evolution (E). Figure 7 shows the curve of the F1-Score for the best con\ufb01guration. The horizontal axis corresponds to the con\ufb01dence of the detected mushrooms, while the vertical axis corresp"
+    }
+}

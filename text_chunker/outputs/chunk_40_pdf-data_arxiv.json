@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "arxiv.pdf",
+        "etag": "870920e84617d15f5be7ceddb080ee6d"
+    },
+    "metadata": {
+        "title": null,
+        "authors": "",
+        "keywords": "",
+        "abstract": "",
+        "doi": null
+    },
+    "doc_id": "pdf-data/arxiv",
+    "chunk": {
+        "index": 40,
+        "start": 40000,
+        "end": 41200,
+        "num_chars": 1200,
+        "text": ") and (h), the gg u-hannel \u2192 \u03c0. These singularities are exluded by the p\u03b3 singularities arise at cos\u03b8\u2217 \u2248 \u00b1 1 and \u2206\u03d5 b b T \u2248 b b uts in Eq. (23), but related residual enhanements in the NLO ontributions may still persist 1 and \u2206\u03d5 cos\u03b8\u2217| \u2248 cos\u03b8\u2217| is large in 0, not exluded by the uts (f. Fig. 3). Beause | \u2192 at | |, so they are retained by the \u2206R\u03b3\u03b3 > 0.3 ut. \u2206y suh events, they tend to have substantial | In ontrast, the low-Q fragmentation ontributions tend to be abundant at small | \u2206y |. It cos\u03b8\u2217| and fragmentation events may be therefore possible to distinguish between the large-| \u2206y One way to obtain an estimate of theoretical uncertainty is to compare theoretical ap- proaches in various parts of phase space, including small Ay. We handle the collinear final-state photon singularities in the manner described in Sec. [I] without including photon fragmentation functions explicitly. An alternative calculation implemented in the DIPHOX code includes NLO cross sections for single-photon fragmentation processes. Neither code includes a term in which both photons are fragmentation products of the same final- state parton, i.e., the diphoton fragmentation function D,,(z1, 22). In Ref. 2 we"
+    }
+}

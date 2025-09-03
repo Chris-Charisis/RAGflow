@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "mdpi_2.pdf",
+        "etag": "e2052416ec26026a2e2ba8f2fad9b22e"
+    },
+    "metadata": {
+        "title": "Affordable Small Molecules as Promising Fluorescent Labelsfor Biomolecules",
+        "authors": "Raquel Eust\u00e1quio, Jo\u00e3o P. Prates Ramalho, S\u00edlvia Arantes, Ant\u00f3nio Candeias, Ana Teresa Caldeira and Ant\u00f3nio Pereira",
+        "keywords": "fluorescent labels; 4-diethylaminobenzaldehyde derivatives; biomolecules; RNA-FISH probes",
+        "abstract": "Fluorescent labels, commonly used in highly sensitive analytical techniques for detecting and tracking biomolecules in critical fields like cellular biology, medicine, medicinal chemistry, and environmental science, are currently too expensive for routine use in standard applications, with most exhibiting small Stokes shifts. This limitation underscores the potential of 4-diethylaminobenzaldehyde derivatives as a cost-effective alternative for developing new, bright fluorophores with larger Stokes shifts. In this work, using 4-diethylaminobenzaldehyde as starting material, we developed a simple, cost-effective, and efficient synthetic strategy to produce new affordable small molecules as effective fluorescent labels for biomolecules. Density functional theory and time-dependent density functional theory calculations were also conducted to gain insights into the observed photophysical properties.",
+        "doi": "10.3390/molecules29225237"
+    },
+    "doc_id": "pdf-data/mdpi_2",
+    "chunk": {
+        "index": 37,
+        "start": 37000,
+        "end": 38200,
+        "num_chars": 1200,
+        "text": "H, t, J = 7.0, H-14), 2.81 (3H, s, H-28, H-30), 3.51 (4H q, J = 7.1, N(CH2CH3)2), 4.81 (2H, t, J = 7.4, H-10), 6.78 (2H, d, J19,18 = 9.0, H-19, H-21), 7.72 (2H, d, J18,19 = 9.0, H-18, H-22), 7.80 (1H, d, J9,16 = 15.5, H-9), 7.91 (1H, t, J6,(5,7) = 9.2, H-6), 8.03 (1H, d, J16,7 = 15.5, H-16), 8.13 (1H, dt, J7,8 = 8.7, H-7), 8.14 (1H, d, J3,2 = 6.8, H-3), 8.29 (1H, d, J5,6 = 8.9, H-5), 8.79 (1H, dd, J8,7 = 8.7, H-8), 8.84 (1H, d, J2,3 = 6.8, H-2). 13C NMR (100 MHz, CD3OD, \u03b4, ppm): 12.9 (C-24, C-26), 25.1 (C-28, C-29), 26.4 (C-13), 26.5 (C-12), 30.0 (C-11), 31.3 (C-14), 45.6 (C-23, C-25), 57.4 (C-10), 112.8 (C-19, C-21), 113.2 (C-9), 114.9 (C-3), 119.5 (C-5), 124.1 (C-17), 127.5 (C-8), 127.9 (C-4a), 129.7 (C-6), 132.9 (C-18, C-22), 136.0 (C-7), 139.6 (C-8a), 146.6 (C-2), 146.7 (C-16), 152.1 (C-20), 155.7 (C-4), 170.1 (C-15), 171.8 (C-27, C-30). FTMS(+) calc. for C31H36O4N3 [M+H]+ 514.2700 found 514.2696. UV \u03bbmax (nm, CH3CN): 307, 560. \u03b5 (cm\u22121\u00b7M\u22121): 60,000. \u03a6 F = 0.02. Computational studies offer valuable complementary insights into the nature of the electronic states of the compounds under investigation. To interpret the observed photo- physical properties, density functional theory ("
+    }
+}

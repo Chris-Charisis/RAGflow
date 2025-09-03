@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "arxiv.pdf",
+        "etag": "870920e84617d15f5be7ceddb080ee6d"
+    },
+    "metadata": {
+        "title": null,
+        "authors": "",
+        "keywords": "",
+        "abstract": "",
+        "doi": null
+    },
+    "doc_id": "pdf-data/arxiv",
+    "chunk": {
+        "index": 34,
+        "start": 34000,
+        "end": 35200,
+        "num_chars": 1200,
+        "text": "hat there are two different hard scales, Qr and Q, relevant for the event distributions in the low-Qr region require that we address and resum large logarithmic terms of the form log(Q/Qr). Different and interesting physics becomes important in the complementary region Qr > Q (small Ay), a topic we address in Sec. We compare our resummed and finite-order predictions for the invariant mass (Q) dis- tribution of photon pairs, shown in Fig. A] as solid and dashed lines, respectively. The finite-order cross section is evaluated at O(a) accuracy in the qq@+qg channel and at O(a?) accuracy in the gg + gqs channel. These finite-order calculations are performed with the phase-spae sliing method desribed in Se. II B. When integrated over all QT , as in the d\u03c3/dQ distribution at large Q, the resummed logarithmi terms from higher orders in \u03b1s also agree with the CDF data in this Q range within experimental unertainties. The shape of do/dQ at small Q is affected by the cuts in Eq. on the transverse momenta py of the two photons. In addition to being responsible for the characteristic cutoff at Q * 27 GeV explained in the previous subsection, the cuts on the individual transverse momenta p7 als"
+    }
+}

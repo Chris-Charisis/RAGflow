@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "arxiv.pdf",
+        "etag": "870920e84617d15f5be7ceddb080ee6d"
+    },
+    "metadata": {
+        "title": null,
+        "authors": "",
+        "keywords": "",
+        "abstract": "",
+        "doi": null
+    },
+    "doc_id": "pdf-data/arxiv",
+    "chunk": {
+        "index": 61,
+        "start": 61000,
+        "end": 62200,
+        "num_chars": 1200,
+        "text": "tion as a function of mass Q, and for the dependence of the mean transverse momentum on Q. Another approach to the computation of continuum diphoton production is presented by the DIPHOX collaboration . This calculation includes both the direct production of photons from hard-scattering processes and the photons produced from fragmentation of (anti-)quarks or gluons. It is valid at NLO, except for the gg subprocess, which is included at leading order only. The DIPHOX code is useful for rates integrated over transverse mo- mentum, but it is not designed to predict the transverse momentum distribution or other distributions sensitive to the region in which the transverse momentum of the diphoton pair is small. Compared to a fixed-order calculation, such as direct photon pair calculation in DIPHOXx, our calculation improves the theoretical prediction for event distributions which are sensitive to the region of low Qr. Furthermore, our calculation includes the NLO con- tribution from the combined gg + gqs channel, leading to more accurate predictions at the LHC, where the gg + gqs contribution is generally not small. long-distane dynamis of QCD. The isolated diphoton prodution rate is "
+    }
+}

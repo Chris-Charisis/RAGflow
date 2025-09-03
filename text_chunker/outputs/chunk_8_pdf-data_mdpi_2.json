@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "mdpi_2.pdf",
+        "etag": "e2052416ec26026a2e2ba8f2fad9b22e"
+    },
+    "metadata": {
+        "title": "Affordable Small Molecules as Promising Fluorescent Labelsfor Biomolecules",
+        "authors": "Raquel Eust\u00e1quio, Jo\u00e3o P. Prates Ramalho, S\u00edlvia Arantes, Ant\u00f3nio Candeias, Ana Teresa Caldeira and Ant\u00f3nio Pereira",
+        "keywords": "fluorescent labels; 4-diethylaminobenzaldehyde derivatives; biomolecules; RNA-FISH probes",
+        "abstract": "Fluorescent labels, commonly used in highly sensitive analytical techniques for detecting and tracking biomolecules in critical fields like cellular biology, medicine, medicinal chemistry, and environmental science, are currently too expensive for routine use in standard applications, with most exhibiting small Stokes shifts. This limitation underscores the potential of 4-diethylaminobenzaldehyde derivatives as a cost-effective alternative for developing new, bright fluorophores with larger Stokes shifts. In this work, using 4-diethylaminobenzaldehyde as starting material, we developed a simple, cost-effective, and efficient synthetic strategy to produce new affordable small molecules as effective fluorescent labels for biomolecules. Density functional theory and time-dependent density functional theory calculations were also conducted to gain insights into the observed photophysical properties.",
+        "doi": "10.3390/molecules29225237"
+    },
+    "doc_id": "pdf-data/mdpi_2",
+    "chunk": {
+        "index": 8,
+        "start": 8000,
+        "end": 9200,
+        "num_chars": 1200,
+        "text": "hore. The abovementioned new products 4, 7, and 10 (Scheme 1) were readily isolated via silica column chromatography and fully characterized using NMR spectroscopy (1D and 2D), as well as HRMS (SI). All spectral data align well with the proposed structures. The photophysical properties of the synthesized 4-styryl-N,N-diethylaniline deriva- tives (compounds 4, 7, and 10) were analyzed, and their absorption and emission character- istics, along with fluorescence quantum yields, are summarized in Table 1. Table 1. Spectroscopic properties of 4-styryl-N,N-diethylaniline derivatives. the effective intramolecular charge transfer (ICT) process of the emissive excited state, improving their photophysical properties, such as high molar extinction coefficients and, in the case of compounds 7 and 10, large Stokes shifts. Derivative 4 exhibits a small Stokes shift, likely due to efficient energy relaxation, limited structural flexibility, or similar energy levels in their electronic transitions. The possible elimination of the spectral overlap between absorption and emission, in fluorophores with large Stokes shifts, allows us to eliminate the quenching process and reduce interference, providi"
+    }
+}

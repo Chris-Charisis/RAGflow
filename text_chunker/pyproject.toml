@@ -1,0 +1,12 @@
+[project]
+name = "text-chunker"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "dotenv==0.9.9",
+    "ipykernel>=6.30.1",
+    "pika==1.3.2",
+    "pydantic-settings==2.10.0",
+]

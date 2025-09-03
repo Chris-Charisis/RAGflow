@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "arxiv.pdf",
+        "etag": "870920e84617d15f5be7ceddb080ee6d"
+    },
+    "metadata": {
+        "title": null,
+        "authors": "",
+        "keywords": "",
+        "abstract": "",
+        "doi": null
+    },
+    "doc_id": "pdf-data/arxiv",
+    "chunk": {
+        "index": 63,
+        "start": 63000,
+        "end": 64200,
+        "num_chars": 1200,
+        "text": "nt of QT < Q is applied. With this ut, the fragmentation ontributions are largely suppressed. With the ut QT < Q ut applied to the Tevatron data, the enhanement at low \u2206\u03d5 and intermediate QT (the shoulder region) should disappear. We urge the CDF and D\u00d8 ollaborations to apply these uts in future analyses of the diphoton data. In our calculation, we identify an interesting spin-flip contribution (with cos 2, depen- dence) in the gg channel, cf. Ref. [3], and we suggest that measurements be made of the distribution of y. as a function of Qr. All-orders resummation of the gluon spin-flip contri- bution may be needed when a larger statistical sample of diphoton data is available. The contributions from gg + gg processes become more important at the LHC than at the Tevatron, and calculations at a higher order of precision may be warranted eventually. To improve the theoretical prediction in the region of phase space with Q < ES? and yp. ~ 0 or 7, a joint resummation calculation is needed in which the effects of both the initial- and final-state multiple parton emissions are treated simultaneously. Although we emphasize that better agreement of our predictions with data should be apparen"
+    }
+}

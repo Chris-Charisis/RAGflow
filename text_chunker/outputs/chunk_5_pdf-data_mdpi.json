@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "mdpi.pdf",
+        "etag": "17f1dd801c005a1237c7c42b9a9feada"
+    },
+    "metadata": {
+        "title": "Monitoring Mushroom Growth with Machine Learning",
+        "authors": "Vasileios Moysiadis, Georgios Kokkonis, Stamatia Bibi, Ioannis Moscholios, Nikolaos Maropoulos, Panagiotis Sarigiannidis",
+        "keywords": "mushroom; YOLOv5; Detectron2; machine learning; object detection; instance segmentation",
+        "abstract": "Mushrooms contain valuable nutrients, proteins, minerals, and vitamins, and it is suggested to include them in our diet. Many farmers grow mushrooms in restricted environments with specific atmospheric parameters in greenhouses. In addition, recent technologies of the Internet of things intend to give solutions in the agriculture area. In this paper, we evaluate the effectiveness of machine learning for mushroom growth monitoring for the genus Pleurotus. We use YOLOv5 to detect mushrooms' growing stage and indicate those ready to harvest. The results show that it can detect mushrooms in the greenhouse with an F1-score of up to 76.5%. The classification in the final stage of mushroom growth gives an accuracy of up to 70%, which is acceptable considering the complexity of the photos used. In addition, we propose a method for mushroom growth monitoring based on Detectron2. Our method shows that the average growth period of the mushrooms is 5.22 days. Moreover, our method is also adequate to indicate the harvesting day. The evaluation results show that it could improve the time to harvest for 14.04% of the mushrooms.",
+        "doi": "10.3390/agriculture13010223"
+    },
+    "doc_id": "pdf-data/mdpi",
+    "chunk": {
+        "index": 5,
+        "start": 5000,
+        "end": 6200,
+        "num_chars": 1200,
+        "text": "sk Scoring RCNN [24], try to return better results of the provided masks. In addition, YOLOv5 [25] is one of the most popular object detection algorithms, delivering accurate and rapid results. With recent technologies, a suf\ufb01cient number of research efforts are available for mush- room cultivation. Most of them propose controlling growing conditions in the greenhouse and keeping them within speci\ufb01c boundaries [26,27]. However, only a few of the research efforts go a step over and use more advanced mushroom cultivation methods. Machine learning promise to provide ef\ufb01cient methods in this direction. Thus, we should use it to help farmers in their everyday activities and support their decisions. Until now, only a few research efforts have used machine learning in the mushroom industry. As described before, most of them deal with mushroom species classi\ufb01cation, and only a few try to give solutions for usable tasks such as mushroom harvesting in the greenhouse. Moreover, none of the existing methods for mushroom harvesting utilises the genus Pleurotus. Our work uses machine learning not only to detect the mushrooms in the greenhouse but also to classify them in three different stages d"
+    }
+}

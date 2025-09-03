@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "mdpi_2.pdf",
+        "etag": "e2052416ec26026a2e2ba8f2fad9b22e"
+    },
+    "metadata": {
+        "title": "Affordable Small Molecules as Promising Fluorescent Labelsfor Biomolecules",
+        "authors": "Raquel Eust\u00e1quio, Jo\u00e3o P. Prates Ramalho, S\u00edlvia Arantes, Ant\u00f3nio Candeias, Ana Teresa Caldeira and Ant\u00f3nio Pereira",
+        "keywords": "fluorescent labels; 4-diethylaminobenzaldehyde derivatives; biomolecules; RNA-FISH probes",
+        "abstract": "Fluorescent labels, commonly used in highly sensitive analytical techniques for detecting and tracking biomolecules in critical fields like cellular biology, medicine, medicinal chemistry, and environmental science, are currently too expensive for routine use in standard applications, with most exhibiting small Stokes shifts. This limitation underscores the potential of 4-diethylaminobenzaldehyde derivatives as a cost-effective alternative for developing new, bright fluorophores with larger Stokes shifts. In this work, using 4-diethylaminobenzaldehyde as starting material, we developed a simple, cost-effective, and efficient synthetic strategy to produce new affordable small molecules as effective fluorescent labels for biomolecules. Density functional theory and time-dependent density functional theory calculations were also conducted to gain insights into the observed photophysical properties.",
+        "doi": "10.3390/molecules29225237"
+    },
+    "doc_id": "pdf-data/mdpi_2",
+    "chunk": {
+        "index": 15,
+        "start": 15000,
+        "end": 16200,
+        "num_chars": 1200,
+        "text": "aking at 0.02 \u00c5 for compound 10. The emission characteristics of the dyes, calculated from the optimized geometry of the S1 state, are presented in Table S1. The emission wavelengths for the S1\u2192S0 transition are consistently shorter than those of the S0\u2192S1 absorption process, which is based on the ground-state optimized geometry. In the electronic excited state S1, geometric changes enhance \u03c0-conjugation delocalization, leading to a narrowed HOMO\u2013LUMO energy gap. As a result, after vertical excitation, the excited state undergoes structural relaxation before emission, producing a lower emission energy than the excitation energy [28,29]. Kasha\u2019s rule states that fluorescence generally originates from the lowest excited state, with higher electronic excited states usually not playing a direct role in the emission of excited fluorophores [30]. Therefore, the emissions from the dyes examined in this study are expected to originate from the S1 state. The smaller Stokes shift noted for derivative 4 can be explained by the slight variations in the geometries between the excited state S1 and the ground state S0. As a result, the HOMO\u2013LUMO energy gap experiences a smaller decrease compared "
+    }
+}

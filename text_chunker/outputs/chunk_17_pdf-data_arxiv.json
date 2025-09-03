@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "arxiv.pdf",
+        "etag": "870920e84617d15f5be7ceddb080ee6d"
+    },
+    "metadata": {
+        "title": null,
+        "authors": "",
+        "keywords": "",
+        "abstract": "",
+        "doi": null
+    },
+    "doc_id": "pdf-data/arxiv",
+    "chunk": {
+        "index": 17,
+        "start": 17000,
+        "end": 18200,
+        "num_chars": 1200,
+        "text": "tuation the W + Y cross section drops below the finite-order result P(Q, Qr, y,Q.) at some value of Qr (referred to as the crossing point) in both the gq+qg and gg+ gqs channels, for each Q and y. We use the W + Y cross section as our final prediction at Qr values below the crossing point, and the NLO cross section P at Qr values above the crossing point. A few comments are in order about our resummation calculation. The hard-vertex contri- bution U,(,)h2(Q, 6.) and the functions B, (C1, Co, ft) and Ca/a, (x, b; C/C2, ju) can be varied in a mutually compensating way while preserving the same value of the form factor W up to higher-order corrections in a,. This ambiguity, or dependence on the chosen \u201cresummation scheme\u201d within the CSS formalism, can be employed to explore the sensitivity of the- oretical predictions to further next-to-next-to-next-to-leading logarithmic (NNNLL) effects that are not accounted for explicitly. The perturbative coefficients in Appendix[Alare presented in the CSS resummation scheme (ul), our default choice in numerical calculations, and in an alternative scheme by Catani, de Florian and Grazzini (CFG) j2il]. In the original CSS resummation scheme, the B "
+    }
+}

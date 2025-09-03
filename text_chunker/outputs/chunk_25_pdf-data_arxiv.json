@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "arxiv.pdf",
+        "etag": "870920e84617d15f5be7ceddb080ee6d"
+    },
+    "metadata": {
+        "title": null,
+        "authors": "",
+        "keywords": "",
+        "abstract": "",
+        "doi": null
+    },
+    "doc_id": "pdf-data/arxiv",
+    "chunk": {
+        "index": 25,
+        "start": 25000,
+        "end": 26200,
+        "num_chars": 1200,
+        "text": "rated (but not the differential) fragmentation rate in the region Q; < Eis? may be estimated from a calculation with explicit fragmentation functions. In our approach, we do not introduce fragmentation unctions, but we apply an auxiliary regulator to the direct gg cross section at Qr < E%? and Ar < AR. In our numerical study we find that this prescription preserves a continuous differential distribution except for a small finite discontinuity at Qr = E/S\u00b0. It approximately reproduces the integrated qg rate obtained in the DIPHOX calculation at small Qr, for the nominal E%\u00b0. = the leading part Eq. (20) of the diret qg matrix element when ET5 < Eiso T and \u2206r < \u2206R. f, p\u00b5 p5), where p\u00b5 5, and p\u00b5 pf +ps \u00b7 ps \u00b7 We take z = 1 p5/(ps \u00b7 p5 +pf \u00b7 s are the four-momenta \u2212 of the fragmentation photon, fragmentation quark, and spetator photon, respetively [26\u2104. This presription is used in most of the numerial results in this paper. In the second case, we suppress fragmentation contributions at Ar < AR and Eps < ES? by rejecting events in the AR cone that satisfy Ers < (Ar), where y(Ar)_is a smooth function satisfying y(0) = 0, y(AR) = E's\u2019. This \u201csmooth-cone isolation\u201d transforms the fragmentat"
+    }
+}

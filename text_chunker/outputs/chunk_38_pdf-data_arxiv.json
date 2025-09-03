@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "arxiv.pdf",
+        "etag": "870920e84617d15f5be7ceddb080ee6d"
+    },
+    "metadata": {
+        "title": null,
+        "authors": "",
+        "keywords": "",
+        "abstract": "",
+        "doi": null
+    },
+    "doc_id": "pdf-data/arxiv",
+    "chunk": {
+        "index": 38,
+        "start": 38000,
+        "end": 39200,
+        "num_chars": 1200,
+        "text": "data. In the region of small Ay < 7/2, the fixed-order and the resummed predictions are the same, a result of our matching of the resummed and fixed-order distributions at mid to high values of Qr. Although the cross section is not large in the region Ay < 7/2, there is an indication of a difference between our predictions and data in this region, a topic we address below. It is evident from Fig. 3 that the \u2206\u03d5 < \u03c0/2 region is populated mostly by events with QT > Q. New types of radiative ontributions may be present in this region, inluding various fragmentation ontributions desribed in Se. II C and enhanements at large | cos\u03b8\u2217| in the While experimental isolation generally suppresses long-distance fragmentation, a greater traction of fragmentation photons are expected to survive isolation when Ay < 7/2. Besides single-photon \u2018one-fragmentation\u2019 and \u2018two-fragmentation\u2019 contributions (with one photon er fragmenting parton), one encounters additional logarithmic singularities of the form og(Q/Qr). We noted in Sec. [1 Clthat these logarithms are associated with the fragmentation of a parton carrying large transverse momentum Q, into a system of small invariant mass Q (27, , alight yy p"
+    }
+}

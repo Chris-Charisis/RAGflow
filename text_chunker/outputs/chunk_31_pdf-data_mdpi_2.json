@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "mdpi_2.pdf",
+        "etag": "e2052416ec26026a2e2ba8f2fad9b22e"
+    },
+    "metadata": {
+        "title": "Affordable Small Molecules as Promising Fluorescent Labelsfor Biomolecules",
+        "authors": "Raquel Eust\u00e1quio, Jo\u00e3o P. Prates Ramalho, S\u00edlvia Arantes, Ant\u00f3nio Candeias, Ana Teresa Caldeira and Ant\u00f3nio Pereira",
+        "keywords": "fluorescent labels; 4-diethylaminobenzaldehyde derivatives; biomolecules; RNA-FISH probes",
+        "abstract": "Fluorescent labels, commonly used in highly sensitive analytical techniques for detecting and tracking biomolecules in critical fields like cellular biology, medicine, medicinal chemistry, and environmental science, are currently too expensive for routine use in standard applications, with most exhibiting small Stokes shifts. This limitation underscores the potential of 4-diethylaminobenzaldehyde derivatives as a cost-effective alternative for developing new, bright fluorophores with larger Stokes shifts. In this work, using 4-diethylaminobenzaldehyde as starting material, we developed a simple, cost-effective, and efficient synthetic strategy to produce new affordable small molecules as effective fluorescent labels for biomolecules. Density functional theory and time-dependent density functional theory calculations were also conducted to gain insights into the observed photophysical properties.",
+        "doi": "10.3390/molecules29225237"
+    },
+    "doc_id": "pdf-data/mdpi_2",
+    "chunk": {
+        "index": 31,
+        "start": 31000,
+        "end": 32200,
+        "num_chars": 1200,
+        "text": "9), 2.24 (2H, t, J = 7.2, H-12), 3.47 (4H q, J = 7.1, N(CH2CH3)2), 4.39 (2H, t, J = 7.4, H-8), 6.74 (2H, d, J17,16 = 9.0, H-17, H-19), 7.03 (1H, d, J7,14 = 15.9, H-7), 7.58 (2H, d, J16,17 = 9.0, H-16, H-20), 7.80 (1H, d, J14,7 = 15.9, H-14), 7.94 (2H, d, J3,2 = 6.9, H-3, H-5), 8.55 (2H, d, J2,3 = 6.9, H-2, H-6). 13C NMR (100 MHz, CD3OD, \u03b4, ppm): 12.9 (C-22, C-24), 26.0 (C-11), 26.8 (C-10), 31.9 (C-9), 36.8 (C-12), 45.5 (C-21, C-23), 60.9 (C-8), 112.6 (C-17, C-19), 117.1 (C-7), 123.4 (C-15), 123.6 (C-3, C-5), 132.0 (C-16, C-20), 144.4 (C-2, C-6), 144.4 (C-14), 151.5 (C-18), 156.3 (C-4), 180.2 (COOH). UV \u03bbmax (nm, CH3CN): 273, 490. \u03b5 (cm\u22121\u00b7M\u22121): 64,000. \u03a6 F = 0.30. A mixture of compound 6 (188 mg, 0.420 mmol, 1.0 eq), DCC (104 mg, 0.504 mmol, 1.2 eq), and DMAP (5 mg, 0.042 mmol, 0.1 eq) in dry DMF (2 mL) and dry acetonitrile (8 mL) was stirred at room temperature for 5 min. After this time, N-hydroxysuccinimide (58 mg, 0.504 mmol, 1.2 eq) was added, and the reaction was stirred at room temper- ature for an additional 6 h. The progress of the reaction was monitored by TLC us- ing CHCl3/CH3OH/H2O (65:20:2) as the eluent. Following evaporation to dryness, the residue was purified by fla"
+    }
+}

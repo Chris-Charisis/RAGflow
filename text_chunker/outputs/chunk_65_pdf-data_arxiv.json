@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "arxiv.pdf",
+        "etag": "870920e84617d15f5be7ceddb080ee6d"
+    },
+    "metadata": {
+        "title": null,
+        "authors": "",
+        "keywords": "",
+        "abstract": "",
+        "doi": null
+    },
+    "doc_id": "pdf-data/arxiv",
+    "chunk": {
+        "index": 65,
+        "start": 65000,
+        "end": 65933,
+        "num_chars": 933,
+        "text": " \u201ccanonical\u201d combination C,; = cy and Cy = 1. Here co = 2e77 & 1.123, where yg = 0.5772... is the Euler constant. The relationships between F\u2122 and F\\9 take the form They depend on the QCD beta-function coefficients 69 = (11N. \u2014 2N\u00a2)/6, 6: = (17N? \u2014 5N.N; \u2014 3CrNy)/6 for N. colors and Ny active quark flavors, with Cr = (N? \u2014 1)/(2N.) = 4/3 for N. = 3. The relevant O(a,) splitting functions P,/q, (x) are where \u03b4s = 0 in the CSS sheme and \u03b4s = 1 in the CFG sheme. The funtions Vq(\u03b8\u2217) for q\u00afq \u03b3\u03b3 sattering and Vg(\u03b8\u2217) for gg \u03b3\u03b3 sattering are derived in Refs. [12\u2104 and [13\u2104, \u2192 \u2192 Expressions are listed in or the coefficients AY, BS, ho (6,.), co (x), and splitting functions Paje(2), Appendix [A] Summation over all relevant parton flavors a\u2019 = g,u,w,d, d,... for a = q and a\u2019 = g,qs for a = g is assumed. In addition, the y.-dependent part 2 (Os Px) EG function Q,y.Qr) of the gg + gqs asymptotic cross section A,, contains a splitting"
+    }
+}

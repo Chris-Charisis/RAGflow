@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "mdpi.pdf",
+        "etag": "17f1dd801c005a1237c7c42b9a9feada"
+    },
+    "metadata": {
+        "title": "Monitoring Mushroom Growth with Machine Learning",
+        "authors": "Vasileios Moysiadis, Georgios Kokkonis, Stamatia Bibi, Ioannis Moscholios, Nikolaos Maropoulos, Panagiotis Sarigiannidis",
+        "keywords": "mushroom; YOLOv5; Detectron2; machine learning; object detection; instance segmentation",
+        "abstract": "Mushrooms contain valuable nutrients, proteins, minerals, and vitamins, and it is suggested to include them in our diet. Many farmers grow mushrooms in restricted environments with specific atmospheric parameters in greenhouses. In addition, recent technologies of the Internet of things intend to give solutions in the agriculture area. In this paper, we evaluate the effectiveness of machine learning for mushroom growth monitoring for the genus Pleurotus. We use YOLOv5 to detect mushrooms' growing stage and indicate those ready to harvest. The results show that it can detect mushrooms in the greenhouse with an F1-score of up to 76.5%. The classification in the final stage of mushroom growth gives an accuracy of up to 70%, which is acceptable considering the complexity of the photos used. In addition, we propose a method for mushroom growth monitoring based on Detectron2. Our method shows that the average growth period of the mushrooms is 5.22 days. Moreover, our method is also adequate to indicate the harvesting day. The evaluation results show that it could improve the time to harvest for 14.04% of the mushrooms.",
+        "doi": "10.3390/agriculture13010223"
+    },
+    "doc_id": "pdf-data/mdpi",
+    "chunk": {
+        "index": 11,
+        "start": 11000,
+        "end": 12200,
+        "num_chars": 1200,
+        "text": ". Furthermore, Detectron2 is also an instance segmentation algorithm able to return a corresponding mask that de\ufb01nes the area of the object. YOLOv5 [25] comes from You Only Look Once and claims to be one of the fastest object detection algorithms. In fact, it is one of the best-known object detection algorithms due to its speed and accuracy. It is divided into three components, namely, a backbone, neck and head, as all single-stage detectors. In particular, the \ufb01rst component contains a backbone network that extracts rich feature representations from images. The second component consists of the model neck responsible for extracting feature pyramids that help to recognise objects of different sizes and scales. The \ufb01nal component is the model head that applies anchor boxes on feature maps. In addition, it is responsible for rendering the predicted class, the scores of the predicted objects, and the bounding boxes. Detectron2 [23] is considered state-of-the-art in instance segmentation. It is the succes- sor of Mask RCNN [30], which is built on top of Faster RCNN. Thus, apart from providing The architecture of Mask RCNN is divided into three stages. In the \ufb01rst stage, a regional propo"
+    }
+}

@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "arxiv.pdf",
+        "etag": "870920e84617d15f5be7ceddb080ee6d"
+    },
+    "metadata": {
+        "title": null,
+        "authors": "",
+        "keywords": "",
+        "abstract": "",
+        "doi": null
+    },
+    "doc_id": "pdf-data/arxiv",
+    "chunk": {
+        "index": 33,
+        "start": 33000,
+        "end": 34200,
+        "num_chars": 1200,
+        "text": " CDF publication, along with AR = 0.4, and AR,, = 0.3. used by the Fermilab D\u00d8 Collaboration [35\u2104: p\u03b3 T > p\u03b3 T min = 21 (20) GeV for the harder T /E\u03b3 < 1.1, and Eiso y\u03b3 T = 0.07 for eah photon, for the same \u2206R and \u2206R\u03b3\u03b3 | (softer) photon, | mass Q, transverse momentum QT , rapidity separation | ysoft|, and azimuthal yhard \u2212 \u2206y | \u2261 | separation \u2206\u03d5 \u03d5soft| (with 0 \u03d5hard \u2212 \u03c0) between the harder and softer photon \u2206\u03d5 \u2261 | \u2264 \u2264 in the lab frame, as well as the osine of the polar angle \u03b8\u2217 in the Collins-Soper frame. It Q. Events with The p}. cuts suppress the mass region Q < 2\\/p}i inPrimin \u00a9 27 GeV at Ay & m and Qr S 25 GeV at Ay & 0, leading to the appearance of a kinematic cutoff in the invariant mass distribution and a \u201cshoulder\u201d in the transverse momentum distribution, as shown in later sections. Our theoretical framework is applicable in the region Qr < Q (large Ay), where the dominant fraction of events occurs. The appearance of singularities in the NLO calculation at Qr \u2014 0 and the fact that there are two different hard scales, Qr and Q, relevant for the event distributions in the low-Qr region require that we address and resum large logarithmic terms of the form log(Q/Qr). Different "
+    }
+}

@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "arxiv.pdf",
+        "etag": "870920e84617d15f5be7ceddb080ee6d"
+    },
+    "metadata": {
+        "title": null,
+        "authors": "",
+        "keywords": "",
+        "abstract": "",
+        "doi": null
+    },
+    "doc_id": "pdf-data/arxiv",
+    "chunk": {
+        "index": 16,
+        "start": 16000,
+        "end": 17200,
+        "num_chars": 1200,
+        "text": "the ratio CA/CF = 9/4. This hoie is motivated by the fat that the lead- (k) in the gg and q\u00afq hannels are proportional to CA = 3 and a ing Sudakov olor fators A CF = 4/3, respetively. The unertainties in the \u03b3\u03b3 ross setions assoiated with FNP(Q,b) In the region Qr ~ Q, collinear QCD factorization at a finite fixed order in a, is ap- plicable. In order to include non-singular contributions important in this region, we add to W(Q, Qr, y, Q.) the regular piece Y (Q, Qr, y, Q.), defined as the difference between the NLO cross section P(Q, Qr,y,Q.) and its small-Qr asymptotic approximation A(Q, Qr, y, Q.): At small Qr, subtraction of A(Q, Qr,y,Q.) in Eq. (\u00a39) cancels large initial-state radia- tive corrections in P(Q,Qr,y,Q.), which are incorporated in their resummed form within W(Q, Qr,y,Q2.). At Qr comparable to Q, A(Q,Qr,y,Q.) cancels the leading terms in W(Q, Qr,y,Q.), but higher-order contributions remain from the infinite tower of logarith- mic terms that are resummed in W. In this situation the W + Y cross section drops below the finite-order result P(Q, Qr, y,Q.) at some value of Qr (referred to as the crossing point) in both the gq+qg and gg+ gqs channels, for each Q and y. We "
+    }
+}

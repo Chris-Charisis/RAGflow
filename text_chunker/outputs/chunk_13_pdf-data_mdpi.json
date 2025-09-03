@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "mdpi.pdf",
+        "etag": "17f1dd801c005a1237c7c42b9a9feada"
+    },
+    "metadata": {
+        "title": "Monitoring Mushroom Growth with Machine Learning",
+        "authors": "Vasileios Moysiadis, Georgios Kokkonis, Stamatia Bibi, Ioannis Moscholios, Nikolaos Maropoulos, Panagiotis Sarigiannidis",
+        "keywords": "mushroom; YOLOv5; Detectron2; machine learning; object detection; instance segmentation",
+        "abstract": "Mushrooms contain valuable nutrients, proteins, minerals, and vitamins, and it is suggested to include them in our diet. Many farmers grow mushrooms in restricted environments with specific atmospheric parameters in greenhouses. In addition, recent technologies of the Internet of things intend to give solutions in the agriculture area. In this paper, we evaluate the effectiveness of machine learning for mushroom growth monitoring for the genus Pleurotus. We use YOLOv5 to detect mushrooms' growing stage and indicate those ready to harvest. The results show that it can detect mushrooms in the greenhouse with an F1-score of up to 76.5%. The classification in the final stage of mushroom growth gives an accuracy of up to 70%, which is acceptable considering the complexity of the photos used. In addition, we propose a method for mushroom growth monitoring based on Detectron2. Our method shows that the average growth period of the mushrooms is 5.22 days. Moreover, our method is also adequate to indicate the harvesting day. The evaluation results show that it could improve the time to harvest for 14.04% of the mushrooms.",
+        "doi": "10.3390/agriculture13010223"
+    },
+    "doc_id": "pdf-data/mdpi",
+    "chunk": {
+        "index": 13,
+        "start": 13000,
+        "end": 14200,
+        "num_chars": 1200,
+        "text": "tecture we used for mushroom growth monitoring. Data collection took place in a greenhouse near the city of Grevena, Greece. We collected multiple images in a greenhouse, each containing one or multiple mushrooms. We captured only images that had mushrooms mainly in the foreground and not in the background because they reduced the detection accuracy. Finally, we obtained 1128 images with one or more mushrooms. We annotated them into three different classes (Stage1, Stage2, Stage3) depending on the growing stage. In more detail, the \ufb01rst stage corresponded to the \ufb01rst days of appearance, when mushrooms were too small and they had just started to form their shape. The second class corresponded to mushrooms that had already formed their shape and continued to grow. Some of them were obviously small, while others were big enough but not ready to harvest. The third class contained mushrooms that were ready to harvest, which could be manually indicated from two parameters. More speci\ufb01cally, when the edges of their caps started to become \ufb02at or slightly uprolled, it was an indication of their \ufb01nal stage of growth [31]. Figure 1 shows some examples of mushrooms belonging to the three diffe"
+    }
+}

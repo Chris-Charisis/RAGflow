@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "arxiv.pdf",
+        "etag": "870920e84617d15f5be7ceddb080ee6d"
+    },
+    "metadata": {
+        "title": null,
+        "authors": "",
+        "keywords": "",
+        "abstract": "",
+        "doi": null
+    },
+    "doc_id": "pdf-data/arxiv",
+    "chunk": {
+        "index": 18,
+        "start": 18000,
+        "end": 19200,
+        "num_chars": 1200,
+        "text": "e CSS resummation scheme (ul), our default choice in numerical calculations, and in an alternative scheme by Catani, de Florian and Grazzini (CFG) j2il]. In the original CSS resummation scheme, the B and C functions contain the finite virtual NLO corrections to the 2 \u2014 2 scattering process, whereas in the CFG scheme the universal 6 and C depend only on the type of incident artons, and the process-dependent virtual correction is included in the function h,. The difference between the CSS and CFG schemes is numerically small in yy production at both he Tevatron and the LHC i3). In the gg + gqs scattering channel, the unpolarized resummed cross section includes an additional contribution from_elements of ky-dependent PDF spin matrices with opposite helicities of outgoing gluons [3]. The NLO expansion of this spin-flip resummed cross section generates the term proportional to Ly (Oe; Px) x cos 2y, in the small-Qr asymptotic cross section, cf. Eq. (14). Although the logarithmic spin-flip contribution must be resummed in rinciple to all orders to predict the y, dependence in the gg + gqg channel, it is neglected in the present work in view of its small effect on the full yy cross section"
+    }
+}

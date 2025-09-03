@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "mdpi_2.pdf",
+        "etag": "e2052416ec26026a2e2ba8f2fad9b22e"
+    },
+    "metadata": {
+        "title": "Affordable Small Molecules as Promising Fluorescent Labelsfor Biomolecules",
+        "authors": "Raquel Eust\u00e1quio, Jo\u00e3o P. Prates Ramalho, S\u00edlvia Arantes, Ant\u00f3nio Candeias, Ana Teresa Caldeira and Ant\u00f3nio Pereira",
+        "keywords": "fluorescent labels; 4-diethylaminobenzaldehyde derivatives; biomolecules; RNA-FISH probes",
+        "abstract": "Fluorescent labels, commonly used in highly sensitive analytical techniques for detecting and tracking biomolecules in critical fields like cellular biology, medicine, medicinal chemistry, and environmental science, are currently too expensive for routine use in standard applications, with most exhibiting small Stokes shifts. This limitation underscores the potential of 4-diethylaminobenzaldehyde derivatives as a cost-effective alternative for developing new, bright fluorophores with larger Stokes shifts. In this work, using 4-diethylaminobenzaldehyde as starting material, we developed a simple, cost-effective, and efficient synthetic strategy to produce new affordable small molecules as effective fluorescent labels for biomolecules. Density functional theory and time-dependent density functional theory calculations were also conducted to gain insights into the observed photophysical properties.",
+        "doi": "10.3390/molecules29225237"
+    },
+    "doc_id": "pdf-data/mdpi_2",
+    "chunk": {
+        "index": 24,
+        "start": 24000,
+        "end": 25200,
+        "num_chars": 1200,
+        "text": "sion spectra were collected using a slit bandwidth of 5.0 nm for both excitation and emission, along with correction files. Spectroscopic measurements were conducted in 3 mL quartz fluorescence cuvettes with a 1 cm optical path length at a temperature of 21 \u25e6C. Nuclear magnetic resonance (NMR) spectra were recorded at 400 MHz for 1H NMR and 100 MHz for 13C NMR using a Bruker Advance III spectrometer (Billerica, MA, USA). Deuterated methanol (CD3OD) was employed as the solvent. Chemical shifts (\u03b4) are reported in parts per million (ppm), coupling constants (J) are expressed in Hertz (Hz), and relative intensities are indicated by the number of protons (H). Multiplicities are denoted as singlet (s), doublet (d), double-doublet (dd), triplet (t), quadruplet (q), and multiplet (m). FTMS-ESI mass spectra were recorded using a Thermo Scientific Q Exactive Orbitrap Mass Spectrometer (Waltham, MA, USA). A mixture of 2,3,3-trimethyl-3H-indole (500 mg, 3.14 mmol, 1.0 eq) and 6-bromohexanoic acid (919 mg, 4.71 mmol, 1.5 eq) in dry DMF (10 mL) was stirred at 100 \u25e6C for a period of 24 h. The reaction was continuously monitored by TLC, using CHCl3/CH3OH (8:2) as the eluent. The reaction mixture "
+    }
+}

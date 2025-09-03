@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "arxiv.pdf",
+        "etag": "870920e84617d15f5be7ceddb080ee6d"
+    },
+    "metadata": {
+        "title": null,
+        "authors": "",
+        "keywords": "",
+        "abstract": "",
+        "doi": null
+    },
+    "doc_id": "pdf-data/arxiv",
+    "chunk": {
+        "index": 32,
+        "start": 32000,
+        "end": 33200,
+        "num_chars": 1200,
+        "text": "e electroweak and strong interaction parameters [33 The following choices of the factorization constants are used: C, = C3 = 2e\u00b078 & 1.123..., and Cy = Cy, = 1. The choice Cy = 1 implies that we equate the renormalization and factorization scales to the invariant mass of the photon pair, 4p = yr = Q, in the fixed- order and asymptotic contributions P(Q, Qr,y,Q.) and A(Q, Qr,y, 2.4). We use two-loop expressions for the running electromagnetic and strong couplings a(j:) and ag(j), as well as the NLO parton distribution function set CTEQ6M with Qing = 1.3 GeV. For calculations with explicit final-state fragmentation functions included, we use set 1 of the NLO photon fragmentation functions from Ref. . In this setion, we present our results for the Tevatron p\u00afp ollider operating at \u221aS = 1.96 TeV. In order to ompare with the data from the Collider Detetor at Fermilab (CDF) We impose isolation conditions described in Section assuming the nominal isolation energy Ei8? = 1 GeV specified in the CDF publication, along with AR = 0.4, and AR,, = 0.3. used by the Fermilab D\u00d8 Collaboration [35\u2104: p\u03b3 T > p\u03b3 T min = 21 (20) GeV for the harder T /E\u03b3 < 1.1, and Eiso y\u03b3 T = 0.07 for eah photon, for th"
+    }
+}

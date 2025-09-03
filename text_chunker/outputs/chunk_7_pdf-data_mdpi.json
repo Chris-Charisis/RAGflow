@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "mdpi.pdf",
+        "etag": "17f1dd801c005a1237c7c42b9a9feada"
+    },
+    "metadata": {
+        "title": "Monitoring Mushroom Growth with Machine Learning",
+        "authors": "Vasileios Moysiadis, Georgios Kokkonis, Stamatia Bibi, Ioannis Moscholios, Nikolaos Maropoulos, Panagiotis Sarigiannidis",
+        "keywords": "mushroom; YOLOv5; Detectron2; machine learning; object detection; instance segmentation",
+        "abstract": "Mushrooms contain valuable nutrients, proteins, minerals, and vitamins, and it is suggested to include them in our diet. Many farmers grow mushrooms in restricted environments with specific atmospheric parameters in greenhouses. In addition, recent technologies of the Internet of things intend to give solutions in the agriculture area. In this paper, we evaluate the effectiveness of machine learning for mushroom growth monitoring for the genus Pleurotus. We use YOLOv5 to detect mushrooms' growing stage and indicate those ready to harvest. The results show that it can detect mushrooms in the greenhouse with an F1-score of up to 76.5%. The classification in the final stage of mushroom growth gives an accuracy of up to 70%, which is acceptable considering the complexity of the photos used. In addition, we propose a method for mushroom growth monitoring based on Detectron2. Our method shows that the average growth period of the mushrooms is 5.22 days. Moreover, our method is also adequate to indicate the harvesting day. The evaluation results show that it could improve the time to harvest for 14.04% of the mushrooms.",
+        "doi": "10.3390/agriculture13010223"
+    },
+    "doc_id": "pdf-data/mdpi",
+    "chunk": {
+        "index": 7,
+        "start": 7000,
+        "end": 8200,
+        "num_chars": 1200,
+        "text": "ing time for 14.04% of the mushrooms. Our work could be a valuable method for mushroom detection on greenhouses with practical applications. For example, it could be used for yield prediction, where ground cameras can observe the greenhouse and predict the yield a few days before the mushrooms are ready to harvest. Another possible application could be on robotics mechanisms that can detect the exact crown of the mushrooms in order to harvest them with no damage. This work is part of our decision support system described in our previous work [28], where we presented a system architecture that covered mushroom cultivation in a greenhouse and the aggregation of useful information for wild mushroom hunting. The rest of this paper is as follows. In Section 2, we give the most relevant research efforts for mushroom detection using machine learning or image processing. Section 3 brie\ufb02y discusses the basic concepts of object detection and instance segmentation and provides the essential features of YOLOv5 and Detectron2. Section 4 analyses the method- ology we follow in this research. Next, Section 5 presents the evaluation results between different con\ufb01gurations of YOLOv5 and its effecti"
+    }
+}

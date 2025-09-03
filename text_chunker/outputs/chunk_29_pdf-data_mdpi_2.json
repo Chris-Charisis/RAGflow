@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "mdpi_2.pdf",
+        "etag": "e2052416ec26026a2e2ba8f2fad9b22e"
+    },
+    "metadata": {
+        "title": "Affordable Small Molecules as Promising Fluorescent Labelsfor Biomolecules",
+        "authors": "Raquel Eust\u00e1quio, Jo\u00e3o P. Prates Ramalho, S\u00edlvia Arantes, Ant\u00f3nio Candeias, Ana Teresa Caldeira and Ant\u00f3nio Pereira",
+        "keywords": "fluorescent labels; 4-diethylaminobenzaldehyde derivatives; biomolecules; RNA-FISH probes",
+        "abstract": "Fluorescent labels, commonly used in highly sensitive analytical techniques for detecting and tracking biomolecules in critical fields like cellular biology, medicine, medicinal chemistry, and environmental science, are currently too expensive for routine use in standard applications, with most exhibiting small Stokes shifts. This limitation underscores the potential of 4-diethylaminobenzaldehyde derivatives as a cost-effective alternative for developing new, bright fluorophores with larger Stokes shifts. In this work, using 4-diethylaminobenzaldehyde as starting material, we developed a simple, cost-effective, and efficient synthetic strategy to produce new affordable small molecules as effective fluorescent labels for biomolecules. Density functional theory and time-dependent density functional theory calculations were also conducted to gain insights into the observed photophysical properties.",
+        "doi": "10.3390/molecules29225237"
+    },
+    "doc_id": "pdf-data/mdpi_2",
+    "chunk": {
+        "index": 29,
+        "start": 29000,
+        "end": 30200,
+        "num_chars": 1200,
+        "text": " C-26), 46.2 (C-11), 52.4 (C-3), 104.7 (C-10), 113.5 (C-20, C-22), 114.3 (C-7), 123.6 (C-18), 123.8 (C-4), 128.8 (C-5), 130.2 (C-6), 135.8 (C-19, C-23), 142.6 (C-7a), 143.9 (C-3a), 155.0 (C-21), 156.4 (C-17), 170.2 (C-16), 171.8 (C-28, C-31). FTMS(+) calc. for C32H40O4N3 [M+H]+ 530.3013 found 530.3012. UV \u03bbmax (nm, CH3CN): 280, 556. \u03b5 (cm\u22121\u00b7M\u22121): 90,000. \u03a6 F = 0.57. A mixture of 4-methylpyridine (500 mg, 5.37 mmol, 1.0 eq) and 6-bromohexanoic acid (1.6 g, 8.05 mmol, 1.5 eq) in dry DMF (10 mL) was stirred at 100 \u25e6C for a period of 2 h and 30min. The reaction was monitored continuously by TLC using CHCl3/CH3OH (8:2) as the eluent. After evaporation to dryness, the residue was purified by flash chromatography, with CHCl3, CHCl3/CH3OH (9:1) and CHCl3/CH3OH (8:2) as eluents, to yield 1-(5- carboxypentyl)-4-methylpyridin-1-ium bromide as a white solid (1.3 g, 84%). 1H NMR (400 MHz, CD3OD, \u03b4, ppm): 1.38\u20131.46 (2H, m, H-10), 1.64\u20131.71 (2H, m, H-11), 1.99\u20132.07 (2H, m, H-9), 2.32 (2H, t, J = 7.2, H-12), 2.69 (3H, s, H-7), 4.61 (2H, t, J = 7.4, H-8), 7.95 (2H, d, J3,2 = 6.9, H-3, H-5), 8.85 (2H, d, J2,3 = 6.9, H-2, H-6). 13C NMR (100 MHz, CD3OD, \u03b4, ppm): 22.0 (C-7), 25.2 (C-11), 26.5 (C-10), 3"
+    }
+}

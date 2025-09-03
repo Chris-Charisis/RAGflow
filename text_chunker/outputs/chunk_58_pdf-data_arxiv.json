@@ -1,0 +1,23 @@
+{
+    "schema": 1,
+    "source": {
+        "bucket": "pdf-data",
+        "object": "arxiv.pdf",
+        "etag": "870920e84617d15f5be7ceddb080ee6d"
+    },
+    "metadata": {
+        "title": null,
+        "authors": "",
+        "keywords": "",
+        "abstract": "",
+        "doi": null
+    },
+    "doc_id": "pdf-data/arxiv",
+    "chunk": {
+        "index": 58,
+        "start": 58000,
+        "end": 59200,
+        "num_chars": 1200,
+        "text": "ed on an event by event basis. This distribution is displayed in the lower- left frame of Fig. The background distribution peaks at the origin, while the signal is almost flat over a wide range of Ay. Different spin correlations in the decay of a spin-0 Higgs boson from those characteristic of QCD background processes are the source of this distinction. Discrimination based on this difference can improve the statistical significance of the signal . We note that our resummed calculation does not exhibit the kinematic singularity at Ay ~ 2 present in the finite-order cross section and obvious in Fig. 10 of Ref. iid), where the distribution with respect to y* = Ay/2 is shown. The discontinuity in da /dQr caused by the finite-order approximation is resummed in our calculation, yielding a smooth result. A omparison of QT distributions in the top-left panel of Fig. 15 suggests that the signal versus bakground ratio would be enhaned if a ut is made to restrit QT > 10 GeV. QT , \u03d5\u2217, and cos\u03b8\u2217 distributions are good disriminators between the Higgs boson signal and The theoretial study of ontinuum diphoton prodution in hadron ollisions is interesting diphotons are a large standard-model bakgr"
+    }
+}
