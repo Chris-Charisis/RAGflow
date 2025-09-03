@@ -67,17 +67,32 @@ def extract_text_from_pdf(path):
     # Define a function to filter out major section headers and narrative text
     SECTION_NAMES = {
         "abstract", "introduction", "background", "related work",
-        "materials and methods", "methods", "methodology",
+        "materials and methods", "theory", "methods", "methodology",
         "experiments", "results", "results and discussion",
         "discussion", "conclusion", "conclusions",
         "acknowledgments", "references", "experimental section"
     }
 
-    # Strip leading numbers from section titles such as “4.3. Results” or “1. Introduction”
-    def is_major_header(text: str) -> bool:
-        clean = re.sub(r"^\d+(?:\.\d+)*\.?\s*", "", text).strip().lower()
-        return clean
+    # Precompile once
+    SECTION_NUM_PREFIX = re.compile(
+        r"""^
+            \s*
+            (?:                     # numbering alternatives:
+            \(?\d+(?:\.\d+)*     # 1  or 1.2.3   (optional opening '(')
+            |                     # OR
+            \(?[ivxlcdm]+(?:\.[ivxlcdm]+)*  # I  or IV or III      (roman)
+            )
+            \)?                     # optional closing ')'
+            [\.\)]?                 # optional trailing '.' or ')'
+            \s*                     # spaces after numbering
+        """,
+        flags=re.IGNORECASE | re.VERBOSE,
+    )
 
+    # Strip leading numbers from section titles such as “4.3. Results” or “1. Introduction”
+    def is_major_header(text: str) -> str:
+        clean = SECTION_NUM_PREFIX.sub("", text).strip().lower()
+        return clean
 
     filtered = []
     for el in elts:
@@ -150,10 +165,15 @@ def process_object(obj, client: Minio, bucket: str, channel: BlockingChannel, ex
             }
             payload.update(processed_pdf_info)
 
+            with open(f"./pdf_reader/outputs/{payload["source"]["object"]}_processed.json", "w") as f:
+                json.dump(payload, f, indent=4)
+
             publish(channel, exchange, routing_key, payload)
 
             logging.info("Published %s", obj.object_name)
-
+        
+        except Exception:
+            logging.exception("FATAL: consumer crashed")
         except (
             AMQPConnectionError,
             ChannelClosedByBroker,

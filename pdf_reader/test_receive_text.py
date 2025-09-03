@@ -2,7 +2,7 @@ import sys, os, json
 import pika
 
 def main():
-    credentials = pika.PlainCredentials("user", "password")
+    credentials = pika.PlainCredentials("guest", "guest")
     parameters = pika.ConnectionParameters(host='localhost', credentials=credentials)
     connection = pika.BlockingConnection(parameters=parameters)
     channel = connection.channel()

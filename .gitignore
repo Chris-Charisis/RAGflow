@@ -193,5 +193,5 @@ cython_debug/
 .cursorignore
 .cursorindexingignore
 
-poetry.lock
-*.toml
+# poetry.lock
+# *.toml
