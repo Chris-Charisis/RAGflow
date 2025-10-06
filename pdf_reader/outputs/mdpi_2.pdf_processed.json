@@ -1,5 +1,6 @@
 {
     "schema": 1,
+    "event": "ingest",
     "source": {
         "bucket": "pdf-data",
         "object": "mdpi_2.pdf",

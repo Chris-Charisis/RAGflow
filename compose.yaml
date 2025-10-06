@@ -13,7 +13,13 @@ services:
       - minio_data:/data
     networks:
       - app
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/ready"]
+      interval: 5s
+      timeout: 3s
+      retries: 10      
     command: server /data --console-address ":9001"
+    
 
   rabbitmq:
     image: rabbitmq:4.1.0-management-alpine
@@ -22,12 +28,29 @@ services:
     ports:
       - 5672:5672
       - 15672:15672
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 10      
     env_file:
       - .env
     volumes:
       - rabbitmq_data:/var/lib/rabbitmq
     networks:
       - app
+
+  pdf_reader:
+    image: pdf_reader:1.0
+    env_file:
+      - .env
+    depends_on:
+      minio:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+    networks:
+      - app         
 
   # postgres:
   #   image: postgres:17.5-alpine
