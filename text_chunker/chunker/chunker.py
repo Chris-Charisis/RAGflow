@@ -29,7 +29,7 @@ class Chunker:
         if not text:
             return []
 
-        chunks = self._dispatch(text)
+        chunks = self.strategy_dispatch(text)
         did = self._doc_id(payload)
 
         base = {
@@ -41,7 +41,7 @@ class Chunker:
         return [{**base, "chunk": ch} for ch in chunks]
 
     # ---------- Strategy dispatch ----------
-    def _dispatch(self, text: str) -> List[Dict[str, Any]]:
+    def strategy_dispatch(self, text: str) -> List[Dict[str, Any]]:
         if self.strategy == "sliding":
             return self.sliding(text, self.size, self.overlap)
         elif self.strategy == "sentence":

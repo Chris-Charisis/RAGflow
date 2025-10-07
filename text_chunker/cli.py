@@ -3,10 +3,12 @@ from datetime import datetime
 from functools import partial
 from dotenv import load_dotenv
 load_dotenv()
-import pika
 from .settings import settings
 from .chunker import Chunker
 from .clients.rabbitmq_client import init_rabbitmq
+from .helpers import (
+    process_message,
+)
 
 # Configure a JSON‑friendly stream handler using the log level retrieved from Settings.
 # Kept in its own function so tests can call it without executing the rest of the CLI logic.
@@ -18,50 +20,9 @@ def init_logging():
         force=True,
     )
 
-def _publish_chunk(channel, exchange, routing_key, msg: dict):
-    channel.basic_publish(
-        exchange=exchange,
-        routing_key=routing_key,
-        mandatory=True,
-        body=json.dumps(msg),
-        properties=pika.BasicProperties(
-            content_type="application/json",
-            delivery_mode=pika.DeliveryMode.Persistent,
-        ),
-    )
-
-def process_message(channel, method, properties, body, *, chunker):
-    # Read message and acknowledge it
-    try:
-        payload = json.loads(body)
-    except Exception as e:
-        logging.error("Invalid JSON on input: %s", e)
-        channel.basic_ack(delivery_tag=method.delivery_tag)
-        return
-
-    try:
-        # Produce chunks based on the selected strategy
-        out_msgs = chunker.chunk_payload(payload)
-        if not out_msgs:
-            logging.warning("No chunks produced; acking message")
-            channel.basic_ack(delivery_tag=method.delivery_tag)
-            return
-
-        # Publish the chunks to RabbitMQ
-        for m in out_msgs:
-            _publish_chunk(
-                channel,
-                exchange=settings.output_exchange,
-                routing_key=settings.output_routing_key,
-                msg=m,
-            )
-        logging.info("Published %d chunk(s)", len(out_msgs))
-        channel.basic_ack(delivery_tag=method.delivery_tag)
-    except Exception:
-        logging.exception("Processing failed; nacking without requeue")
-        channel.basic_nack(delivery_tag=method.delivery_tag, requeue=False)
 
 def main()-> None:
+    init_logging()
     parser = argparse.ArgumentParser()
     parser.add_argument("--strategy", choices=["sliding", "sentence", "recursive"], help="Chunking strategy")
     parser.add_argument("--size", type=int, help="Chunk size (chars)")
@@ -69,8 +30,7 @@ def main()-> None:
     parser.add_argument("--prefetch", type=int, help="Consumer prefetch")
     args = parser.parse_args()
 
-    init_logging()
-
+    logging.info("Initializing Chunker...")
     # Build one Chunker instance for the whole process
     chunker = Chunker(
         strategy=args.strategy or settings.chunk_strategy,
@@ -78,6 +38,7 @@ def main()-> None:
         overlap=args.overlap or settings.chunk_overlap,
     )
 
+    logging.info("Initializing RabbitMQ client...")
     try:
         # Establish RabbitMQ connection
         connection, channel = init_rabbitmq(settings)

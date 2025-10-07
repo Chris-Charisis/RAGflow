@@ -40,7 +40,7 @@ def main()-> None:
 
     # routing_key = args.routing_key or settings.rabbitmq_routing_key
 
-    logging.info("Initializing clients...")
+    logging.info("Initializing MinIO and RabbitMQ clients...")
     try:
         client = init_minio(settings)
     except Exception as e:

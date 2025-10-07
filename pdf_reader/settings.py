@@ -17,14 +17,14 @@ class Settings(BaseSettings):
     rabbitmq_port: int = Field(5672, env="RABBITMQ_PORT")
     rabbitmq_vhost: str = Field("/", env="RABBITMQ_VHOST")    
     rabbitmq_exchange: str = Field("events", env="RABBITMQ_EXCHANGE")
-    rabbitmq_queue: str | None = Field(None, env="RABBITMQ_QUEUE")
+    rabbitmq_queue: str = Field("text", env="RABBITMQ_QUEUE")
     rabbitmq_routing_key: str = Field("text", env="RABBITMQ_ROUTING_KEY")
     rabbitmq_user: str = Field(..., env="RABBITMQ_USER")
     rabbitmq_password: str = Field(..., env="RABBITMQ_PASSWORD")
 
     # RabbitMQ for 'deletion' events (separate topic/queue)
     rabbitmq_delete_exchange: str = Field("events", env="RABBITMQ_DELETE_EXCHANGE")
-    rabbitmq_delete_queue: str | None = Field(None, env="RABBITMQ_DELETE_QUEUE")
+    rabbitmq_delete_queue: str = Field("deletions", env="RABBITMQ_DELETE_QUEUE")
     rabbitmq_delete_routing_key: str = Field("deletions", env="RABBITMQ_DELETE_ROUTING_KEY")
 
     # General settings
