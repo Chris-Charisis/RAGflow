@@ -15,13 +15,13 @@ def init_rabbitmq(cfg: Settings):
     connection = pika.BlockingConnection(parameters=parameters)
     channel = connection.channel()
 
-    # Declare primary exchange/queue for processed 'ingest' events
+    # Declare primary exchange/queue for processed 'text' events
     channel.exchange_declare(exchange=cfg.rabbitmq_exchange, exchange_type="topic", durable=True)
     if cfg.rabbitmq_queue:
         channel.queue_declare(queue=cfg.rabbitmq_queue, durable=True)
         channel.queue_bind(queue=cfg.rabbitmq_queue, exchange=cfg.rabbitmq_exchange, routing_key=cfg.rabbitmq_routing_key)
 
-    # Declare deletion exchange/queue (can be same exchange with different routing key)
+    # Declare deletion exchange/queue for 'deletion' events
     channel.exchange_declare(exchange=cfg.rabbitmq_delete_exchange, exchange_type="topic", durable=True)
     if cfg.rabbitmq_delete_queue:
         channel.queue_declare(queue=cfg.rabbitmq_delete_queue, durable=True)

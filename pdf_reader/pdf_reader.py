@@ -1,16 +1,12 @@
 import re
-from xmlrpc import client
 from minio import Minio
 from minio.error import S3Error
-from pika.adapters.blocking_connection import BlockingChannel
 from typing import Any, Iterable, Optional
 import json, logging, tempfile
-from contextlib import nullcontext
-
+from pika.adapters.blocking_connection import BlockingChannel
 from pypdf import PdfReader
 import pdfplumber
 from unstructured.partition.pdf import partition_pdf
-
 from .settings import settings
 from .helpers import (
     publish,
@@ -29,17 +25,14 @@ from pika.exceptions import (
 )
 
 
-
 class PDFReader:
     """
-    Encapsulates the PDF processing workflow:
-      - Download object from MinIO
-      - Extract text/metadata
-      - Publish 'ingest' message
-      - Write idempotent processed marker
-      - Sweep deletions & emit 'deletion' message
+    Service to read PDFs from MinIO, extract text and metadata, and publish to RabbitMQ.
+    Uses processed markers to ensure idempotency and avoid reprocessing.
+    Also scans for deletions and publishes deletion events.
     """
 
+    # Initialize with MinIO client, RabbitMQ channel, and settings.
     def __init__(
         self,
         minio_client: Minio,
@@ -68,7 +61,7 @@ class PDFReader:
 
         self.workers = workers or settings.workers
 
-
+    # Main PDF processing logic using `unstructured` and `pdfplumber` to extract text and metadata.
     def extract_text_from_pdf(self, path) -> dict[str, Any]:
         """ Extract metadata and text from a PDF file. Images, tables, and other non-text elements are ignored."""
         
@@ -158,15 +151,12 @@ class PDFReader:
                 return m.group(0)
         return None
 
+    # Process a single MinIO object: download, parse, publish, mark.
+    # Skips publishing/marking if already processed.
+    # Raises on any failure to allow caller to log and record.
     def process_object(self, obj):
-        """
-        Process a single MinIO object: download, parse, publish, mark.
-        Skips publishing/marking if already processed (the caller should check,
-        but we keep it safe to re-check here if desired).
-        """
-        if is_already_processed(self.client, self.bucket, self.processed_prefix, obj):
-            return
-        
+
+        # Download to a temp file with retries
         with tempfile.NamedTemporaryFile(suffix=".pdf") as tmp:
             try:
                 fetch_with_retry(self.client, self.bucket, obj.object_name, tmp.name)
@@ -175,12 +165,14 @@ class PDFReader:
                 logging.exception("Download failed for '%s'", obj.object_name)
                 raise
             
+            # Main function to extract text and metadata
             try:
                 processed_pdf_info = self.extract_text_from_pdf(tmp.name)
             except Exception as e:
                 logging.error("Failed to process PDF %s: %s", obj.object_name, e)
                 raise
             
+            # Create message payload and publish to RabbitMQ
             try:
                 payload: dict[str, Any] = {
                     "schema": 1,
@@ -193,8 +185,8 @@ class PDFReader:
                 }
                 payload.update(processed_pdf_info)
 
-                with open(f"./pdf_reader/outputs/{payload["source"]["object"]}_processed.json", "w") as f:
-                    json.dump(payload, f, indent=4)
+                # with open(f"./pdf_reader/outputs/{payload["source"]["object"]}_processed.json", "w") as f:
+                #     json.dump(payload, f, indent=4)
 
                 publish(
                     self.channel,
@@ -204,6 +196,7 @@ class PDFReader:
                     message_id=obj.etag,
                 )
 
+                # Mark as processed only after successful publish
                 write_processed_marker(self.client, self.bucket, self.processed_prefix, obj)
                 logging.info("Published & marked %s", obj.object_name)
             
@@ -224,8 +217,10 @@ class PDFReader:
     # If `retry_file` is provided, only process objects listed in that file.
     # Skips objects that already have a processed marker.
     def process_bucket(self, *, failed_log_path: Optional[str] = None, retry_file: Optional[str] = None) -> None:
+        # List all objects in the bucket
         objects = list(self.client.list_objects(self.bucket, recursive=True))
 
+        # If a retry file is provided, filter to only those objects
         if retry_file:
             with open(retry_file, "r") as fh:
                 keys = [line.strip() for line in fh if line.strip()]
@@ -239,6 +234,7 @@ class PDFReader:
             if not objects:
                 logging.info("No objects found in bucket: '%s'", self.bucket)
 
+        # Process each object
         processed_count = 0
         for obj in objects:
             # skip if already processed
@@ -257,20 +253,18 @@ class PDFReader:
             logging.info("Processed %d new file(s)", processed_count)     
 
 
-    # -------- Scans --------
+    # List all non-marker objects from the bucket.
     def _list_source_objects(self) -> Iterable:
-        """List all non-marker objects from the bucket."""
         objs = self.client.list_objects(self.bucket, recursive=True)
+        # Filter out marker objects
         for o in objs:
             if not o.object_name.startswith(self.processed_prefix + "/"):
                 yield o            
 
+    # Scan for deletions by checking markers whose source objects no longer exist.
+    # Publishes one deletion event per unique object key and removes all associated markers.
     def scan_deletions(self) -> None:
-        """
-        If the source object no longer exists:
-          1) Publish ONE 'deletion' event per object key (even if many markers exist)
-          2) Remove ALL historical markers for that object key (all etags)
-        """
+
         # List all marker objects once
         markers = list(
             self.client.list_objects(
@@ -279,10 +273,13 @@ class PDFReader:
         )
 
         removed_count = 0
-        published_keys: set[str] = set()  # ensure one deletion event per key
+        # Ensure one deletion event per key
+        published_keys: set[str] = set()  
 
+        # Iterate over markers to find stale ones
         for m in markers:
             marker_path = m.object_name
+            # Parse to get original key and etag
             try:
                 src_key, etag = parse_marker(self.processed_prefix, marker_path)
             except Exception:
@@ -303,9 +300,10 @@ class PDFReader:
                     missing = True
                 else:
                     logging.debug("stat_object error for %s: %s", src_key, e)
-
+            
+            # Still exists, keep markers
             if not missing:
-                continue  # still exists; keep markers
+                continue  
 
             # Publish a single deletion event for this key (use current marker's etag)
             deletion_msg = {

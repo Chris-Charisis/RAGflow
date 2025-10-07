@@ -24,6 +24,9 @@ services:
   rabbitmq:
     image: rabbitmq:4.1.0-management-alpine
     container_name: rabbitmq
+    hostname: rabbitmq
+    environment:
+    - RABBITMQ_NODENAME=rabbit@rabbitmq     
     restart: unless-stopped
     ports:
       - 5672:5672
@@ -42,6 +45,8 @@ services:
 
   pdf_reader:
     image: pdf_reader:1.0
+    restart: unless-stopped
+    container_name: pdf_reader
     env_file:
       - .env
     depends_on:
@@ -50,7 +55,7 @@ services:
       rabbitmq:
         condition: service_healthy
     networks:
-      - app         
+      - app     
 
   # postgres:
   #   image: postgres:17.5-alpine

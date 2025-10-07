@@ -3,8 +3,6 @@ import argparse
 from datetime import datetime
 import time
 import logging, sys
-from dotenv import load_dotenv
-load_dotenv()  
 from .settings import settings
 from .pdf_reader import PDFReader
 from .clients.minio_client import init_minio

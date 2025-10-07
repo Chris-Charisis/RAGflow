@@ -5,7 +5,7 @@ from pydantic import Field
 class Settings(BaseSettings):
     # MinIO
     # minio_endpoint: str = Field("127.0.0.1:9000", env="MINIO_ENDPOINT")
-    minio_endpoint: str = Field("minio", env="MINIO_ENDPOINT")
+    minio_endpoint: str = Field("minio:9000", env="MINIO_ENDPOINT")
     minio_access_key: str = Field(..., env="MINIO_ACCESS_KEY")
     minio_secret_key: str = Field(..., env="MINIO_SECRET_KEY")
     minio_bucket: str = Field(..., env="MINIO_BUCKET")

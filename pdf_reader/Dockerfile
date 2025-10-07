@@ -20,16 +20,12 @@ RUN pip install --no-cache-dir "unstructured-inference>=0.7,<0.8" opencv-python-
 
 # Install python deps first (better layer caching)
 COPY pyproject.toml ./
-COPY . ./pdf_reader/
+COPY cli.py helpers.py __init__.py __main__.py pdf_reader.py settings.py ./pdf_reader/
+COPY clients ./pdf_reader/clients
 
 # If your package is in a subfolder, copy it now for editable install
 RUN pip install --upgrade pip \
  && pip install --no-cache-dir -e .
-
-# Copy the rest (scripts, etc.)
-COPY . .
-
-# EXPOSE 8000
 
 # Default command: module entry (same as `python -m pdf_reader`)
 CMD ["python", "-m", "pdf_reader", "--watch"]
