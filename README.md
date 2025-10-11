@@ -81,3 +81,7 @@ docker compose ps
 ```bash
 docker compose down
 ```
+
+## References
+
+1. [The Ultimate Guide to using PGVector](https://medium.com/@intuitivedl/the-ultimate-guide-to-using-pgvector-76239864bbfb)
