@@ -85,3 +85,4 @@ docker compose down
 ## References
 
 1. [The Ultimate Guide to using PGVector](https://medium.com/@intuitivedl/the-ultimate-guide-to-using-pgvector-76239864bbfb)
+2. [Build a Fully Local RAG App With PostgreSQL, Llama 3.2, and Ollama](https://medium.com/@chadhamoksh/build-a-fully-local-rag-app-with-postgresql-llama-3-2-and-ollama-b18cec13382d)
