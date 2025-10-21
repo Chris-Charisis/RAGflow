@@ -1,8 +1,8 @@
 import argparse, json, logging, sys
 from datetime import datetime
 from functools import partial
-from dotenv import load_dotenv
-load_dotenv()
+# from dotenv import load_dotenv
+# load_dotenv()
 from .settings import settings
 from .chunker import Chunker
 from .clients.rabbitmq_client import init_rabbitmq
@@ -24,9 +24,9 @@ def init_logging():
 def main()-> None:
     init_logging()
     parser = argparse.ArgumentParser()
-    parser.add_argument("--strategy", choices=["sliding", "sentence", "recursive"], help="Chunking strategy")
-    parser.add_argument("--size", type=int, help="Chunk size (chars)")
-    parser.add_argument("--overlap", type=int, help="Overlap for sliding (chars)")
+    parser.add_argument("--strategy", choices=["words", "sentences", "recursive"], help="Chunking strategy")
+    parser.add_argument("--size", type=int, help="Chunk size in words")
+    parser.add_argument("--overlap", type=int, help="Overlap in words (if sentence strategy, actual_overlap <= overlap)")
     parser.add_argument("--prefetch", type=int, help="Consumer prefetch")
     args = parser.parse_args()
 

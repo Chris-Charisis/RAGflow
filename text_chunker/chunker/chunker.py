@@ -42,9 +42,9 @@ class Chunker:
 
     # ---------- Strategy dispatch ----------
     def strategy_dispatch(self, text: str) -> List[Dict[str, Any]]:
-        if self.strategy == "sliding":
-            return self.sliding(text, self.size, self.overlap)
-        elif self.strategy == "sentence":
+        if self.strategy == "words":
+            return self.sliding_words_window(text, self.size, self.overlap)
+        elif self.strategy == "sentences":
             return self.sentence(text, self.size)
         elif self.strategy == "recursive":
             return self.recursive(text, self.size)
@@ -52,7 +52,7 @@ class Chunker:
             raise ValueError(f"Unknown chunk strategy: {self.strategy}")
 
     # ---------- Concrete strategies ----------
-    def sliding_window(text: str, chunk_word_size: int = 288, chunk_overlap: int = 0) -> List[Dict[str, Any]]:
+    def sliding_words_window(text: str, chunk_word_size: int = 288, chunk_overlap: int = 0) -> List[Dict[str, Any]]:
         words = text.split(" ")
         out: List[Dict[str, Any]] = []
         for idx, i in enumerate(range(0, len(words), chunk_word_size - chunk_overlap)):
