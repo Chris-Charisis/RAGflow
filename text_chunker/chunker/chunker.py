@@ -52,79 +52,69 @@ class Chunker:
             raise ValueError(f"Unknown chunk strategy: {self.strategy}")
 
     # ---------- Concrete strategies ----------
-    def sliding(self, text: str, size: int, overlap: int) -> List[Dict[str, Any]]:
-        """Character-based sliding window with overlap; exact start/end offsets."""
-        step = size - overlap
+    def sliding_window(text: str, chunk_word_size: int = 288, chunk_overlap: int = 0) -> List[Dict[str, Any]]:
+        words = text.split(" ")
         out: List[Dict[str, Any]] = []
-        n = len(text)
-        i = 0
-        idx = 0
-        while i < n:
-            start = i
-            end = min(i + size, n)
-            chunk_text = text[start:end]
-            out.append(
-                {
-                    "index": idx,
-                    "start": start,
-                    "end": end,
-                    "num_chars": len(chunk_text),
-                    "text": chunk_text,
-                }
-            )
-            idx += 1
-            i += step
-        return out
-
-    def sentence(self, text: str, size: int) -> List[Dict[str, Any]]:
-        """
-        Sentence-based chunking using regex spans; keeps true start/end offsets
-        by grouping adjacent sentence spans up to `size` characters.
-        """
-        out: List[Dict[str, Any]] = []
-        idx = 0
-        group_start = None
-        group_end = None
-        group_len = 0
-
-        for m in self._sent_pat.finditer(text):
-            s, e = m.span()
-            seg_len = e - s
-            if group_start is None:
-                group_start, group_end, group_len = s, e, seg_len
-                continue
-
-            if group_len + seg_len > size and group_len > 0:
-                # flush current group
-                chunk_text = text[group_start:group_end]
+        for idx, i in enumerate(range(0, len(words), chunk_word_size - chunk_overlap)):
+            chunk = words[i:i + chunk_word_size]
+            if chunk:
                 out.append(
                     {
                         "index": idx,
-                        "start": group_start,
-                        "end": group_end,
-                        "num_chars": len(chunk_text),
-                        "text": chunk_text,
+                        "num_words": len(chunk),
+                        "text": " ".join(chunk),
                     }
-                )
-                idx += 1
-                # start new group with current sentence
-                group_start, group_end, group_len = s, e, seg_len
-            else:
-                group_end = e
-                group_len += seg_len
+                )            
+        return out
 
-        # flush tail
-        if group_start is not None:
-            chunk_text = text[group_start:group_end]
+    def create_overlapping_chunks(text, MAX_CHUNK_SIZE=365, OVERLAP_MAX_SIZE=73):
+        # List to hold the final output
+        out: List[Dict[str, Any]] = []
+        # Split the text using ". " and ".<Capital letter>" as delimiters
+        pattern = r'(?<=\.)\s+|(?<=\.)(?=[A-Z])'
+        sentences = [s for s in re.split(pattern, text) if s]
+        # Initialize variables for chunking
+        chunks = []
+        chunk_words = 0
+        for idx,sentence in enumerate(sentences):
+            # Split the sentence into words
+            words = sentence.split(" ")
+            # Start the first chunk with the first sentence
+            if chunk_words == 0:
+                chunk_sentence_ids = [idx]
+                chunk_words = len(words)
+            # If the current chunk plus the new sentence is within the max size, add it
+            elif chunk_words + len(words) < MAX_CHUNK_SIZE:
+                chunk_sentence_ids.append(idx)
+                chunk_words += len(words)
+            # If adding the new sentence exceeds the max size, create a new chunk
+            else:
+                chunks.append(chunk_sentence_ids)
+                chunk_sentence_ids = []
+                overlapping_words = 0
+                # Check how many sentences can be added from the end of the current chunk to the new chunk for overlapping
+                for y in reversed(chunks[-1]):
+                    overlapping_words += len(sentences[y].split(" "))
+                    if overlapping_words < OVERLAP_MAX_SIZE:
+                        chunk_sentence_ids.append(y)
+                    else:
+                        break
+                chunk_sentence_ids.reverse()
+                chunk_sentence_ids.append(idx)
+                chunk_words = len(words)
+
+        # Convert from sentence indices to actual text chunks
+        text_chunks = []
+        for idx, chunk in enumerate(chunks):
+            text_chunks.append(" ".join([sentences[i] for i in chunk]))
             out.append(
                 {
                     "index": idx,
-                    "start": group_start,
-                    "end": group_end,
-                    "num_chars": len(chunk_text),
-                    "text": chunk_text,
+                    "num_words": len(text_chunks[-1].split(" ")),
+                    "text": text_chunks[-1],
                 }
             )
+
         return out
 
     def recursive(self, text: str, size: int) -> List[Dict[str, Any]]:
