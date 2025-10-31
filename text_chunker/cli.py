@@ -1,8 +1,8 @@
 import argparse, json, logging, sys
 from datetime import datetime
 from functools import partial
-from dotenv import load_dotenv
-load_dotenv()
+# from dotenv import load_dotenv
+# load_dotenv()
 from .settings import settings
 from .chunker import Chunker
 from .clients.rabbitmq_client import init_rabbitmq
@@ -24,9 +24,9 @@ def init_logging():
 def main()-> None:
     init_logging()
     parser = argparse.ArgumentParser()
-    parser.add_argument("--strategy", choices=["sliding", "sentence", "recursive"], help="Chunking strategy")
-    parser.add_argument("--size", type=int, help="Chunk size (chars)")
-    parser.add_argument("--overlap", type=int, help="Overlap for sliding (chars)")
+    parser.add_argument("--strategy", choices=["words", "sentences", "recursive"], help="Chunking strategy")
+    parser.add_argument("--size", type=int, help="Chunk size in words")
+    parser.add_argument("--overlap", type=int, help="Overlap in words (if sentence strategy, actual_overlap <= overlap)")
     parser.add_argument("--prefetch", type=int, help="Consumer prefetch")
     args = parser.parse_args()
 
@@ -54,15 +54,17 @@ def main()-> None:
         # Expand callback with partial to include arguments variable and be compatible with basic_consume
         cb = partial(process_message, chunker=chunker)
         channel.basic_consume(
-            queue=settings.input_queue,
+            queue=settings.rabbitmq_input_queue,
             on_message_callback=cb,
             auto_ack=False,
         )
         logging.info("Consuming from %s with routing key %s",
-                     settings.input_queue, settings.input_routing_key)
+                     settings.rabbitmq_input_queue, settings.rabbitmq_input_routing_key)
         channel.start_consuming()
-    except Exception:
-        logging.exception("FATAL: consumer crashed")
+    except BaseException as e:
+        # Catch broader-than-Exception (e.g., SystemExit from libraries)
+        logging.exception("Unexpected fatal error; continuing: %s", e)
+        # time.sleep(poll)
     except KeyboardInterrupt:
         logging.info("Interrupted by user, shutting down...")
     finally:

@@ -58,6 +58,19 @@ services:
     networks:
       - app     
 
+  text_chunker:
+    build:
+      context: ./text_chunker
+    restart: unless-stopped
+    container_name: text_chunker
+    env_file:
+      - .env
+    depends_on:
+      rabbitmq:
+        condition: service_healthy      
+    networks:
+      - app     
+
   postgres:
     image: pgvector/pgvector:0.8.1-pg18-trixie   
     container_name: postgres
