@@ -54,15 +54,17 @@ def main()-> None:
         # Expand callback with partial to include arguments variable and be compatible with basic_consume
         cb = partial(process_message, chunker=chunker)
         channel.basic_consume(
-            queue=settings.input_queue,
+            queue=settings.rabbitmq_input_queue,
             on_message_callback=cb,
             auto_ack=False,
         )
         logging.info("Consuming from %s with routing key %s",
-                     settings.input_queue, settings.input_routing_key)
+                     settings.rabbitmq_input_queue, settings.rabbitmq_input_routing_key)
         channel.start_consuming()
-    except Exception:
-        logging.exception("FATAL: consumer crashed")
+    except BaseException as e:
+        # Catch broader-than-Exception (e.g., SystemExit from libraries)
+        logging.exception("Unexpected fatal error; continuing: %s", e)
+        # time.sleep(poll)
     except KeyboardInterrupt:
         logging.info("Interrupted by user, shutting down...")
     finally:

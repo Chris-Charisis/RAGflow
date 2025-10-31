@@ -36,8 +36,8 @@ def process_message(channel, method, properties, body, *, chunker):
         for m in out_msgs:
             publish_chunk(
                 channel,
-                exchange=settings.output_exchange,
-                routing_key=settings.output_routing_key,
+                exchange=settings.rabbitmq_output_exchange,
+                routing_key=settings.rabbitmq_output_routing_key,
                 msg=m,
             )
         logging.info("Published %d chunk(s)", len(out_msgs))
