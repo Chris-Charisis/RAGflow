@@ -69,7 +69,22 @@ services:
       rabbitmq:
         condition: service_healthy      
     networks:
-      - app     
+      - app
+
+  embedder:
+    build:
+      context: ./embedder
+    restart: unless-stopped
+    container_name: embedder
+    env_file:
+      - .env
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+      ollama:
+        condition: service_healthy   
+    networks:
+      - app           
 
   postgres:
     image: pgvector/pgvector:0.8.1-pg18-trixie   
@@ -92,6 +107,11 @@ services:
       - 11434:11434
     volumes:
       - ollama_data:/root/.ollama
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://localhost:11434/api/tags"]
+      interval: 10s
+      timeout: 5s
+      retries: 10      
     networks:
       - app
     deploy:
