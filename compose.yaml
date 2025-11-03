@@ -18,9 +18,44 @@ services:
       interval: 5s
       timeout: 3s
       retries: 10      
-    command: server /data --console-address ":9001"
-    
+    command: server /data --console-address ":9001"    
 
+  ollama:
+    image: ollama/ollama:0.12.9
+    container_name: ollama
+    restart: unless-stopped
+    ports:
+      - 11434:11434
+    volumes:
+      - ollama_data:/root/.ollama
+    healthcheck:
+      test: ["CMD", "ollama", "-v"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    networks:
+      - app
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [gpu]
+    runtime: nvidia
+  
+  model-downloader:
+    build:
+      context: ./model_downloader
+    container_name: model-downloader
+    restart: "no"
+    depends_on:
+      ollama:
+        condition: service_healthy
+    environment:
+      - OLLAMA_HOST=http://ollama:11434
+      - MODEL=mxbai-embed-large:335m
+    networks:
+      - app
+    
   rabbitmq:
     image: rabbitmq:4.1.0-management-alpine
     container_name: rabbitmq
@@ -42,84 +77,6 @@ services:
       - rabbitmq_data:/var/lib/rabbitmq
     networks:
       - app
-
-  pdf_reader:
-    build:
-      context: ./pdf_reader
-    restart: unless-stopped
-    container_name: pdf_reader
-    env_file:
-      - .env
-    depends_on:
-      minio:
-        condition: service_healthy
-      rabbitmq:
-        condition: service_healthy
-    networks:
-      - app     
-
-  text_chunker:
-    build:
-      context: ./text_chunker
-    restart: unless-stopped
-    container_name: text_chunker
-    env_file:
-      - .env
-    depends_on:
-      rabbitmq:
-        condition: service_healthy      
-    networks:
-      - app
-
-  embedder:
-    build:
-      context: ./embedder
-    restart: unless-stopped
-    container_name: embedder
-    env_file:
-      - .env
-    depends_on:
-      rabbitmq:
-        condition: service_healthy
-      ollama:
-        condition: service_healthy   
-    networks:
-      - app           
-
-  postgres:
-    image: pgvector/pgvector:0.8.1-pg18-trixie   
-    container_name: postgres
-    restart: unless-stopped
-    ports:
-      - 5432:5432
-    env_file:
-      - .env
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-    networks:
-      - app
-
-  ollama:
-    image: ollama/ollama:0.9.2
-    container_name: ollama
-    restart: unless-stopped
-    ports:
-      - 11434:11434
-    volumes:
-      - ollama_data:/root/.ollama
-    healthcheck:
-      test: ["CMD", "curl", "-fsS", "http://localhost:11434/api/tags"]
-      interval: 10s
-      timeout: 5s
-      retries: 10      
-    networks:
-      - app
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - capabilities: [gpu]
-    runtime: nvidia
     
   openwebui:
     image: ghcr.io/open-webui/open-webui:v0.6.15
@@ -133,6 +90,62 @@ services:
       - openwebui_data:/app/backend/data
     networks:
       - app
+
+  # pdf_reader:
+  #   build:
+  #     context: ./pdf_reader
+  #   restart: unless-stopped
+  #   container_name: pdf_reader
+  #   env_file:
+  #     - .env
+  #   depends_on:
+  #     minio:
+  #       condition: service_healthy
+  #     rabbitmq:
+  #       condition: service_healthy
+  #   networks:
+  #     - app     
+
+  # text_chunker:
+  #   build:
+  #     context: ./text_chunker
+  #   restart: unless-stopped
+  #   container_name: text_chunker
+  #   env_file:
+  #     - .env
+  #   depends_on:
+  #     rabbitmq:
+  #       condition: service_healthy      
+  #   networks:
+  #     - app
+
+  # embedder:
+  #   build:
+  #     context: ./embedder
+  #   restart: unless-stopped
+  #   container_name: embedder
+  #   env_file:
+  #     - .env
+  #   depends_on:
+  #     rabbitmq:
+  #       condition: service_healthy
+  #     ollama:
+  #       condition: service_healthy   
+  #   networks:
+  #     - app           
+
+  # postgres:
+  #   image: pgvector/pgvector:0.8.1-pg18-trixie   
+  #   container_name: postgres
+  #   restart: unless-stopped
+  #   ports:
+  #     - 5432:5432
+  #   env_file:
+  #     - .env
+  #   volumes:
+  #     - postgres_data:/var/lib/postgresql/data
+  #   networks:
+  #     - app
 
 volumes:
   minio_data:
