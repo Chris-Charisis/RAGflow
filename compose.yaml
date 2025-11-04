@@ -91,66 +91,82 @@ services:
     networks:
       - app
 
-  # pdf_reader:
-  #   build:
-  #     context: ./pdf_reader
-  #   restart: unless-stopped
-  #   container_name: pdf_reader
-  #   env_file:
-  #     - .env
-  #   depends_on:
-  #     minio:
-  #       condition: service_healthy
-  #     rabbitmq:
-  #       condition: service_healthy
-  #   networks:
-  #     - app     
+  weaviate:
+    image: cr.weaviate.io/semitechnologies/weaviate:1.33.4
+    container_name: weaviate
+    ports:
+      - 8080:8080
+      - 50051:50051
+    volumes:
+      - weaviate_data:/var/lib/weaviate
+    restart: on-failure:0
+    command:
+      - --host
+      - 0.0.0.0
+      - --port
+      - '8080'
+      - --scheme
+      - http
+    environment:
+      QUERY_DEFAULTS_LIMIT: 25
+      PERSISTENCE_DATA_PATH: '/var/lib/weaviate'
+      CLUSTER_HOSTNAME: 'node1'
+      AUTHENTICATION_ANONYMOUS_ACCESS_ENABLED: 'false'
+      AUTHENTICATION_APIKEY_ENABLED: 'true'
+      AUTHENTICATION_APIKEY_ALLOWED_KEYS: 'user-a-key,user-b-key'
+      AUTHENTICATION_APIKEY_USERS: 'user-a,user-b'
+      AUTHORIZATION_ENABLE_RBAC: 'true'
+      AUTHORIZATION_RBAC_ROOT_USERS: 'user-a'
+    networks:
+      - app
 
-  # text_chunker:
-  #   build:
-  #     context: ./text_chunker
-  #   restart: unless-stopped
-  #   container_name: text_chunker
-  #   env_file:
-  #     - .env
-  #   depends_on:
-  #     rabbitmq:
-  #       condition: service_healthy      
-  #   networks:
-  #     - app
+  pdf_reader:
+    build:
+      context: ./pdf_reader
+    restart: unless-stopped
+    container_name: pdf_reader
+    env_file:
+      - .env
+    depends_on:
+      minio:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+    networks:
+      - app     
 
-  # embedder:
-  #   build:
-  #     context: ./embedder
-  #   restart: unless-stopped
-  #   container_name: embedder
-  #   env_file:
-  #     - .env
-  #   depends_on:
-  #     rabbitmq:
-  #       condition: service_healthy
-  #     ollama:
-  #       condition: service_healthy   
-  #   networks:
-  #     - app           
+  text_chunker:
+    build:
+      context: ./text_chunker
+    restart: unless-stopped
+    container_name: text_chunker
+    env_file:
+      - .env
+    depends_on:
+      rabbitmq:
+        condition: service_healthy      
+    networks:
+      - app
 
-  # postgres:
-  #   image: pgvector/pgvector:0.8.1-pg18-trixie   
-  #   container_name: postgres
-  #   restart: unless-stopped
-  #   ports:
-  #     - 5432:5432
-  #   env_file:
-  #     - .env
-  #   volumes:
-  #     - postgres_data:/var/lib/postgresql/data
-  #   networks:
-  #     - app
+  embedder:
+    build:
+      context: ./embedder
+    restart: unless-stopped
+    container_name: embedder
+    env_file:
+      - .env
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+      ollama:
+        condition: service_healthy   
+    networks:
+      - app
 
 volumes:
   minio_data:
   rabbitmq_data:
-  postgres_data:
+  weaviate_data:
   ollama_data:
   openwebui_data:
 
