@@ -18,9 +18,44 @@ services:
       interval: 5s
       timeout: 3s
       retries: 10      
-    command: server /data --console-address ":9001"
-    
+    command: server /data --console-address ":9001"    
 
+  ollama:
+    image: ollama/ollama:0.12.9
+    container_name: ollama
+    restart: unless-stopped
+    ports:
+      - 11434:11434
+    volumes:
+      - ollama_data:/root/.ollama
+    healthcheck:
+      test: ["CMD", "ollama", "-v"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    networks:
+      - app
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [gpu]
+    runtime: nvidia
+  
+  model-downloader:
+    build:
+      context: ./model_downloader
+    container_name: model-downloader
+    restart: "no"
+    depends_on:
+      ollama:
+        condition: service_healthy
+    environment:
+      - OLLAMA_HOST=http://ollama:11434
+      - MODEL=mxbai-embed-large:335m
+    networks:
+      - app
+    
   rabbitmq:
     image: rabbitmq:4.1.0-management-alpine
     container_name: rabbitmq
@@ -40,6 +75,48 @@ services:
       - .env
     volumes:
       - rabbitmq_data:/var/lib/rabbitmq
+    networks:
+      - app
+    
+  openwebui:
+    image: ghcr.io/open-webui/open-webui:v0.6.15
+    container_name: openwebui
+    restart: unless-stopped
+    ports:
+      - 3000:8080
+    environment:
+      - OLLAMA_BASE_URL=http://ollama:11434
+    volumes:
+      - openwebui_data:/app/backend/data
+    networks:
+      - app
+
+  weaviate:
+    image: cr.weaviate.io/semitechnologies/weaviate:1.33.4
+    container_name: weaviate
+    ports:
+      - 8080:8080
+      - 50051:50051
+    volumes:
+      - weaviate_data:/var/lib/weaviate
+    restart: on-failure:0
+    command:
+      - --host
+      - 0.0.0.0
+      - --port
+      - '8080'
+      - --scheme
+      - http
+    environment:
+      QUERY_DEFAULTS_LIMIT: 25
+      PERSISTENCE_DATA_PATH: '/var/lib/weaviate'
+      CLUSTER_HOSTNAME: 'node1'
+      AUTHENTICATION_ANONYMOUS_ACCESS_ENABLED: 'false'
+      AUTHENTICATION_APIKEY_ENABLED: 'true'
+      AUTHENTICATION_APIKEY_ALLOWED_KEYS: 'user-a-key,user-b-key'
+      AUTHENTICATION_APIKEY_USERS: 'user-a,user-b'
+      AUTHORIZATION_ENABLE_RBAC: 'true'
+      AUTHORIZATION_RBAC_ROOT_USERS: 'user-a'
     networks:
       - app
 
@@ -69,55 +146,27 @@ services:
       rabbitmq:
         condition: service_healthy      
     networks:
-      - app     
+      - app
 
-  postgres:
-    image: pgvector/pgvector:0.8.1-pg18-trixie   
-    container_name: postgres
+  embedder:
+    build:
+      context: ./embedder
     restart: unless-stopped
-    ports:
-      - 5432:5432
+    container_name: embedder
     env_file:
       - .env
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-    networks:
-      - app
-
-  ollama:
-    image: ollama/ollama:0.9.2
-    container_name: ollama
-    restart: unless-stopped
-    ports:
-      - 11434:11434
-    volumes:
-      - ollama_data:/root/.ollama
-    networks:
-      - app
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - capabilities: [gpu]
-    runtime: nvidia
-    
-  openwebui:
-    image: ghcr.io/open-webui/open-webui:v0.6.15
-    container_name: openwebui
-    restart: unless-stopped
-    ports:
-      - 3000:8080
-    environment:
-      - OLLAMA_BASE_URL=http://ollama:11434
-    volumes:
-      - openwebui_data:/app/backend/data
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+      ollama:
+        condition: service_healthy   
     networks:
       - app
 
 volumes:
   minio_data:
   rabbitmq_data:
-  postgres_data:
+  weaviate_data:
   ollama_data:
   openwebui_data:
 

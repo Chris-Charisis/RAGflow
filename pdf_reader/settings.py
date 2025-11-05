@@ -21,6 +21,7 @@ class Settings(BaseSettings):
     rabbitmq_routing_key: str = Field("text", env="RABBITMQ_ROUTING_KEY")
     rabbitmq_user: str = Field(..., env="RABBITMQ_USER")
     rabbitmq_password: str = Field(..., env="RABBITMQ_PASSWORD")
+    rabbitmq_prefetch_count: int = Field(16, env="RABBITMQ_PREFETCH_COUNT")
 
     # RabbitMQ for 'deletion' events (separate topic/queue)
     rabbitmq_delete_exchange: str = Field("events", env="RABBITMQ_DELETE_EXCHANGE")
