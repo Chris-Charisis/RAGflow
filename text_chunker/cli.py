@@ -47,10 +47,6 @@ def main()-> None:
         raise
 
     try:
-        # Set how many messages are prefetched before they start being consumed
-        channel.basic_qos(prefetch_count=args.prefetch or settings.prefetch_count)
-        logging.info("Chunker started at %s", datetime.utcnow().isoformat())
-
         # Expand callback with partial to include arguments variable and be compatible with basic_consume
         cb = partial(process_message, chunker=chunker)
         channel.basic_consume(
@@ -58,6 +54,7 @@ def main()-> None:
             on_message_callback=cb,
             auto_ack=False,
         )
+        logging.info("Chunker started at %s", datetime.utcnow().isoformat())
         logging.info("Consuming from %s with routing key %s",
                      settings.rabbitmq_input_queue, settings.rabbitmq_input_routing_key)
         channel.start_consuming()

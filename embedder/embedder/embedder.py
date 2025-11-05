@@ -13,12 +13,14 @@ class Embedder:
     """
     Core embedding logic, kept independent from RabbitMQ.
     """
-    client: OllamaClient
-    model: str
-    dimensions: Optional[int] = None
-    truncate: bool = True
-    max_retries: int = 3
-    backoff_s: float = 1.0
+    def __init__(self, client: OllamaClient, model: str, dimensions: Optional[int] = None, truncate: bool = True, max_retries: int = 3, backoff_s: float = 1.0):
+        self.client = client
+        self.model = model
+        self.dimensions = dimensions
+        self.truncate = truncate
+        self.max_retries = max_retries
+        self.backoff_s = backoff_s
+
 
     # ---------- low-level embedding ----------
 
@@ -58,15 +60,13 @@ class Embedder:
 
     def process_message(self, payload: Dict[str, Any]) -> Dict[str, Any]:
         try:
-            chunk = payload["chunk"]["texts"]
+            chunk = payload["chunk"]["text"]
         except KeyError:
             raise EmbeddingError("Invalid payload structure")
 
-
-        payload["metadata"]["embedding"]["embedding_model"] = self.model
-        payload["metadata"]["embedding"]["embedding_vector"] = self.embed_texts(chunk)
-        print(payload["metadata"]["embedding"]["embedding_vector"])
-        print(len(payload["metadata"]["embedding"]["embedding_vector"]))
-        payload["metadata"]["embedding"]["embedding_dim"] = len(payload["metadata"]["embedding"]["embedding_vector"][0]) if payload["metadata"]["embedding"]["embedding_vector"] and isinstance(payload["metadata"]["embedding"]["embedding_vector"][0], list) else 0
+        payload["embedding"] = {}
+        payload["embedding"]["embedding_model"] = self.model
+        payload["embedding"]["embedding_vector"] = self.embed_texts(chunk)
+        payload["embedding"]["embedding_dim"] = len(payload["embedding"]["embedding_vector"][0]) if payload["embedding"]["embedding_vector"] and isinstance(payload["embedding"]["embedding_vector"][0], list) else 0
 
         return payload

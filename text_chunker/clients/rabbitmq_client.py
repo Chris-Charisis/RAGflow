@@ -25,4 +25,6 @@ def init_rabbitmq(cfg: Settings):
     channel.queue_bind(queue=cfg.rabbitmq_output_queue, exchange=cfg.rabbitmq_output_exchange, routing_key=cfg.rabbitmq_output_routing_key)
 
     channel.confirm_delivery()
+    # Set how many messages are prefetched before they start being consumed
+    channel.basic_qos(prefetch_count=cfg.rabbitmq_prefetch_count)
     return connection, channel

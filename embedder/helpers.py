@@ -17,7 +17,7 @@ def publish_chunk(channel, exchange, routing_key, msg: dict):
         ),
     )
 
-def process_message(channel, method, properties, body, * embedder):
+def process_message(channel, method, properties, body, *, embedder):
     try:
         payload = json.loads(body)
     except Exception:

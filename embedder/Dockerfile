@@ -6,7 +6,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 WORKDIR /app
 COPY pyproject.toml ./
-COPY cli.py helpers.py __init__.py __main__.py settings.py ./text_chunker/
+COPY cli.py helpers.py __init__.py __main__.py settings.py ./embedder/
 COPY clients ./embedder/clients
 COPY embedder ./embedder/embedder
 

@@ -33,19 +33,19 @@ def main() -> None:
     parser.add_argument("--timeout", type=int, help="Ollama request timeout (seconds)")
     args = parser.parse_args()
 
+    logging.info("Initializing Ollama connection...")
+    # Build core objects (OOP style)
+    ollama = OllamaClient(
+        base_url=settings.ollama_base_url,
+        timeout_s=args.timeout or settings.ollama_timeout_seconds,
+    )
+
     logging.info("Initializing Embedder...")
     embedder = Embedder(
         client=ollama,
         model=args.model or settings.ollama_model,
         dimensions=args.dimensions or settings.ollama_dimensions,
         truncate=True,
-    )
-
-    logging.info("Initializing Ollama connection...")
-    # Build core objects (OOP style)
-    ollama = OllamaClient(
-        base_url=settings.ollama_base_url,
-        timeout_s=args.timeout or settings.ollama_timeout_seconds,
     )
 
     logging.info("Initializing RabbitMQ client...")

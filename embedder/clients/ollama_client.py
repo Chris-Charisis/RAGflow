@@ -10,9 +10,10 @@ class OllamaClient:
     """
     Thin HTTP client: owns base_url, timeouts, and a requests.Session.
     """
-    base_url: str
-    timeout_s: int = 60
-    session: requests.Session
+    def __init__(self, base_url: str, timeout_s: int = 60, session: Optional[requests.Session] = None):
+        self.base_url = base_url
+        self.timeout_s = timeout_s
+        self.session = session or requests.Session()    
 
     def _url(self, path: str) -> str:
         return f"{self.base_url.rstrip('/')}/{path.lstrip('/')}"
