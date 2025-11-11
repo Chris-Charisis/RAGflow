@@ -4,7 +4,7 @@ from abc import ABC, abstractmethod
 from typing import Any
 
 from ..settings import Settings
-from ..helpers import dict_pick, extract_vector, ensure_uuid, retry
+from ..helpers import *
 
 logger = logging.getLogger(__name__)
 
@@ -59,7 +59,7 @@ class WeaviateIndexBackend(BaseIndexBackend):
         logger.info("Connected to Weaviate (is_ready=%s)", self.client.is_ready())
 
     def ensure_ready(self) -> None:
-        from weaviate.classes.config import Property, DataType, Configure
+        from weaviate.classes.config import Property, DataType, Configure, Tokenization
         name = self.cfg.collection
         try:
             self.collection = self.client.collections.get(name)
@@ -68,29 +68,152 @@ class WeaviateIndexBackend(BaseIndexBackend):
             if not self.cfg.create_collection_if_missing:
                 raise
 
-        logger.info("Creating collection '%s' (BYO vectors: self_provided)", name)
+        # Setup collection's schema
+        logger.info("Creating collection '%s' (vectors: self_provided)", name)
         self.collection = self.client.collections.create(
             name,
             vector_config=Configure.Vectors.self_provided(),
             properties=[
-                Property(name="schema", data_type=DataType.TEXT),
+                # --- Searchable text ----
+                Property(
+                    name="text",
+                    data_type=DataType.TEXT,
+                    tokenization=Tokenization.WORD,
+                    index_searchable=True,          # BM25 on this field
+                ),
+                Property(
+                    name="title",
+                    data_type=DataType.TEXT,
+                    tokenization=Tokenization.LOWERCASE,
+                    index_searchable=True,
+                ),
+                Property(
+                    name="keywords",
+                    data_type=DataType.TEXT_ARRAY,
+                    tokenization=Tokenization.WORD,
+                    index_searchable=True,
+                    index_filterable=True,          # allow where filters like keywords contains "agriculture"
+                ),
+                Property(
+                    name="authors",
+                    data_type=DataType.TEXT_ARRAY,
+                    tokenization=Tokenization.LOWERCASE,
+                    index_searchable=True,
+                    index_filterable=True,          # allow where filters like authors contains "Bob"
+                ),
+                Property(
+                    name="abstract",
+                    data_type=DataType.TEXT,
+                    tokenization=Tokenization.WORD,
+                    index_searchable=True,
+                ),
+                # --- Filterable identifiers / ranges ----
+                Property(
+                    name="doc_id",
+                    data_type=DataType.TEXT,
+                    tokenization=Tokenization.FIELD,  # keep exact value; good for equality filters
+                    index_filterable=True,
+                ),
+                Property(name="schema_version", data_type=DataType.INT, index_range_filters=True),
+                Property(name="chunk_index",data_type=DataType.INT, index_filterable=True, index_range_filters=True),
+                Property(name="char_start", data_type=DataType.INT, index_range_filters=True),
+                Property(name="char_end", data_type=DataType.INT, index_range_filters=True),
+                Property(name="num_chars", data_type=DataType.INT, index_range_filters=True),
+                # --- Original nested blobs for convenient retrieval (NOT searchable) ---
+                # Object / nested properties are stored but not indexed or vectorized.
+                Property(
+                    name="source",
+                    data_type=DataType.OBJECT,
+                    nested_properties=[
+                        Property(name="bucket", data_type=DataType.TEXT, tokenization=Tokenization.FIELD),
+                        Property(name="object", data_type=DataType.TEXT, tokenization=Tokenization.FIELD),
+                        Property(name="etag",   data_type=DataType.TEXT, tokenization=Tokenization.FIELD),
+                    ],
+                ),
+                Property(
+                    name="metadata",
+                    data_type=DataType.OBJECT,
+                    nested_properties=[
+                        Property(name="title",    data_type=DataType.TEXT,        tokenization=Tokenization.LOWERCASE),
+                        Property(name="authors",  data_type=DataType.TEXT_ARRAY,  tokenization=Tokenization.LOWERCASE),
+                        Property(name="keywords", data_type=DataType.TEXT_ARRAY,  tokenization=Tokenization.WORD),
+                        Property(name="abstract", data_type=DataType.TEXT,        tokenization=Tokenization.WORD),
+                        Property(name="doi",      data_type=DataType.TEXT,        tokenization=Tokenization.FIELD),
+                    ],
+                ),
+                Property(
+                    name="chunk",
+                    data_type=DataType.OBJECT,
+                    nested_properties=[
+                        Property(name="index",     data_type=DataType.INT),
+                        Property(name="start",     data_type=DataType.INT),
+                        Property(name="end",       data_type=DataType.INT),
+                        Property(name="num_chars", data_type=DataType.INT),
+                        Property(name="text",      data_type=DataType.TEXT, tokenization=Tokenization.WORD),
+                    ],
+                ),
             ],
         )
 
+    # Convert the standard payload dict into Weaviate object properties
+    def to_weaviate_object(self, d: dict) -> dict:
+        chunk = d.get("chunk") or {}
+        meta  = d.get("metadata") or {}
+        src   = d.get("source") or {}
+
+        weaviate_object = {
+            # searchable / filterable
+            "text": _clean_text(chunk.get("text")),
+            "title": _clean_text(meta.get("title")),
+            "keywords": _to_text_array(meta.get("keywords")),
+            "authors": _to_text_array(meta.get("authors")),
+            "abstract": _clean_text(meta.get("abstract")),
+            "doc_id": _clean_text(d.get("doc_id")),
+            "schema_version": _to_int(d.get("schema", 1)),
+            "chunk_index": _to_int(chunk.get("index")),
+            "char_start": _to_int(chunk.get("start")),
+            "char_end": _to_int(chunk.get("end")),
+            "num_chars": _to_int(chunk.get("num_chars")),
+
+            # original nested blobs (for retrieval)
+            "source": {
+                "bucket": _clean_text(src.get("bucket")),
+                "object": _clean_text(src.get("object")),
+                "etag": _clean_text(src.get("etag")),
+            },
+            "metadata": {
+                "title": _clean_text(meta.get("title")),
+                "authors": _to_text_array(meta.get("authors")),
+                "keywords": _to_text_array(meta.get("keywords")),
+                "abstract": _clean_text(meta.get("abstract")),
+                "doi": _clean_text(meta.get("doi")),
+            },
+            "chunk": {
+                "index": _to_int(chunk.get("index")),
+                "start": _to_int(chunk.get("start")),
+                "end": _to_int(chunk.get("end")),
+                "num_chars": _to_int(chunk.get("num_chars")),
+                "text": _clean_text(chunk.get("text")),
+            },
+        }
+
+        return _drop_nones(weaviate_object)
+
     @retry((Exception,), tries=3, delay=0.3, backoff=2.0)
     def upsert_one(self, payload: dict) -> None:
-        props = dict_pick(payload, ["schema"])
+        # props = dict_pick(payload, ["schema"])
+        weaviate_object = self.to_weaviate_object(payload)
         vec = extract_vector(payload)
         # print(vec)
         # uid = ensure_uuid(payload.get("doc_id"))
 
         if self.cfg.dry_run:
             logger.info("[DRY RUN] Weaviate insert dim=%s props_keys=%s",
-                        len(vec), list(props.keys()))
+                        len(vec), list(weaviate_object.keys()))
             return
 
         self.collection.data.insert(
-            properties=props,
+            weaviate_object,
             vector=vec,
             # uuid=uid,
         )

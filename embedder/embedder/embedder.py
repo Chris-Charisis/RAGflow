@@ -26,7 +26,7 @@ class Embedder:
 
     def embed_texts(self, text: Sequence[str]) -> List[List[float]]:
         if not isinstance(text, str):
-            raise EmbeddingError("Input text must be a string")
+            raise EmbeddingError("Input text must be a string but got: ", type(text))
 
         ollama_payload: Dict[str, Any] = {
             "model": self.model,

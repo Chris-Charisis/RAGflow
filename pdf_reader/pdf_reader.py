@@ -3,11 +3,11 @@ from minio import Minio
 from minio.error import S3Error
 from typing import Any, Iterable, Optional
 import json, logging, tempfile
-from pika.adapters.blocking_connection import BlockingChannel
 from pypdf import PdfReader
 import pdfplumber
 from unstructured.partition.pdf import partition_pdf
 from .settings import settings
+from .clients.rabbitmq_client import init_rabbitmq
 from .helpers import (
     publish,
     is_already_processed,
@@ -36,7 +36,6 @@ class PDFReader:
     def __init__(
         self,
         minio_client: Minio,
-        channel: BlockingChannel,
         *,
         bucket: Optional[str] = None,
         processed_prefix: Optional[str] = None,
@@ -46,7 +45,15 @@ class PDFReader:
         delete_routing_key: Optional[str] = None,
         workers: Optional[int] = None,
     ) -> None:
+ 
+        try:
+            connection, channel = init_rabbitmq(settings)
+        except Exception as e:
+            logging.error("RabbitMQ client initialization failed: %s", e)
+            raise
+ 
         self.client = minio_client
+        self.connection = connection
         self.channel = channel
 
         # Bind from settings by default to avoid changes elsewhere
@@ -188,7 +195,8 @@ class PDFReader:
                 # with open(f"./pdf_reader/outputs/{payload["source"]["object"]}_processed.json", "w") as f:
                 #     json.dump(payload, f, indent=4)
 
-                publish(
+                self.connection, self.channel = publish(
+                    self.connection,
                     self.channel,
                     self.ingest_exchange,
                     self.ingest_routing_key,
@@ -350,3 +358,15 @@ class PDFReader:
         if removed_count:
             logging.info("Deletion sweep: removed %d stale marker(s)", removed_count)
            
+
+    def close_rabbitqm(self):
+        try:
+            if self.channel and self.channel.is_open:
+                self.channel.close()
+        except Exception as e:
+            logging.warning("Error closing RabbitMQ channel: %s", e)
+        try:
+            if self.connection and self.connection.is_open:
+                self.connection.close()
+        except Exception as e:
+            logging.warning("Error closing RabbitMQ connection: %s", e)
