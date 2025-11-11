@@ -6,7 +6,6 @@ import logging, sys
 from .settings import settings
 from .pdf_reader import PDFReader
 from .clients.minio_client import init_minio
-from .clients.rabbitmq_client import init_rabbitmq
 
 # Configure a JSON‑friendly stream handler using the log level retrieved from Settings.
 # Kept in its own function so tests can call it without executing the rest of the CLI logic.
@@ -54,16 +53,10 @@ def main()-> None:
         logging.error("MinIO startup failure: %s", e)
         raise
 
-    try:
-        connection, channel = init_rabbitmq(settings)
-    except Exception as e:
-        logging.error("RabbitMQ client initialization failed: %s", e)
-        raise
 
     # Service encapsulating the workflow (minimal change to the rest of the codebase)
     pdf_reader = PDFReader(
-        client,
-        channel,
+        minio_client=client,
         bucket=bucket,
         processed_prefix=settings.processed_prefix,
         ingest_exchange=settings.rabbitmq_exchange,
@@ -103,12 +96,10 @@ def main()-> None:
                 retry_file=args.retry_file,
             )
             pdf_reader.scan_deletions()
+    except KeyboardInterrupt:
+        logging.info("KeyboardInterrupt: shutting down.")
+    except BaseException as e:
+        logging.exception("Unexpected fatal error: %s", e)
     finally:
         # Graceful shutdown without sys.exit(0); let caller/process decide exit code
-        try:
-            try:
-                channel.close()
-            finally:
-                connection.close()
-        except Exception as e:
-            logging.warning("Error during shutdown: %s", e)
+        pdf_reader.close_rabbitmq()

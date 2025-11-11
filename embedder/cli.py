@@ -3,7 +3,7 @@ from functools import partial
 import json
 import logging
 import sys
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 
 from .settings import settings
 from .clients.rabbitmq_client import init_rabbitmq
@@ -11,7 +11,7 @@ from .clients.ollama_client import OllamaClient
 from .embedder import Embedder
 from .helpers import process_message
 
-load_dotenv()
+# load_dotenv()
 
 
 def init_logging():

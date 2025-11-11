@@ -46,7 +46,7 @@ services:
     build:
       context: ./model_downloader
     container_name: model-downloader
-    restart: "no"
+    # restart: "no"
     depends_on:
       ollama:
         condition: service_healthy
@@ -57,11 +57,12 @@ services:
       - app
     
   rabbitmq:
-    image: rabbitmq:4.1.0-management-alpine
+    build:
+      context: ./rabbitmq
     container_name: rabbitmq
     hostname: rabbitmq
     environment:
-    - RABBITMQ_NODENAME=rabbit@rabbitmq     
+      - RABBITMQ_NODENAME=rabbit@rabbitmq
     restart: unless-stopped
     ports:
       - 5672:5672

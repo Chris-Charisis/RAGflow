@@ -13,17 +13,6 @@ def load_json_bytes(b: bytes) -> dict:
     except Exception:
         return json.loads(b.decode("utf-8"))
 
-def dict_pick(d: dict, keys: list[str]) -> dict:
-    return {k: d[k] for k in keys if k in d and d[k] is not None}
-
-def ensure_uuid(s: str | None) -> str | None:
-    if not s: return None
-    try:
-        return str(uuid.UUID(s))
-    except Exception:
-        # allow non-uuid ids; callers may pass None to auto-generate at DB side
-        return s
-
 def extract_vector(payload: dict) -> list[float]:
     vec = payload["embedding"].get("embedding_vector")[0]
     if not isinstance(vec, (list, tuple)):
@@ -46,3 +35,44 @@ def retry(exceptions: tuple[type[Exception], ...], tries=3, delay=0.5, backoff=2
             return fn(*args, **kwargs)
         return wrapper
     return decorator
+
+    def _clean_text(x):
+        if not isinstance(x, str): return None
+        x = x.strip()
+        return x or None
+
+    def _to_text_array(x):
+        if x is None: return None
+        if isinstance(x, str): x = [x]
+        if not isinstance(x, (list, tuple)): return None
+        out = []
+        for it in x:
+            if isinstance(it, str):
+                it = it.strip()
+                if it: out.append(it)
+        return out or None
+
+    def _to_int(x):
+        try: return int(x) if x is not None else None
+        except (TypeError, ValueError): return None
+
+    def _drop_nones(d: dict):
+        out = {}
+        for k, v in d.items():
+            if v is None: 
+                continue
+            if isinstance(v, dict):
+                vv = _drop_nones(v)
+                if vv: out[k] = vv
+            elif isinstance(v, list):
+                vv = []
+                for e in v:
+                    if isinstance(e, dict):
+                        ed = _drop_nones(e)
+                        if ed: vv.append(ed)
+                    elif e is not None:
+                        vv.append(e)
+                if vv: out[k] = vv
+            else:
+                out[k] = v
+        return out

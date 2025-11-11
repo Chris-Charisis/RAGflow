@@ -1,14 +1,45 @@
 import json
 import pika
 import io
-from pika.adapters.blocking_connection import BlockingChannel
+import logging
+from pika.adapters.blocking_connection import BlockingChannel, BlockingConnection
+from pika.exceptions import ChannelWrongStateError, StreamLostError
 from tenacity import retry, stop_after_attempt, wait_exponential, retry_if_exception_type
 from typing import Any
 from minio import Minio
 from minio.error import S3Error
+from .settings import Settings
+from .clients.rabbitmq_client import init_rabbitmq
 
 # Publish a JSON payload to RabbitMQ and surface network or AMQP exceptions so the caller can record failures.
-def publish(channel: BlockingChannel, exchange: str, routing_key: str, msg: dict[str, Any], message_id: str | None = None) -> None:
+def publish(connection: BlockingConnection, channel: BlockingChannel, exchange: str, routing_key: str, msg: dict[str, Any], message_id: str | None = None) -> None:
+    """
+    Publish once; if the channel/stream is stale after long idle,
+    reconnect and retry exactly once.
+    """
+
+    # Fast path: if channel looks open, try once.
+    if channel and getattr(channel, "is_open", False):
+        try:
+            channel.basic_publish(
+            exchange=exchange,
+            routing_key=routing_key,
+            body=json.dumps(msg), #.encode("utf-8")
+            mandatory=True,
+            properties=pika.BasicProperties(
+                content_type="application/json",
+                delivery_mode=pika.DeliveryMode.Persistent,
+                message_id=message_id,
+                ),
+            )
+            return connection, channel
+        except (ChannelWrongStateError, StreamLostError):
+            logging.warning("RabbitMQ channel/stream lost; reconnecting...")
+            pass  # fall through to reconnect
+
+    # Reconnect and retry once (handles hours/days of idle).
+    cfg = Settings()
+    connection, channel = init_rabbitmq(cfg)
     channel.basic_publish(
         exchange=exchange,
         routing_key=routing_key,
@@ -18,8 +49,9 @@ def publish(channel: BlockingChannel, exchange: str, routing_key: str, msg: dict
             content_type="application/json",
             delivery_mode=pika.DeliveryMode.Persistent,
             message_id=message_id,
-        ),
-    )
+            ),
+        )
+    return connection, channel
 
 # -------- Processed marker helpers --------
 def marker_key(processed_prefix: str, obj_key: str, etag: str) -> str:
