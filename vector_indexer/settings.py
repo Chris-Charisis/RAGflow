@@ -3,7 +3,7 @@ from pydantic import Field
 
 class Settings(BaseSettings):
     # RabbitMQ (same style as your existing code)
-    rabbitmq_host: str = Field("localhost", validation_alias="RABBITMQ_HOST")
+    rabbitmq_host: str = Field("rabbitmq", validation_alias="RABBITMQ_HOST")
     rabbitmq_port: int = Field(5672, validation_alias="RABBITMQ_PORT")
     rabbitmq_vhost: str = Field("/", validation_alias="RABBITMQ_VHOST")
     rabbitmq_user: str = Field("user", validation_alias="RABBITMQ_USER")
@@ -24,7 +24,7 @@ class Settings(BaseSettings):
     # Weaviate (v4)
     weaviate_url: str | None = Field(None, validation_alias="WEAVIATE_URL")   # e.g. https://yourcluster.weaviate.network
     weaviate_api_key: str | None = Field("user-a-key", validation_alias="WEAVIATE_API_KEY")
-    weaviate_host: str = Field("localhost", validation_alias="WEAVIATE_HOST")
+    weaviate_host: str = Field("weaviate", validation_alias="WEAVIATE_HOST")
     weaviate_port: int = Field(8080, validation_alias="WEAVIATE_PORT")
     weaviate_grpc_port: int = Field(50051, validation_alias="WEAVIATE_GRPC_PORT")
     weaviate_tenant: str | None = Field(None, validation_alias="WEAVIATE_TENANT")  # optional multi-tenancy

@@ -118,6 +118,12 @@ services:
       AUTHENTICATION_APIKEY_USERS: 'user-a,user-b'
       AUTHORIZATION_ENABLE_RBAC: 'true'
       AUTHORIZATION_RBAC_ROOT_USERS: 'user-a'
+    healthcheck:
+      test: ["CMD-SHELL", "wget -q --spider http://localhost:8080/v1/.well-known/ready || exit 1"]
+      interval: 5s
+      timeout: 3s
+      retries: 30
+      start_period: 10s    
     networks:
       - app
 
@@ -163,6 +169,21 @@ services:
         condition: service_healthy   
     networks:
       - app
+
+  vector_indexer:
+    build:
+      context: ./vector_indexer
+    restart: unless-stopped
+    container_name: vector_indexer
+    env_file:
+      - .env
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+      weaviate:
+        condition: service_healthy        
+    networks:
+      - app      
 
 volumes:
   minio_data:
