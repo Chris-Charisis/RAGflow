@@ -28,5 +28,5 @@ def consume_forever(channel: BlockingChannel, indexer: DatabaseIndexer, cfg: Set
         on_message_callback=lambda ch, m, p, b: handle_message(ch, m, p, b, indexer, cfg),
         auto_ack=False,
     )
-    logger.info("Consuming from queue='%s' (routing_key='%s')", cfg.rabbitmq_input_queue, cfg.rabbitmq_input_routing_key)
+    logger.info("Consuming from %s with routing key %s", cfg.rabbitmq_input_queue, cfg.rabbitmq_input_routing_key)
     channel.start_consuming()

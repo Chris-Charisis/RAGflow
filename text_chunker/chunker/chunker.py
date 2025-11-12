@@ -43,19 +43,27 @@ class Chunker:
     # ---------- Pre-processing text for chunking strategies ----------
     def pre_process_text(self, text: str, strategy: str) -> str:
         parts = text.split("===")
-        # Find the index of "introduction" and "references"
-        # TODO: handle cases where these sections are missing
-        introduction_index = next(i for i, section in enumerate(parts) if section == 'introduction')
-        references_index = next(i for i, section in enumerate(parts) if section == 'references' or section == 'acknowledgments')
+        # Find the index of "introduction" and "references"/"acknowledgments" sections
+        try:
+            introduction_index = next(i for i, section in enumerate(parts) if section == 'introduction')
+        except:
+            introduction_index = 0
+        try:
+            references_index = next(i for i, section in enumerate(parts) if section == 'references' or section == 'acknowledgments')
+        except:
+            references_index = len(parts)
 
         # Remove sections before "introduction" and after "references" or "acknowledgments"
         parts_with_chapters = parts[introduction_index:references_index]
-        # Combine into dictionary every two elements of the list "chapter":"relevant text"
+        # If chapters were found, combine into dictionary every two elements of the list "chapter":"relevant text"
         combined_parts_with_chapters = {}
-        for i in range(0, len(parts_with_chapters), 2):
-            chapter_title = parts_with_chapters[i]
-            chapter_text = parts_with_chapters[i+1] if i+1 < len(parts_with_chapters) else ""
-            combined_parts_with_chapters[chapter_title] = chapter_text
+        if len(parts_with_chapters) >= 2:
+            for i in range(0, len(parts_with_chapters), 2):
+                chapter_title = parts_with_chapters[i]
+                chapter_text = parts_with_chapters[i+1] if i+1 < len(parts_with_chapters) else ""
+                combined_parts_with_chapters[chapter_title] = chapter_text
+        else:
+            combined_parts_with_chapters["full_text"] = parts_with_chapters[0]
 
         # Keep the chapters information for recursive strategy
         if strategy == "recursive":
@@ -152,18 +160,25 @@ class Chunker:
         return out
 
     # Create sentence aware recursive chunking function for each element of the dictionary
-    def recursive_chunking(self, text: dict, MAX_CHUNK_SIZE: int = 500, OVERLAP_MAX_SIZE=73) -> List[Dict[str, Any]]:
+    def recursive_chunking(self, text: dict, MAX_CHUNK_SIZE=360, OVERLAP_MAX_SIZE=0) -> List[Dict[str, Any]]:
+        all_chunks_list = []
+        # if isinstance(text, dict):
         all_chunks = {}
-        
         for chapter_title, chapter_text in text.items():
             chunks = self.sentence_chunks(chapter_text, MAX_CHUNK_SIZE=MAX_CHUNK_SIZE, OVERLAP_MAX_SIZE=OVERLAP_MAX_SIZE)
             all_chunks[chapter_title] = chunks
 
         # add dictionary key as field in each chunk and create a flat list of all chunks
-        all_chunks_list = []
         for chapter_title, chunks in all_chunks.items():
             for chunk in chunks:
-                all_chunks_list.append({**chunk, "chapter": chapter_title})
+                all_chunks_list.append({**chunk, "chapter": chapter_title})                
+        # else:
+        #     # If text is not a dictionary, process it as a single chunk
+        #     chunks = self.sentence_chunks(text, MAX_CHUNK_SIZE=MAX_CHUNK_SIZE, OVERLAP_MAX_SIZE=OVERLAP_MAX_SIZE)
+        #     for chunk in chunks:
+        #         all_chunks_list.append({**chunk, "chapter": "full_text"})   
+
+
         return all_chunks_list
 
     # ---------- Helpers ----------

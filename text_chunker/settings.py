@@ -24,8 +24,8 @@ class Settings(BaseSettings):
     rabbitmq_output_routing_key: str = Field("chunks", env="OUTPUT_ROUTING_KEY")
 
     # Chunker settings
-    chunk_strategy: str = Field("words", env="CHUNK_STRATEGY")
-    chunk_size: int = Field(1200, env="CHUNK_SIZE")
+    chunk_strategy: str = Field("recursive", env="CHUNK_STRATEGY")
+    chunk_size: int = Field(360, env="CHUNK_SIZE")
     chunk_overlap: int = Field(0, env="CHUNK_OVERLAP")
 
     # General settings
