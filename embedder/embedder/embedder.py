@@ -30,7 +30,7 @@ class Embedder:
 
         ollama_payload: Dict[str, Any] = {
             "model": self.model,
-            "input": [text],
+            "input": ["Represent this sentence for searching relevant passages:" + text],
             "truncate": self.truncate,
         }
         if self.dimensions is not None:

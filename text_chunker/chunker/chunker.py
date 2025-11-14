@@ -106,7 +106,7 @@ class Chunker:
         return out
 
     # Create chunks based on sentences with/out overlap
-    def sentence_chunks(self,text, MAX_CHUNK_SIZE=365, OVERLAP_MAX_SIZE=73):
+    def sentence_chunks(self,text, MAX_CHUNK_SIZE=350, OVERLAP_MAX_SIZE=0) -> List[Dict[str, Any]]:
         # List to hold the final output
         out: List[Dict[str, Any]] = []
         # Split the text using ". " and ".<Capital letter>" as delimiters
@@ -160,7 +160,7 @@ class Chunker:
         return out
 
     # Create sentence aware recursive chunking function for each element of the dictionary
-    def recursive_chunking(self, text: dict, MAX_CHUNK_SIZE=360, OVERLAP_MAX_SIZE=0) -> List[Dict[str, Any]]:
+    def recursive_chunking(self, text: dict, MAX_CHUNK_SIZE=350, OVERLAP_MAX_SIZE=0) -> List[Dict[str, Any]]:
         all_chunks_list = []
         # if isinstance(text, dict):
         all_chunks = {}
