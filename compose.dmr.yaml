@@ -1,0 +1,176 @@
+services:
+  techno-boto-chat:
+    image: agelosnm/techno-boto-chat:v1
+    container_name: techno-boto-chat
+    restart: unless-stopped
+    ports:
+      - 3000:3000
+    environment:
+      # - LLM_API_BASE_URL=http://model-runner.docker.internal/engines/v1
+      - LLM_API_BASE_URL=http://172.17.0.1:12434/engines/v1
+      - MODEL_NAME=ai/gpt-oss
+
+  minio:
+    image: quay.io/minio/minio:RELEASE.2025-04-22T22-12-26Z
+    container_name: minio
+    restart: unless-stopped
+    ports:
+      - 9000:9000
+      - 9001:9001
+    env_file:
+      - .env
+    volumes:
+      - minio_data:/data
+    networks:
+      - app
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/ready"]
+      interval: 5s
+      timeout: 3s
+      retries: 10      
+    command: server /data --console-address ":9001"
+    
+  rabbitmq:
+    build:
+      context: ./rabbitmq
+    container_name: rabbitmq
+    hostname: rabbitmq
+    environment:
+      - RABBITMQ_NODENAME=rabbit@rabbitmq
+    restart: unless-stopped
+    ports:
+      - 5672:5672
+      - 15672:15672
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 10      
+    env_file:
+      - .env
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+    networks:
+      - app
+    
+  openwebui:
+    image: ghcr.io/open-webui/open-webui:v0.6.36
+    container_name: openwebui
+    restart: unless-stopped
+    ports:
+      - 3000:8080
+    environment:
+      - OPENAI_API_BASE_URL=http://172.17.0.1:12434/engines/v1 # Needs to call the host at its bridge IP
+      - OPENAI_API_KEY=''
+    volumes:
+      - openwebui_data:/app/backend/data
+    networks:
+      - app
+
+  weaviate:
+    image: cr.weaviate.io/semitechnologies/weaviate:1.33.4
+    container_name: weaviate
+    ports:
+      - 8080:8080
+      - 50051:50051
+    volumes:
+      - weaviate_data:/var/lib/weaviate
+    restart: on-failure:0
+    command:
+      - --host
+      - 0.0.0.0
+      - --port
+      - '8080'
+      - --scheme
+      - http
+    environment:
+      QUERY_DEFAULTS_LIMIT: 25
+      PERSISTENCE_DATA_PATH: '/var/lib/weaviate'
+      CLUSTER_HOSTNAME: 'node1'
+      AUTHENTICATION_ANONYMOUS_ACCESS_ENABLED: 'false'
+      AUTHENTICATION_APIKEY_ENABLED: 'true'
+      AUTHENTICATION_APIKEY_ALLOWED_KEYS: 'user-a-key,user-b-key'
+      AUTHENTICATION_APIKEY_USERS: 'user-a,user-b'
+      AUTHORIZATION_ENABLE_RBAC: 'true'
+      AUTHORIZATION_RBAC_ROOT_USERS: 'user-a'
+    healthcheck:
+      test: ["CMD-SHELL", "wget -q --spider http://localhost:8080/v1/.well-known/ready || exit 1"]
+      interval: 5s
+      timeout: 3s
+      retries: 30
+      start_period: 10s    
+    networks:
+      - app
+
+  pdf_reader:
+    build:
+      context: ./pdf_reader
+    restart: unless-stopped
+    container_name: pdf_reader
+    env_file:
+      - .env
+    depends_on:
+      minio:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+    networks:
+      - app     
+
+  text_chunker:
+    build:
+      context: ./text_chunker
+    restart: unless-stopped
+    container_name: text_chunker
+    env_file:
+      - .env
+    depends_on:
+      rabbitmq:
+        condition: service_healthy      
+    networks:
+      - app
+
+  embedder:
+    build:
+      context: ./embedder
+    restart: unless-stopped
+    container_name: embedder
+    env_file:
+      - .env
+    depends_on:
+      - rabbitmq
+      - docker-model-runner-embedder
+    networks:
+      - app
+  
+  docker-model-runner-embedder:
+    provider:
+      type: model
+      options:
+        model: ai/mxbai-embed-large:335M-F16
+
+  vector_indexer:
+    build:
+      context: ./vector_indexer
+    restart: unless-stopped
+    container_name: vector_indexer
+    env_file:
+      - .env
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+      weaviate:
+        condition: service_healthy        
+    networks:
+      - app      
+
+volumes:
+  minio_data:
+  rabbitmq_data:
+  weaviate_data:
+  ollama_data:
+  openwebui_data:
+
+networks:
+  app:
+    driver: bridge
