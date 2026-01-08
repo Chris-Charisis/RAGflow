@@ -1,9 +1,11 @@
+import os
 import re
 from minio import Minio
 from minio.error import S3Error
 from typing import Any, Iterable, Optional
 import json, logging, tempfile
 from pypdf import PdfReader
+from pypdf.errors import PdfReadError
 import pdfplumber
 from unstructured.partition.pdf import partition_pdf
 from .settings import settings
@@ -74,13 +76,49 @@ class PDFReader:
         
         # Extract metadata
         out = {}
-        rdr = PdfReader(str(path))
+        try:
+            rdr = PdfReader(str(path))
+        except PdfReadError as e:
+            logging.error("PdfReadError for %s: %s", path, e)
+            raise
         meta = rdr.metadata or {}
+
+        # Extract metadata fields with error handling
+        title = None
+        try:
+            title = meta.title
+        except (AttributeError, KeyError):
+            logging.warning("Title not found in PDF metadata for %s", path)
+
+        authors = None
+        try:
+            authors = meta.author
+        except (AttributeError, KeyError):
+            logging.warning("Authors not found in PDF metadata for %s", path)
+            
+        keywords = None
+        try:
+            keywords = meta.keywords
+        except (AttributeError, KeyError):
+            logging.warning("Keywords not found in PDF metadata for %s", path)
+            
+        abstract = None
+        try:
+            abstract = meta.subject
+        except (AttributeError, KeyError):
+            logging.warning("Abstract/subject not found in PDF metadata for %s", path)
+            
+        doi = None
+        try:
+            doi = self.guess_doi(rdr)
+        except Exception as e:
+            logging.warning("Failed to extract DOI from PDF %s: %s", path, e)
+        
         out["metadata"] = {
-            "title": meta.title,
-            "authors": meta.author,
-            "keywords": meta.keywords,
-            "abstract": meta.subject,
+            "title": title,
+            "authors": authors,
+            "keywords": keywords,
+            "abstract": abstract,
             "doi": self.guess_doi(rdr),
         }
 
@@ -110,16 +148,18 @@ class PDFReader:
 
         # Precompile once
         SECTION_NUM_PREFIX = re.compile(
-            r"""^
-                \s*
-                (?:                     # numbering alternatives:
-                \(?\d+(?:\.\d+)*     # 1  or 1.2.3   (optional opening '(')
-                |                     # OR
-                \(?[ivxlcdm]+(?:\.[ivxlcdm]+)*  # I  or IV or III      (roman)
-                )
-                \)?                     # optional closing ')'
-                [\.\)]?                 # optional trailing '.' or ')'
-                \s*                     # spaces after numbering
+            r"""
+            ^\s*
+            (?:
+                \(?\d+(?:\.\d+)*               # 1 or 1.2.3
+                |
+                \(?
+                [ivxlcdm]+(?:\.[ivxlcdm]+)*    # I, II, III, IV, ...
+                (?=\W|$)                       # next char is non-word or end
+            )
+            \)?                                # optional closing ')'
+            [\.\)]?                            # optional trailing '.' or ')'
+            \s*                                # spaces after numbering
             """,
             flags=re.IGNORECASE | re.VERBOSE,
         )
@@ -192,8 +232,11 @@ class PDFReader:
                 }
                 payload.update(processed_pdf_info)
 
-                # with open(f"./pdf_reader/outputs/{payload["source"]["object"]}_processed.json", "w") as f:
+                # with open(f"./pdf_reader/outputs/{payload['source']['object'].replace('.pdf', '')}_processed.json", "w") as f:
                 #     json.dump(payload, f, indent=4)
+
+                # with open(f"./pdf_reader/outputs/{obj.object_name.replace('.pdf', '')}_processed.json", "r") as f:
+                #     payload = json.load(f)
 
                 self.connection, self.channel = publish(
                     self.connection,
@@ -321,6 +364,7 @@ class PDFReader:
             }
             try:
                 publish(
+                    self.connection,
                     self.channel,
                     self.delete_exchange,
                     self.delete_routing_key,

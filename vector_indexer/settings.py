@@ -1,8 +1,9 @@
+# Pydantic settings for vector indexer service
 from pydantic_settings import BaseSettings, SettingsConfigDict
 from pydantic import Field
 
 class Settings(BaseSettings):
-    # RabbitMQ (same style as your existing code)
+    # RabbitMQ
     rabbitmq_host: str = Field("rabbitmq", validation_alias="RABBITMQ_HOST")
     rabbitmq_port: int = Field(5672, validation_alias="RABBITMQ_PORT")
     rabbitmq_vhost: str = Field("/", validation_alias="RABBITMQ_VHOST")
@@ -11,7 +12,6 @@ class Settings(BaseSettings):
     rabbitmq_exchange: str = Field("events", validation_alias="RABBITMQ_EXCHANGE")
     rabbitmq_prefetch_count: int = Field(16, validation_alias="RABBITMQ_PREFETCH_COUNT")
 
-
     # Input settings
     rabbitmq_input_exchange: str = Field("events", validation_alias="INPUT_EXCHANGE")
     rabbitmq_input_queue: str = Field("embeddings", validation_alias="INPUT_QUEUE")
@@ -19,18 +19,18 @@ class Settings(BaseSettings):
 
    # Backend selection
     backend: str = Field("weaviate", validation_alias="INDEX_BACKEND")  # 'weaviate' (default) | 'other'
-    collection: str = Field("RAGChunks", validation_alias="COLLECTION")
+    collection: str = Field("recursive_with_overlap", validation_alias="COLLECTION")
 
-    # Weaviate (v4)
-    weaviate_url: str | None = Field(None, validation_alias="WEAVIATE_URL")   # e.g. https://yourcluster.weaviate.network
-    weaviate_api_key: str | None = Field("user-a-key", validation_alias="WEAVIATE_API_KEY")
+    # Weaviate (v4) settings    
+    weaviate_url: str | None = Field(None, validation_alias="WEAVIATE_URL")
+    weaviate_api_key: str = Field("user-a-key", validation_alias="WEAVIATE_API_KEY")
     weaviate_host: str = Field("weaviate", validation_alias="WEAVIATE_HOST")
     weaviate_port: int = Field(8080, validation_alias="WEAVIATE_PORT")
     weaviate_grpc_port: int = Field(50051, validation_alias="WEAVIATE_GRPC_PORT")
-    weaviate_tenant: str | None = Field(None, validation_alias="WEAVIATE_TENANT")  # optional multi-tenancy
+    weaviate_tenant: str | None = Field(None, validation_alias="WEAVIATE_TENANT")
     create_collection_if_missing: bool = Field(True, validation_alias="WEAVIATE_CREATE_COLLECTION")
 
-    # Behavior
+    # General settings
     dry_run: bool = Field(False, validation_alias="DRY_RUN")
     log_level: str = Field("INFO", validation_alias="LOG_LEVEL")
 

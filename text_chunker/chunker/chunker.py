@@ -8,7 +8,7 @@ class Chunker:
     Exposes concrete strategy methods as instance methods so you can unit-test them directly.
     """
 
-    def __init__(self, *, strategy: str = "words", size: int = 1200, overlap: int = 200):
+    def __init__(self, *, strategy: str = "words", size: int, overlap: int):
         self.strategy = strategy.lower()
         self.size = int(size)
         self.overlap = int(overlap)
@@ -49,7 +49,7 @@ class Chunker:
         except:
             introduction_index = 0
         try:
-            references_index = next(i for i, section in enumerate(parts) if section == 'references' or section == 'acknowledgments')
+            references_index = next(i for i, section in enumerate(parts) if section in ('references', 'acknowledgments') and i > introduction_index)
         except:
             references_index = len(parts)
 
@@ -57,13 +57,21 @@ class Chunker:
         parts_with_chapters = parts[introduction_index:references_index]
         # If chapters were found, combine into dictionary every two elements of the list "chapter":"relevant text"
         combined_parts_with_chapters = {}
-        if len(parts_with_chapters) >= 2:
+        if len(parts_with_chapters) % 2 == 0:
             for i in range(0, len(parts_with_chapters), 2):
                 chapter_title = parts_with_chapters[i]
                 chapter_text = parts_with_chapters[i+1] if i+1 < len(parts_with_chapters) else ""
+                # Check if key already exists and if so add a number to make it unique
+                if chapter_title in combined_parts_with_chapters:
+                    suffix = 2
+                    new_chapter_title = f"{chapter_title}_{suffix}"
+                    while new_chapter_title in combined_parts_with_chapters:
+                        suffix += 1
+                        new_chapter_title = f"{chapter_title}_{suffix}"
+                    chapter_title = new_chapter_title
                 combined_parts_with_chapters[chapter_title] = chapter_text
         else:
-            combined_parts_with_chapters["full_text"] = parts_with_chapters[0]
+            combined_parts_with_chapters["full_text"] = " ".join(parts_with_chapters)
 
         # Keep the chapters information for recursive strategy
         if strategy == "recursive":
@@ -90,7 +98,7 @@ class Chunker:
 
     # ---------- Chunking strategies strategies ----------
     # Create chunks based on words with/out overlap
-    def words_chunks(self, text: str, chunk_word_size: int = 288, chunk_overlap: int = 0) -> List[Dict[str, Any]]:
+    def words_chunks(self, text: str, chunk_word_size: int, chunk_overlap: int) -> List[Dict[str, Any]]:
         words = text.split(" ")
         out: List[Dict[str, Any]] = []
         for idx, i in enumerate(range(0, len(words), chunk_word_size - chunk_overlap)):
@@ -106,12 +114,16 @@ class Chunker:
         return out
 
     # Create chunks based on sentences with/out overlap
-    def sentence_chunks(self,text, MAX_CHUNK_SIZE=365, OVERLAP_MAX_SIZE=73):
+    def sentence_chunks(self,text: str, MAX_CHUNK_SIZE: int, OVERLAP_MAX_SIZE: int) -> List[Dict[str, Any]]:
         # List to hold the final output
         out: List[Dict[str, Any]] = []
         # Split the text using ". " and ".<Capital letter>" as delimiters
         pattern = r'(?<=\.)\s+|(?<=\.)(?=[A-Z])'
         sentences = [s for s in re.split(pattern, text) if s]
+
+        if not sentences:
+            return out
+
         # Initialize variables for chunking
         chunks = []
         chunk_words = 0
@@ -133,14 +145,14 @@ class Chunker:
                 overlapping_words = 0
                 # Check how many sentences can be added from the end of the current chunk to the new chunk for overlapping
                 for y in reversed(chunks[-1]):
-                    overlapping_words += len(sentences[y].split(" "))
-                    if overlapping_words < OVERLAP_MAX_SIZE:
+                    if overlapping_words + len(sentences[y].split(" ")) < OVERLAP_MAX_SIZE:
+                        overlapping_words += len(sentences[y].split(" "))
                         chunk_sentence_ids.append(y)
                     else:
                         break
                 chunk_sentence_ids.reverse()
                 chunk_sentence_ids.append(idx)
-                chunk_words = len(words)
+                chunk_words = len(words) + overlapping_words
 
         # Add the last chunk 
         chunks.append(chunk_sentence_ids)
@@ -160,7 +172,7 @@ class Chunker:
         return out
 
     # Create sentence aware recursive chunking function for each element of the dictionary
-    def recursive_chunking(self, text: dict, MAX_CHUNK_SIZE=360, OVERLAP_MAX_SIZE=0) -> List[Dict[str, Any]]:
+    def recursive_chunking(self, text: dict, MAX_CHUNK_SIZE=350, OVERLAP_MAX_SIZE=0) -> List[Dict[str, Any]]:
         all_chunks_list = []
         # if isinstance(text, dict):
         all_chunks = {}
