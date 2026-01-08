@@ -19,11 +19,11 @@ class Settings(BaseSettings):
 
    # Backend selection
     backend: str = Field("weaviate", validation_alias="INDEX_BACKEND")  # 'weaviate' (default) | 'other'
-    collection: str = Field("RAGChunks", validation_alias="COLLECTION")
+    collection: str = Field("recursive_with_overlap", validation_alias="COLLECTION")
 
     # Weaviate (v4) settings    
     weaviate_url: str | None = Field(None, validation_alias="WEAVIATE_URL")
-    weaviate_api_key: str | None = Field("user-a-key", validation_alias="WEAVIATE_API_KEY")
+    weaviate_api_key: str = Field("user-a-key", validation_alias="WEAVIATE_API_KEY")
     weaviate_host: str = Field("weaviate", validation_alias="WEAVIATE_HOST")
     weaviate_port: int = Field(8080, validation_alias="WEAVIATE_PORT")
     weaviate_grpc_port: int = Field(50051, validation_alias="WEAVIATE_GRPC_PORT")

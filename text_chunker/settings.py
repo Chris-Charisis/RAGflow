@@ -24,7 +24,7 @@ class Settings(BaseSettings):
     # Chunker settings
     chunk_strategy: str = Field("recursive", validation_alias="CHUNK_STRATEGY")
     chunk_size: int = Field(350, validation_alias="CHUNK_SIZE")
-    chunk_overlap: int = Field(0, validation_alias="CHUNK_OVERLAP")
+    chunk_overlap: int = Field(52, validation_alias="CHUNK_OVERLAP")
 
     # General settings
     log_level: str = Field("INFO", validation_alias="LOG_LEVEL")
