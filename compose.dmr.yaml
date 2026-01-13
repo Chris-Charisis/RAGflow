@@ -1,4 +1,14 @@
 services:
+  techno-boto-chat:
+    image: agelosnm/techno-boto-chat:v1
+    container_name: techno-boto-chat
+    restart: unless-stopped
+    ports:
+      - 3000:3000
+    environment:
+      # - LLM_API_BASE_URL=http://model-runner.docker.internal/engines/v1
+      - LLM_API_BASE_URL=http://172.17.0.1:12434/engines/v1
+      - MODEL_NAME=ai/gpt-oss
 
   minio:
     image: quay.io/minio/minio:RELEASE.2025-04-22T22-12-26Z
