@@ -34,13 +34,16 @@ def pull_model(model_name, server_url):
 
 if __name__ == "__main__":
     server_url = os.getenv("OLLAMA_HOST", "http://localhost:11434")
-    model_name = os.getenv("MODEL")
+    model_env = os.getenv("MODEL")
 
-    if not model_name:
+    if not model_env:
         print("❌ Environment variable MODEL is not set.")
-        print("Example:")
-        print("  export MODEL=mistral")
+        print("Example (comma-separated for multiple):")
+        print("  export MODEL=mxbai-embed-large:335m,llama3.1:8b")
         print("  export OLLAMA_HOST=http://localhost:11434")
         sys.exit(1)
 
-    pull_model(model_name, server_url)
+    # Support a comma-separated list so the embedding model and the chat model
+    # can both be pulled (the v2 rag_api needs a chat model present).
+    for model_name in [m.strip() for m in model_env.split(",") if m.strip()]:
+        pull_model(model_name, server_url)

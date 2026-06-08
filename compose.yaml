@@ -52,7 +52,8 @@ services:
         condition: service_healthy
     environment:
       - OLLAMA_HOST=http://ollama:11434
-      - MODEL=mxbai-embed-large:335m
+      # Embedding model (ingestion) + chat model (rag_api default LLM).
+      - MODEL=mxbai-embed-large:335m,llama3.1:8b
     networks:
       - app
     
@@ -79,19 +80,6 @@ services:
     networks:
       - app
     
-  openwebui:
-    image: ghcr.io/open-webui/open-webui:v0.6.15
-    container_name: openwebui
-    restart: unless-stopped
-    ports:
-      - 3000:8080
-    environment:
-      - OLLAMA_BASE_URL=http://ollama:11434
-    volumes:
-      - openwebui_data:/app/backend/data
-    networks:
-      - app
-
   weaviate:
     image: cr.weaviate.io/semitechnologies/weaviate:1.33.4
     container_name: weaviate
@@ -181,16 +169,54 @@ services:
       rabbitmq:
         condition: service_healthy
       weaviate:
-        condition: service_healthy        
+        condition: service_healthy
     networks:
-      - app      
+      - app
+
+  # ---------------- v2.0: retrieval + generation (the "R" and "G" of RAG) ----------------
+  rag_api:
+    build:
+      context: ./rag_api
+    container_name: rag_api
+    restart: unless-stopped
+    ports:
+      - 8000:8000
+    env_file:
+      - .env
+    depends_on:
+      weaviate:
+        condition: service_healthy
+      ollama:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 20s
+    networks:
+      - app
+
+  rag_ui:
+    build:
+      context: ./rag_ui
+    container_name: rag_ui
+    restart: unless-stopped
+    ports:
+      - 3000:8501
+    environment:
+      - RAG_API_URL=http://rag_api:8000
+    depends_on:
+      rag_api:
+        condition: service_healthy
+    networks:
+      - app
 
 volumes:
   minio_data:
   rabbitmq_data:
   weaviate_data:
   ollama_data:
-  openwebui_data:
 
 networks:
   app:

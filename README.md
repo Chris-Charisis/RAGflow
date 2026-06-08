@@ -2,6 +2,23 @@
 
 ![alt text](architecture.png)
 
+> **v2.0 — query path added.** Earlier versions only *ingested* documents
+> (MinIO → pdf_reader → text_chunker → embedder → vector_indexer → Weaviate).
+> v2.0 adds the actual retrieval + generation half:
+>
+> - **`rag_api`** — FastAPI service that embeds the query, runs **hybrid
+>   search** (BM25 + vector) over Weaviate, optionally **re-ranks**
+>   (flashrank / cross-encoder / Cohere, off by default), assembles a grounded
+>   prompt, and calls a **provider-agnostic LLM** (Ollama / OpenAI / Gemini /
+>   Anthropic). See [rag_api/README.md](rag_api/README.md).
+> - **`rag_ui`** — a small custom **Streamlit** chat UI (replaces OpenWebUI)
+>   that streams answers with their sources. See [rag_ui/README.md](rag_ui/README.md).
+>   Available at `http://localhost:3000` once the stack is up.
+>
+> Built on **LangChain** primitives. The LLM provider is selected with
+> `LLM_PROVIDER`; only the chosen provider's API key is required. See
+> `.env.example` for the new configuration.
+
 # Docker Compose Infrastructure Stack
 
 This Docker Compose configuration defines a three-service infrastructure stack commonly used for web applications. The stack provides object storage, message queuing, and relational database capabilities - a solid foundation for microservices or applications requiring file storage, async processing, and structured data management.
