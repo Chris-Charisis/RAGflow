@@ -1,0 +1,8 @@
+[project]
+name = "model-downloader"
+version = "0.1.0"
+description = "Pulls Ollama models on startup"
+requires-python = ">=3.12"
+dependencies = [
+    "requests==2.32.5",
+]

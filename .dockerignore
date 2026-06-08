@@ -5,7 +5,6 @@
 **/*.pyc
 **/.pytest_cache
 **/.ipynb_checkpoints
-**/uv.lock
 text_chunker/outputs
 pdf_reader/extracted_text
 pdf_reader/chunking_explore.ipynb
