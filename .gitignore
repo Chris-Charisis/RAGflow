@@ -197,3 +197,6 @@ cython_debug/
 # *.toml
 # RAGflow eval outputs
 eval_data/results*.csv
+
+# chunker debug outputs (regeneratable test artifacts)
+text_chunker/outputs/

@@ -12,13 +12,17 @@ from contextlib import asynccontextmanager
 from typing import Any, Dict, List, Optional
 
 from fastapi import FastAPI
-from fastapi.responses import StreamingResponse
+from fastapi.responses import Response, StreamingResponse
+from prometheus_client import CONTENT_TYPE_LATEST, Counter, Histogram, generate_latest
 from pydantic import BaseModel, Field
 
 from .rag.pipeline import RAGPipeline
 from .settings import settings
 
 logger = logging.getLogger(__name__)
+
+_queries = Counter("rag_api_queries_total", "Queries handled", ["endpoint"])
+_latency = Histogram("rag_api_query_seconds", "Query latency (seconds)", ["endpoint"])
 
 
 class QueryRequest(BaseModel):
@@ -71,12 +75,19 @@ def health() -> Dict[str, Any]:
     return {"status": "ok", "weaviate_ready": ready, "llm_provider": settings.llm_provider}
 
 
+@app.get("/metrics")
+def metrics() -> Response:
+    return Response(generate_latest(), media_type=CONTENT_TYPE_LATEST)
+
+
 @app.post("/query", response_model=QueryResponse)
 def query(req: QueryRequest) -> Dict[str, Any]:
     pipeline: RAGPipeline = app.state.pipeline
-    result = pipeline.answer(
-        req.question, k=req.k, alpha=req.alpha, rerank=req.rerank, top_n=req.top_n
-    )
+    _queries.labels("query").inc()
+    with _latency.labels("query").time():
+        result = pipeline.answer(
+            req.question, k=req.k, alpha=req.alpha, rerank=req.rerank, top_n=req.top_n
+        )
     if not req.return_contexts:
         result.pop("contexts", None)
     return result

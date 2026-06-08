@@ -1,59 +1,45 @@
-import pika
 import json
 import logging
+
+from ragflow_contracts import obs
+from ragflow_contracts.mq import publish_json
 
 from embedder.embedder.embedder import EmbeddingError
 from .settings import settings
 
-def publish_chunk(channel, exchange, routing_key, msg: dict):
-    channel.basic_publish(
-        exchange=exchange,
-        routing_key=routing_key,
-        mandatory=True,
-        body=json.dumps(msg),
-        properties=pika.BasicProperties(
-            content_type="application/json",
-            delivery_mode=pika.DeliveryMode.Persistent,
-        ),
-    )
+_processed = obs.counter("embedder_chunks_processed_total", "Chunks embedded and published")
+_failed = obs.counter("embedder_batches_failed_total", "Embedding batches that failed")
 
-def process_message(channel, method, properties, body, *, embedder):
-    try:
-        payload = json.loads(body)
-    except Exception as e:
-        logging.error("Invalid JSON on input: %s", e)
-        channel.basic_ack(delivery_tag=method.delivery_tag)
-        return
 
-    try:
-        out_msg = embedder.process_message(payload)
-        if not out_msg:
-            logging.warning("No chunks produced; acking message")
-            channel.basic_ack(delivery_tag=method.delivery_tag)
-            return        
-    except EmbeddingError as e:
-        logging.error("Embedding failed; rejecting: %s", e)
-        channel.basic_nack(delivery_tag=method.delivery_tag, requeue=False)
-        return
-    except Exception as e:
-        logging.error("Processing failed; rejecting: %s", e)
-        channel.basic_nack(delivery_tag=method.delivery_tag, requeue=False)
-        return
+def make_batch_processor(channel, embedder):
+    """Build the batch handler used by mq.BatchConsumer.
 
-    try:
-        publish_chunk(
-            channel,
-            exchange=settings.rabbitmq_output_exchange,
-            routing_key=settings.rabbitmq_output_routing_key,
-            msg=out_msg,
-        )
-    except Exception as e:
-        logging.error("Publish failed; rejecting: %s", e)
-        channel.basic_nack(delivery_tag=method.delivery_tag, requeue=False)
-        return
+    Embeds a batch of chunk messages in one model call and republishes each.
+    Malformed messages are dropped (and acked); a transient embedding/publish
+    failure raises so the whole batch is nacked and retried.
+    """
+    def process(bodies):
+        payloads = []
+        for body in bodies:
+            try:
+                payloads.append(json.loads(body))
+            except Exception as e:
+                logging.error("Invalid JSON on input; dropping message: %s", e)
+        if not payloads:
+            return
+        try:
+            out_msgs = embedder.process_batch(payloads)
+        except EmbeddingError:
+            _failed.inc()
+            raise  # nack whole batch -> retry
+        for msg in out_msgs:
+            publish_json(
+                channel,
+                settings.rabbitmq_output_exchange,
+                settings.rabbitmq_output_routing_key,
+                msg,
+            )
+        _processed.inc(len(out_msgs))
+        logging.info("Embedded & published %d chunk(s)", len(out_msgs))
 
-    channel.basic_ack(delivery_tag=method.delivery_tag)
-    logging.info(
-        "Embedding published at rk=%s",
-        settings.rabbitmq_output_routing_key,
-    )
+    return process

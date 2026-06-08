@@ -37,6 +37,13 @@ class Settings(BaseSettings):
     weaviate_tenant: str | None = Field(None, validation_alias="WEAVIATE_TENANT")
     create_collection_if_missing: bool = Field(True, validation_alias="WEAVIATE_CREATE_COLLECTION")
 
+    # Batching (user-tunable throughput hyperparameter; 1 = per-message)
+    batch_size: int = Field(16, validation_alias="BATCH_SIZE")
+    batch_flush_seconds: float = Field(2.0, validation_alias="BATCH_FLUSH_SECONDS")
+
+    # Observability
+    metrics_port: int = Field(9100, validation_alias="METRICS_PORT")
+
     # General settings
     dry_run: bool = Field(False, validation_alias="DRY_RUN")
     log_level: str = Field("INFO", validation_alias="LOG_LEVEL")

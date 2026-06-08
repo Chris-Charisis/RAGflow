@@ -2,27 +2,19 @@
 import argparse
 from datetime import datetime
 import time
-import logging, sys
+import logging
+from ragflow_contracts import obs
 from .settings import settings
 from .pdf_reader import PDFReader
 from .clients.minio_client import init_minio
 
-# Configure a JSON‑friendly stream handler using the log level retrieved from Settings.
-# Kept in its own function so tests can call it without executing the rest of the CLI logic.
-def init_logging():
-    logging.basicConfig(
-        level=getattr(logging, settings.log_level.upper(), logging.INFO),
-        format="%(asctime)s %(levelname)-8s %(name)s %(message)s",
-        handlers=[logging.StreamHandler(sys.stdout)],
-        force=True,
-    )
-    logging.getLogger("pdfminer").setLevel(logging.ERROR)
 
 # Parse command‑line flags, wire dependencies (MinIO & RabbitMQ clients),
 # then hand control to :pyfunc:`pdf_reader.pdf_reader.process_bucket`.
 # Mainly exists so the package can be used both as a library and as a script.
 def main()-> None:
-    init_logging()
+    obs.init_logging("pdf_reader", settings.log_level)
+    obs.start_metrics_server(settings.metrics_port)
     parser = argparse.ArgumentParser()
     parser.add_argument("--bucket", help="Override bucket name")
     parser.add_argument("--failed-log",default="failed_objects.txt",help="Path to append objects that fail (default: %(default)s)")

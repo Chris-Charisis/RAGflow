@@ -28,6 +28,13 @@ class Settings(BaseSettings):
     ollama_timeout_seconds: int = Field(60, validation_alias="OLLAMA_TIMEOUT_SECONDS")
     ollama_dimensions: int | None = Field(None, validation_alias="OLLAMA_DIMENSIONS")
 
+    # Batching (user-tunable throughput hyperparameter; 1 = per-message)
+    batch_size: int = Field(16, validation_alias="BATCH_SIZE")
+    batch_flush_seconds: float = Field(2.0, validation_alias="BATCH_FLUSH_SECONDS")
+
+    # Observability
+    metrics_port: int = Field(9100, validation_alias="METRICS_PORT")
+
     # General
     log_level: str = Field("INFO", validation_alias="LOG_LEVEL")
 

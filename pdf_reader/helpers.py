@@ -8,6 +8,7 @@ from tenacity import retry, stop_after_attempt, wait_exponential, retry_if_excep
 from typing import Any
 from minio import Minio
 from minio.error import S3Error
+from ragflow_contracts.mq import publish_json
 from .settings import Settings
 from .clients.rabbitmq_client import init_rabbitmq
 
@@ -21,17 +22,7 @@ def publish(connection: BlockingConnection, channel: BlockingChannel, exchange: 
     # Fast path: if channel looks open, try once.
     if channel and getattr(channel, "is_open", False):
         try:
-            channel.basic_publish(
-            exchange=exchange,
-            routing_key=routing_key,
-            body=json.dumps(msg), #.encode("utf-8")
-            mandatory=True,
-            properties=pika.BasicProperties(
-                content_type="application/json",
-                delivery_mode=pika.DeliveryMode.Persistent,
-                message_id=message_id,
-                ),
-            )
+            publish_json(channel, exchange, routing_key, msg, message_id=message_id)
             return connection, channel
         except (ChannelWrongStateError, StreamLostError):
             logging.warning("RabbitMQ channel/stream lost; reconnecting...")
@@ -40,17 +31,7 @@ def publish(connection: BlockingConnection, channel: BlockingChannel, exchange: 
     # Reconnect and retry once (handles hours/days of idle).
     cfg = Settings()
     connection, channel = init_rabbitmq(cfg)
-    channel.basic_publish(
-        exchange=exchange,
-        routing_key=routing_key,
-        body=json.dumps(msg), #.encode("utf-8")
-        mandatory=True,
-        properties=pika.BasicProperties(
-            content_type="application/json",
-            delivery_mode=pika.DeliveryMode.Persistent,
-            message_id=message_id,
-            ),
-        )
+    publish_json(channel, exchange, routing_key, msg, message_id=message_id)
     return connection, channel
 
 # -------- Processed marker helpers --------

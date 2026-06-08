@@ -1,3 +1,5 @@
+# Build context is the REPO ROOT (for the shared `contracts` package).
+# See compose.yaml: build.context: . / dockerfile: embedder/Dockerfile
 FROM python:3.12-slim
 COPY --from=ghcr.io/astral-sh/uv:0.7.19 /uv /uvx /bin/
 
@@ -11,11 +13,14 @@ ENV UV_LINK_MODE=copy \
     VIRTUAL_ENV=/app/.venv \
     PATH="/app/.venv/bin:$PATH"
 
-COPY pyproject.toml uv.lock ./
+COPY embedder/pyproject.toml embedder/uv.lock ./
 RUN uv sync --frozen --no-install-project --no-dev
 
-COPY cli.py helpers.py __init__.py __main__.py settings.py ./embedder/
-COPY clients ./embedder/clients
-COPY embedder ./embedder/embedder
+COPY contracts ./contracts
+RUN uv pip install --no-deps ./contracts
+
+COPY embedder/cli.py embedder/helpers.py embedder/__init__.py embedder/__main__.py embedder/settings.py ./embedder/
+COPY embedder/clients ./embedder/clients
+COPY embedder/embedder ./embedder/embedder
 
 CMD ["python", "-m", "embedder"]

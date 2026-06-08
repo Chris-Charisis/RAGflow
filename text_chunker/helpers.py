@@ -1,19 +1,10 @@
-import pika
 import json
 import logging
+from ragflow_contracts.mq import publish_json
 from .settings import settings
 
 def publish_chunk(channel, exchange, routing_key, msg: dict):
-    channel.basic_publish(
-        exchange=exchange,
-        routing_key=routing_key,
-        mandatory=True,
-        body=json.dumps(msg),
-        properties=pika.BasicProperties(
-            content_type="application/json",
-            delivery_mode=pika.DeliveryMode.Persistent,
-        ),
-    )
+    publish_json(channel, exchange, routing_key, msg)
 
 def process_message(channel, method, properties, body, *, chunker):
     # Read message and acknowledge it

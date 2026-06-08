@@ -1,46 +1,34 @@
 import argparse
-from functools import partial
-import json
 import logging
-import sys
-# from dotenv import load_dotenv
+
+from ragflow_contracts import obs
+from ragflow_contracts.mq import BatchConsumer
 
 from .settings import settings
 from .clients.rabbitmq_client import init_rabbitmq
 from .clients.ollama_client import OllamaClient
 from .embedder import Embedder
-from .helpers import process_message
-
-# load_dotenv()
-
-
-def init_logging():
-    logging.basicConfig(
-        level=getattr(logging, settings.log_level.upper(), logging.INFO),
-        format="%(asctime)s %(levelname)-8s %(name)s %(message)s",
-        handlers=[logging.StreamHandler(sys.stdout)],
-        force=True,
-    )
+from .helpers import make_batch_processor
 
 
 def main() -> None:
-    init_logging()
+    obs.init_logging("embedder", settings.log_level)
     parser = argparse.ArgumentParser(
-        description="RAGflow Embedder: consume chunks, embed with Ollama, republish."
+        description="RAGflow Embedder: consume chunks, embed with Ollama (batched), republish."
     )
     parser.add_argument("--model", help="Override OLLAMA_MODEL")
     parser.add_argument("--dimensions", type=int, help="Vector dims if supported")
     parser.add_argument("--timeout", type=int, help="Ollama request timeout (seconds)")
+    parser.add_argument("--batch-size", type=int, help="Override BATCH_SIZE")
     args = parser.parse_args()
 
+    batch_size = args.batch_size or settings.batch_size
+
     logging.info("Initializing Ollama connection...")
-    # Build core objects (OOP style)
     ollama = OllamaClient(
         base_url=settings.ollama_base_url,
         timeout_s=args.timeout or settings.ollama_timeout_seconds,
     )
-
-    logging.info("Initializing Embedder...")
     embedder = Embedder(
         client=ollama,
         model=args.model or settings.ollama_model,
@@ -48,36 +36,32 @@ def main() -> None:
         truncate=True,
     )
 
-    logging.info("Initializing RabbitMQ client...")
-    try:
-        # Establish RabbitMQ connection
-        connection, channel = init_rabbitmq(settings)
-    except Exception as e:
-        logging.error("RabbitMQ init failed: %s", e)
-        raise
+    obs.start_metrics_server(settings.metrics_port)
+
+    logging.info("Initializing RabbitMQ client (batch_size=%d)...", batch_size)
+    # Ensure prefetch >= batch_size so a full batch can be in flight.
+    prefetch = max(batch_size, settings.rabbitmq_prefetch_count)
+    connection, channel = init_rabbitmq(settings, prefetch=prefetch)
+
+    consumer = BatchConsumer(
+        connection,
+        channel,
+        settings.rabbitmq_input_queue,
+        make_batch_processor(channel, embedder),
+        batch_size=batch_size,
+        flush_seconds=settings.batch_flush_seconds,
+    )
+    consumer.register()
+    logging.info("Consuming from %s (batched)", settings.rabbitmq_input_queue)
 
     try:
-        # Expand callback with partial to include arguments variable and be compatible with basic_consume
-        cb = partial(process_message, embedder=embedder)
-        channel.basic_consume(
-            queue=settings.rabbitmq_input_queue,
-            on_message_callback=cb,
-            auto_ack=False,
-        )
-
-        logging.info("Consuming from %s with routing key %s",
-                     settings.rabbitmq_input_queue, settings.rabbitmq_input_routing_key)
-
-        channel.start_consuming()        
-    except BaseException as e:
-        # Catch broader-than-Exception (e.g., SystemExit from libraries)
-        logging.exception("Unexpected fatal error; continuing: %s", e)
-        # time.sleep(poll)
+        channel.start_consuming()
     except KeyboardInterrupt:
         logging.info("Interrupted; shutting down...")
+    except BaseException as e:
+        logging.exception("Unexpected fatal error: %s", e)
     finally:
         try:
             channel.close()
         finally:
             connection.close()
-        sys.exit(0)

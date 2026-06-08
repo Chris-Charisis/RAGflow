@@ -10,6 +10,7 @@ dependencies = [
     "pika==1.3.2",
     "pydantic-settings==2.10.0",
     "tiktoken>=0.8.0",
+    "prometheus-client>=0.21.0",
 ]
 # Note: the local `ragflow_contracts` package is installed directly in the
 # Dockerfile (uv pip install ./contracts) so it stays out of the PyPI lock.

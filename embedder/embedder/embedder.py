@@ -59,17 +59,56 @@ class Embedder:
         vecs = self.embed_texts([text])
         return vecs[0] if vecs else []
 
+    def embed_batch(self, texts: List[str]) -> List[List[float]]:
+        """Embed many texts in a single Ollama call (one vector per input)."""
+        if not texts:
+            return []
+        ollama_payload: Dict[str, Any] = {
+            "model": self.model,
+            "input": list(texts),
+            "truncate": self.truncate,
+        }
+        if self.dimensions is not None:
+            ollama_payload["dimensions"] = self.dimensions
+
+        last_err: Exception | None = None
+        for attempt in range(1, self.max_retries + 1):
+            try:
+                data = self.client.request("POST", "/api/embed", json=ollama_payload)
+                embs = data.get("embeddings")
+                if not isinstance(embs, list) or len(embs) != len(texts):
+                    raise EmbeddingError(
+                        f"Ollama returned {len(embs) if isinstance(embs, list) else 'none'} "
+                        f"embeddings for {len(texts)} inputs"
+                    )
+                return embs
+            except (OllamaClientError, EmbeddingError) as e:
+                last_err = e
+                logging.warning("embed_batch attempt %d/%d failed: %s", attempt, self.max_retries, e)
+                if attempt < self.max_retries:
+                    time.sleep(self.backoff_s * attempt)
+        raise EmbeddingError(f"Failed to embed batch after {self.max_retries} attempts: {last_err}")
+
     # ---------- message-level API (pure transform) ----------
 
     def process_message(self, payload: Dict[str, Any]) -> Dict[str, Any]:
-        try:
-            chunk = payload["chunk"]["text"]
-        except KeyError:
-            raise EmbeddingError("Invalid payload structure")
+        return self.process_batch([payload])[0]
 
-        payload["embedding"] = {}
-        payload["embedding"]["embedding_model"] = self.model
-        payload["embedding"]["embedding_vector"] = self.embed_texts(chunk)
-        payload["embedding"]["embedding_dim"] = len(payload["embedding"]["embedding_vector"][0]) if payload["embedding"]["embedding_vector"] and isinstance(payload["embedding"]["embedding_vector"][0], list) else 0
+    def process_batch(self, payloads: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+        """Embed a batch of chunk payloads in one model call; attach embeddings."""
+        texts: List[str] = []
+        for p in payloads:
+            try:
+                texts.append(p["chunk"]["text"])
+            except (KeyError, TypeError):
+                raise EmbeddingError("Invalid payload structure (missing chunk.text)")
 
-        return payload
+        vectors = self.embed_batch(texts)
+        for p, vec in zip(payloads, vectors):
+            p["embedding"] = {
+                "embedding_model": self.model,
+                # Keep the list-of-vectors shape the indexer expects (extract_vector reads [0]).
+                "embedding_vector": [vec],
+                "embedding_dim": len(vec) if isinstance(vec, list) else 0,
+            }
+        return payloads

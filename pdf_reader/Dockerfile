@@ -1,3 +1,5 @@
+# Build context is the REPO ROOT (for the shared `contracts` package).
+# See compose.yaml: build.context: . / dockerfile: pdf_reader/Dockerfile
 FROM python:3.12-slim
 COPY --from=ghcr.io/astral-sh/uv:0.7.19 /uv /uvx /bin/
 
@@ -12,10 +14,14 @@ ENV UV_LINK_MODE=copy \
     VIRTUAL_ENV=/app/.venv \
     PATH="/app/.venv/bin:$PATH"
 
-COPY pyproject.toml uv.lock ./
+COPY pdf_reader/pyproject.toml pdf_reader/uv.lock ./
 RUN uv sync --frozen --no-install-project --no-dev
 
-COPY cli.py helpers.py __init__.py __main__.py pdf_reader.py settings.py ./pdf_reader/
-COPY clients ./pdf_reader/clients
+# Shared contract/mq/obs package (local; not in the lock).
+COPY contracts ./contracts
+RUN uv pip install --no-deps ./contracts
+
+COPY pdf_reader/cli.py pdf_reader/helpers.py pdf_reader/__init__.py pdf_reader/__main__.py pdf_reader/pdf_reader.py pdf_reader/settings.py ./pdf_reader/
+COPY pdf_reader/clients ./pdf_reader/clients
 
 CMD ["python", "-m", "pdf_reader", "--watch"]

@@ -117,7 +117,8 @@ services:
 
   pdf_reader:
     build:
-      context: ./pdf_reader
+      context: .
+      dockerfile: pdf_reader/Dockerfile
     restart: unless-stopped
     container_name: pdf_reader
     env_file:
@@ -146,7 +147,8 @@ services:
 
   embedder:
     build:
-      context: ./embedder
+      context: .
+      dockerfile: embedder/Dockerfile
     restart: unless-stopped
     container_name: embedder
     env_file:
@@ -178,7 +180,8 @@ services:
   # ---------------- v2.0: retrieval + generation (the "R" and "G" of RAG) ----------------
   rag_api:
     build:
-      context: ./rag_api
+      context: .
+      dockerfile: rag_api/Dockerfile
     container_name: rag_api
     restart: unless-stopped
     ports:

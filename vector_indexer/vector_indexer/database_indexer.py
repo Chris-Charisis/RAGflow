@@ -29,6 +29,13 @@ class BaseIndexBackend(ABC):
     def ensure_ready(self) -> None: ...
     @abstractmethod
     def upsert_one(self, payload: dict) -> None: ...
+
+    def upsert_many(self, payloads: list[dict]) -> int:
+        """Default: loop upsert_one. Backends may override with native batch."""
+        for p in payloads:
+            self.upsert_one(p)
+        return len(payloads)
+
     @abstractmethod
     def delete_document(self, doc_id: str, deleted_at: int) -> int: ...
     @abstractmethod
@@ -241,6 +248,40 @@ class WeaviateIndexBackend(BaseIndexBackend):
             # Fall back to a server-assigned id when we can't build a stable one.
             self.collection.data.insert(weaviate_object, vector=vec)
 
+    @retry((Exception,), tries=3, delay=0.3, backoff=2.0)
+    def upsert_many(self, payloads: list[dict]) -> int:
+        """Batch upsert. Deterministic UUIDs make Weaviate batch import an
+        idempotent overwrite, so requeuing a failed batch is safe."""
+        prepared = []
+        for d in payloads:
+            doc_id = _clean_text(d.get("doc_id"))
+            published_at = _to_int(d.get("published_at"))
+            chunk_index = _to_int((d.get("chunk") or {}).get("index"))
+            if doc_id and published_at is not None:
+                tomb = self._tombstone_deleted_at(doc_id)
+                if tomb is not None and published_at <= tomb:
+                    logger.info("Skipping chunk for deleted doc_id=%s (race guard)", doc_id)
+                    continue
+            if not (doc_id and chunk_index is not None):
+                # Can't build a stable id -> fall back to single insert.
+                self.upsert_one(d)
+                continue
+            prepared.append((chunk_uuid(doc_id, chunk_index), self.to_weaviate_object(d), extract_vector(d)))
+
+        if not prepared:
+            return 0
+        if self.cfg.dry_run:
+            logger.info("[DRY RUN] batch upsert %d objects", len(prepared))
+            return len(prepared)
+
+        with self.collection.batch.dynamic() as batch:
+            for uid, obj, vec in prepared:
+                batch.add_object(properties=obj, uuid=uid, vector=vec)
+        failed = self.collection.batch.failed_objects
+        if failed:
+            raise RuntimeError(f"{len(failed)} object(s) failed in batch import: {failed[0]}")
+        return len(prepared)
+
     # ----- delete path -----
     @retry((Exception,), tries=3, delay=0.3, backoff=2.0)
     def delete_document(self, doc_id: str, deleted_at: int) -> int:
@@ -290,6 +331,9 @@ class DatabaseIndexer:
 
     def upsert(self, payload: dict) -> None:
         self.backend.upsert_one(payload)
+
+    def upsert_many(self, payloads: list[dict]) -> int:
+        return self.backend.upsert_many(payloads)
 
     def delete(self, doc_id: str, deleted_at: int) -> int:
         return self.backend.delete_document(doc_id, deleted_at)

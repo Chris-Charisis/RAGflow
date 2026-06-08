@@ -19,6 +19,8 @@ dependencies = [
     "langchain-anthropic>=0.3.0",
     # Lightweight default reranker (optional stage; off by default)
     "flashrank>=0.2.9",
+    # Observability
+    "prometheus-client>=0.21.0",
 ]
 
 # Optional reranker backends. Install with: pip install -e ".[cross-encoder]" / ".[cohere]"

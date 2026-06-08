@@ -30,6 +30,9 @@ class Settings(BaseSettings):
     workers: int = Field(4, validation_alias="WORKERS")
     log_level: str = Field("INFO", validation_alias="LOG_LEVEL")
 
+    # Observability
+    metrics_port: int = Field(9100, validation_alias="METRICS_PORT")
+
     # Idempotency & polling
     processed_prefix: str = Field(".processed", validation_alias="PROCESSED_PREFIX")
     poll_interval_seconds: int = Field(30, validation_alias="POLL_INTERVAL_SECONDS")    

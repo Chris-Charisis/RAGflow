@@ -1,8 +1,9 @@
-import argparse, json, logging, sys
+import argparse, logging
 from datetime import datetime
 from functools import partial
-# from dotenv import load_dotenv
-# load_dotenv()
+
+from ragflow_contracts import obs
+
 from .settings import settings
 from .chunker import Chunker
 from .clients.rabbitmq_client import init_rabbitmq
@@ -10,19 +11,9 @@ from .helpers import (
     process_message,
 )
 
-# Configure a JSON‑friendly stream handler using the log level retrieved from Settings.
-# Kept in its own function so tests can call it without executing the rest of the CLI logic.
-def init_logging():
-    logging.basicConfig(
-        level=getattr(logging, settings.log_level.upper(), logging.INFO),
-        format="%(asctime)s %(levelname)-8s %(name)s %(message)s",
-        handlers=[logging.StreamHandler(sys.stdout)],
-        force=True,
-    )
-
 
 def main()-> None:
-    init_logging()
+    obs.init_logging("text_chunker", settings.log_level)
     parser = argparse.ArgumentParser()
     parser.add_argument("--strategy", choices=["tokens", "words", "sentences", "recursive"], help="Chunking strategy")
     parser.add_argument("--size", type=int, help="Chunk size (tokens for 'tokens' strategy, words otherwise)")
@@ -39,6 +30,8 @@ def main()-> None:
         strip_boilerplate=settings.strip_boilerplate,
         encoding_name=settings.token_encoding,
     )
+
+    obs.start_metrics_server(settings.metrics_port)
 
     logging.info("Initializing RabbitMQ client...")
     try:
@@ -71,4 +64,3 @@ def main()-> None:
             channel.close()
         finally:
             connection.close()
-        sys.exit(0)

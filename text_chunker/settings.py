@@ -33,6 +33,9 @@ class Settings(BaseSettings):
     # tiktoken encoding used for token counting / token chunking.
     token_encoding: str = Field("cl100k_base", validation_alias="TOKEN_ENCODING")
 
+    # Observability
+    metrics_port: int = Field(9100, validation_alias="METRICS_PORT")
+
     # General settings
     log_level: str = Field("INFO", validation_alias="LOG_LEVEL")
 
