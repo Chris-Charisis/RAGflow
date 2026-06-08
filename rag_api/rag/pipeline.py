@@ -111,11 +111,20 @@ class RAGPipeline:
     def answer(self, question: str, **kwargs) -> Dict[str, Any]:
         docs = self.retrieve(question, **kwargs)
         if not docs:
-            return {"answer": "I couldn't find anything relevant in the knowledge base.", "sources": []}
+            return {
+                "answer": "I couldn't find anything relevant in the knowledge base.",
+                "sources": [],
+                "contexts": [],
+            }
         answer = self.chain.invoke(
             {"context": self._format_context(docs), "question": question}
         )
-        return {"answer": answer, "sources": self._sources(docs)}
+        return {
+            "answer": answer,
+            "sources": self._sources(docs),
+            # Full retrieved chunk texts — used by the Ragas eval harness.
+            "contexts": [d.page_content for d in docs],
+        }
 
     def stream(self, question: str, **kwargs) -> Iterator[Dict[str, Any]]:
         """Yield {'type': 'token'|'sources', 'data': ...} events."""

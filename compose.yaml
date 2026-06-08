@@ -214,6 +214,26 @@ services:
     networks:
       - app
 
+  # One-shot Ragas evaluation. Gated behind the 'eval' profile so it never
+  # starts with the stack. Run on demand:
+  #   docker compose run --rm rag_eval --dataset /data/questions.jsonl --output /data/results.csv
+  rag_eval:
+    build:
+      context: ./rag_eval
+    container_name: rag_eval
+    profiles: ["eval"]
+    env_file:
+      - .env
+    environment:
+      - RAG_API_URL=http://rag_api:8000
+    volumes:
+      - ./eval_data:/data
+    depends_on:
+      rag_api:
+        condition: service_healthy
+    networks:
+      - app
+
 volumes:
   minio_data:
   rabbitmq_data:

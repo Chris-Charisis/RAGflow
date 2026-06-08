@@ -195,3 +195,5 @@ cython_debug/
 
 # poetry.lock
 # *.toml
+# RAGflow eval outputs
+eval_data/results*.csv

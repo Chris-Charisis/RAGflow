@@ -1,0 +1,26 @@
+[project]
+name = "rag-eval"
+version = "2.0.0"
+description = "Ragas evaluation harness for the RAGflow pipeline"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "ragas>=0.2,<0.3",
+    "requests>=2.32.5",
+    "pydantic-settings==2.10.0",
+    "pandas>=2.0",
+    "nest-asyncio>=1.6.0",
+    "langchain>=0.3.0",
+    "langchain-core>=0.3.0",
+    "langchain-ollama>=0.2.0",
+    "langchain-openai>=0.2.0",
+    "langchain-google-genai>=2.0.0",
+    "langchain-anthropic>=0.3.0",
+]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["rag_eval"]

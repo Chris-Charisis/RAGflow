@@ -27,6 +27,8 @@ class QueryRequest(BaseModel):
     alpha: Optional[float] = None
     rerank: Optional[bool] = None
     top_n: Optional[int] = None
+    # When true, include the full retrieved context strings (for evaluation).
+    return_contexts: bool = False
 
 
 class Source(BaseModel):
@@ -42,6 +44,7 @@ class Source(BaseModel):
 class QueryResponse(BaseModel):
     answer: str
     sources: List[Source]
+    contexts: Optional[List[str]] = None
 
 
 @asynccontextmanager
@@ -71,9 +74,12 @@ def health() -> Dict[str, Any]:
 @app.post("/query", response_model=QueryResponse)
 def query(req: QueryRequest) -> Dict[str, Any]:
     pipeline: RAGPipeline = app.state.pipeline
-    return pipeline.answer(
+    result = pipeline.answer(
         req.question, k=req.k, alpha=req.alpha, rerank=req.rerank, top_n=req.top_n
     )
+    if not req.return_contexts:
+        result.pop("contexts", None)
+    return result
 
 
 @app.post("/chat/stream")

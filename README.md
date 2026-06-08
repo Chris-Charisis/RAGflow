@@ -14,6 +14,10 @@
 > - **`rag_ui`** — a small custom **Streamlit** chat UI (replaces OpenWebUI)
 >   that streams answers with their sources. See [rag_ui/README.md](rag_ui/README.md).
 >   Available at `http://localhost:3000` once the stack is up.
+> - **`rag_eval`** — on-demand **Ragas** evaluation harness (faithfulness,
+>   answer relevancy, context precision/recall) that scores the live pipeline.
+>   Gated behind the `eval` compose profile. See [rag_eval/README.md](rag_eval/README.md):
+>   `docker compose run --rm rag_eval --dataset /data/questions.jsonl`.
 >
 > Built on **LangChain** primitives. The LLM provider is selected with
 > `LLM_PROVIDER`; only the chosen provider's API key is required. See
