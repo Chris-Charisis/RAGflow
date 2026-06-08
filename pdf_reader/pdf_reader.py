@@ -6,8 +6,7 @@ from typing import Any, Iterable, Optional
 import json, logging, tempfile, time
 from pypdf import PdfReader
 from pypdf.errors import PdfReadError
-import pdfplumber
-from unstructured.partition.pdf import partition_pdf
+import pymupdf4llm
 from .settings import settings
 from .clients.rabbitmq_client import init_rabbitmq
 from .helpers import (
@@ -25,6 +24,42 @@ from pika.exceptions import (
     UnroutableError,
     NackError,
 )
+
+# Major section headings that become ===marker=== breaks for the chunker's
+# boilerplate-stripping / chapter-aware strategies.
+SECTION_NAMES = {
+    "abstract", "introduction", "background", "related work",
+    "materials and methods", "theory", "methods", "methodology",
+    "experiments", "results", "results and discussion",
+    "discussion", "conclusion", "conclusions",
+    "acknowledgments", "references", "experimental section",
+}
+
+# Strip leading section numbering such as "4.3. Results" or "1. Introduction".
+SECTION_NUM_PREFIX = re.compile(
+    r"""
+    ^\s*
+    (?:
+        \(?\d+(?:\.\d+)*               # 1 or 1.2.3
+        |
+        \(?
+        [ivxlcdm]+(?:\.[ivxlcdm]+)*    # I, II, III, IV, ...
+        (?=\W|$)
+    )
+    \)?
+    [\.\)]?
+    \s*
+    """,
+    flags=re.IGNORECASE | re.VERBOSE,
+)
+
+# Markdown table separator / rule lines like "|---|:--:|" or "----".
+_MD_RULE = re.compile(r"^[\s|:\-]+$")
+
+
+def _normalize_heading(text: str) -> str:
+    """Strip section numbering and lowercase, for SECTION_NAMES matching."""
+    return SECTION_NUM_PREFIX.sub("", text).strip().lower()
 
 
 class PDFReader:
@@ -70,12 +105,18 @@ class PDFReader:
 
         self.workers = workers or settings.workers
 
-    # Main PDF processing logic using `unstructured` and `pdfplumber` to extract text and metadata.
+    # Extract text (via PyMuPDF4LLM) and metadata (via pypdf) from a PDF.
     def extract_text_from_pdf(self, path) -> dict[str, Any]:
-        """ Extract metadata and text from a PDF file. Images, tables, and other non-text elements are ignored."""
-        
-        # Extract metadata
-        out = {}
+        """Extract metadata and text from a PDF file.
+
+        Text is extracted with PyMuPDF4LLM as Markdown (fast, no torch/OCR),
+        then markdown headings matching known section names are converted into
+        the ===section=== markers the chunker uses. Images/figures are dropped;
+        table text is kept.
+        """
+        out: dict[str, Any] = {}
+
+        # ---- Metadata (pypdf) ----
         try:
             rdr = PdfReader(str(path))
         except PdfReadError as e:
@@ -83,109 +124,58 @@ class PDFReader:
             raise
         meta = rdr.metadata or {}
 
-        # Extract metadata fields with error handling
-        title = None
-        try:
-            title = meta.title
-        except (AttributeError, KeyError):
-            logging.warning("Title not found in PDF metadata for %s", path)
+        def _meta(attr: str, label: str):
+            try:
+                return getattr(meta, attr)
+            except (AttributeError, KeyError):
+                logging.warning("%s not found in PDF metadata for %s", label, path)
+                return None
 
-        authors = None
-        try:
-            authors = meta.author
-        except (AttributeError, KeyError):
-            logging.warning("Authors not found in PDF metadata for %s", path)
-            
-        keywords = None
-        try:
-            keywords = meta.keywords
-        except (AttributeError, KeyError):
-            logging.warning("Keywords not found in PDF metadata for %s", path)
-            
-        abstract = None
-        try:
-            abstract = meta.subject
-        except (AttributeError, KeyError):
-            logging.warning("Abstract/subject not found in PDF metadata for %s", path)
-            
         doi = None
         try:
             doi = self.guess_doi(rdr)
         except Exception as e:
             logging.warning("Failed to extract DOI from PDF %s: %s", path, e)
-        
+
         out["metadata"] = {
-            "title": title,
-            "authors": authors,
-            "keywords": keywords,
-            "abstract": abstract,
-            "doi": self.guess_doi(rdr),
+            "title": _meta("title", "Title"),
+            "authors": _meta("author", "Authors"),
+            "keywords": _meta("keywords", "Keywords"),
+            "abstract": _meta("subject", "Abstract/subject"),
+            "doi": doi,
         }
 
-        # Extract raw pages text
-        with pdfplumber.open(path) as pdf:
-            raw_pages = [p.extract_text(x_tolerance=1.5) or "" for p in pdf.pages]
-        raw_text = "\n\n".join(raw_pages)
-
-        # Process the PDF to extract structured elements like titles, paragraphs, etc.
-        # This will also handle page breaks and table structures.
-        elts = partition_pdf(
-            filename=str(path),
-            strategy="hi_res",
-            infer_table_structure=True,
-            include_page_breaks=False,
-            form_extraction_skip_tables=False,
-        )
-
-        # Define a function to filter out major section headers and narrative text
-        SECTION_NAMES = {
-            "abstract", "introduction", "background", "related work",
-            "materials and methods", "theory", "methods", "methodology",
-            "experiments", "results", "results and discussion",
-            "discussion", "conclusion", "conclusions",
-            "acknowledgments", "references", "experimental section"
-        }
-
-        # Precompile once
-        SECTION_NUM_PREFIX = re.compile(
-            r"""
-            ^\s*
-            (?:
-                \(?\d+(?:\.\d+)*               # 1 or 1.2.3
-                |
-                \(?
-                [ivxlcdm]+(?:\.[ivxlcdm]+)*    # I, II, III, IV, ...
-                (?=\W|$)                       # next char is non-word or end
-            )
-            \)?                                # optional closing ')'
-            [\.\)]?                            # optional trailing '.' or ')'
-            \s*                                # spaces after numbering
-            """,
-            flags=re.IGNORECASE | re.VERBOSE,
-        )
-
-        # Strip leading numbers from section titles such as “4.3. Results” or “1. Introduction”
-        def is_major_header(text: str) -> str:
-            clean = SECTION_NUM_PREFIX.sub("", text).strip().lower()
-            return clean
-
-        filtered = []
-        for el in elts:
-            if el.category == "NarrativeText":
-                if len(el.text) > 150 or el.text.startswith("Figure ") or el.text.startswith("Table "): 
-                    filtered.append(el.text)
-            elif el.category == "Title":
-                stripped_title = is_major_header(el.text)
-                # mark real section breaks with a flag so we can split the text later
-                if stripped_title in SECTION_NAMES:
-                    filtered.append(f"\n\n==={stripped_title}===\n\n")
-
-        # Concatenate and normalise whitespaces
-        raw_text = " ".join(filtered)
-        clean_text = re.sub(r"\s+", " ", raw_text).strip()
-        out["text"] = clean_text
-
+        # ---- Text (PyMuPDF4LLM -> Markdown -> ===section=== markers) ----
+        markdown = pymupdf4llm.to_markdown(str(path))
+        out["text"] = self._markdown_to_marked_text(markdown)
         return out
+
+    # Convert PyMuPDF4LLM markdown into the ===section=== delimited text the
+    # chunker expects. Major-section headings become markers; other headings
+    # and body text are kept; image refs and table-rule lines are dropped.
+    @staticmethod
+    def _markdown_to_marked_text(markdown: str) -> str:
+        parts: list[str] = []
+        for line in markdown.splitlines():
+            stripped = line.strip()
+            if not stripped:
+                continue
+            if stripped.startswith("!["):  # markdown image reference
+                continue
+            if _MD_RULE.match(stripped):  # table separator / horizontal rule
+                continue
+            if stripped.startswith("#"):  # heading
+                heading = stripped.lstrip("#").strip()
+                normalized = _normalize_heading(heading)
+                if normalized in SECTION_NAMES:
+                    parts.append(f"\n\n==={normalized}===\n\n")
+                else:
+                    parts.append(heading)
+                continue
+            parts.append(stripped)
+
+        raw_text = " ".join(parts)
+        return re.sub(r"\s+", " ", raw_text).strip()
 
     # Guess DOI from the first two pages of the PDF
     def guess_doi(self, rdr):

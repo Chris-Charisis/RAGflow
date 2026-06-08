@@ -6,33 +6,12 @@ readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "dotenv==0.9.9",
-    "ipykernel>=7.1.0",
     "minio==7.2.15",
-    "pdfplumber==0.11.6",
-    "pi-heif>=1.1.0",
     "pika==1.3.2",
     "pydantic-settings==2.10.0",
-    "pymupdf==1.25.5",
+    # Text extraction: PyMuPDF4LLM (markdown, fast, no torch/OCR) + pypdf (metadata)
+    "pymupdf4llm>=0.0.17",
     "pypdf==5.5.0",
-    "pytesseract>=0.3.13",
-    "python-magic==0.4.27",
-    "tabula-py==2.10.0",
     "tenacity==9.1.2",
     "tqdm==4.67.1",
-    "unstructured[local-inference]==0.17.2",
-    "opencv-python-headless>=4.8",
-    # Pinned CPU torch (routed to the CPU index below) to avoid pulling CUDA wheels.
-    "torch==2.8.0",
-    "torchvision==0.23.0",
 ]
-
-# Resolve torch/torchvision from the CPU-only wheel index so images stay slim
-# and don't drag in CUDA. Replaces the manual pip step in the old Dockerfile.
-[[tool.uv.index]]
-name = "pytorch-cpu"
-url = "https://download.pytorch.org/whl/cpu"
-explicit = true
-
-[tool.uv.sources]
-torch = { index = "pytorch-cpu" }
-torchvision = { index = "pytorch-cpu" }
