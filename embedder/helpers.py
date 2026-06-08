@@ -20,7 +20,7 @@ def publish_chunk(channel, exchange, routing_key, msg: dict):
 def process_message(channel, method, properties, body, *, embedder):
     try:
         payload = json.loads(body)
-    except Exception:
+    except Exception as e:
         logging.error("Invalid JSON on input: %s", e)
         channel.basic_ack(delivery_tag=method.delivery_tag)
         return

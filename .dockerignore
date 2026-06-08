@@ -1,0 +1,17 @@
+# Keep build contexts small (text_chunker & vector_indexer build from repo root).
+.git
+**/.venv
+**/__pycache__
+**/*.pyc
+**/.pytest_cache
+**/.ipynb_checkpoints
+**/uv.lock
+text_chunker/outputs
+pdf_reader/extracted_text
+pdf_reader/chunking_explore.ipynb
+*.md
+!README.md
+!contracts/README.md
+.env
+failed_objects.txt
+architecture.png

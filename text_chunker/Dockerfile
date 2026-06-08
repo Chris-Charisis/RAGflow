@@ -1,25 +1,27 @@
+# Build context is the REPO ROOT (so the shared `contracts` package is available).
+# See compose.yaml: build.context: . / dockerfile: text_chunker/Dockerfile
 FROM python:3.12-slim
 
-# System deps for pdf/unstructured/opencv
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    gcc build-essential \
-    libjpeg-dev zlib1g-dev libffi-dev \
-    libgl1 libglib2.0-0 \
-    poppler-utils \
-    tesseract-ocr \
-    && rm -rf /var/lib/apt/lists/*
+    ca-certificates && \
+    rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
 
-# Copy application files and folders
-COPY pyproject.toml ./
-COPY cli.py helpers.py __init__.py __main__.py settings.py ./text_chunker/
-COPY clients ./text_chunker/clients
-COPY chunker ./text_chunker/chunker
+# Shared message contract (installed first for layer caching)
+COPY contracts ./contracts
+RUN pip install --upgrade pip && pip install --no-cache-dir ./contracts
 
-# Install packages
-RUN pip install --upgrade pip \
- && pip install --no-cache-dir -e .
+# Application files
+COPY text_chunker/pyproject.toml ./
+COPY text_chunker/cli.py text_chunker/helpers.py text_chunker/__init__.py text_chunker/__main__.py text_chunker/settings.py ./text_chunker/
+COPY text_chunker/clients ./text_chunker/clients
+COPY text_chunker/chunker ./text_chunker/chunker
 
-# Default command: module entry (same as `python -m text_chunker`)
+RUN pip install --no-cache-dir -e .
+
+# Pre-download the tiktoken encoding so the container needs no network at runtime.
+ENV TIKTOKEN_CACHE_DIR=/app/.tiktoken
+RUN python -c "import tiktoken; tiktoken.get_encoding('cl100k_base')"
+
 CMD ["python", "-m", "text_chunker"]

@@ -24,9 +24,9 @@ def init_logging():
 def main()-> None:
     init_logging()
     parser = argparse.ArgumentParser()
-    parser.add_argument("--strategy", choices=["words", "sentences", "recursive"], help="Chunking strategy")
-    parser.add_argument("--size", type=int, help="Chunk size in words")
-    parser.add_argument("--overlap", type=int, help="Overlap in words (if sentence strategy, actual_overlap <= overlap)")
+    parser.add_argument("--strategy", choices=["tokens", "words", "sentences", "recursive"], help="Chunking strategy")
+    parser.add_argument("--size", type=int, help="Chunk size (tokens for 'tokens' strategy, words otherwise)")
+    parser.add_argument("--overlap", type=int, help="Overlap (tokens/words per strategy)")
     parser.add_argument("--prefetch", type=int, help="Consumer prefetch")
     args = parser.parse_args()
 
@@ -36,6 +36,8 @@ def main()-> None:
         strategy=args.strategy or settings.chunk_strategy,
         size=args.size or settings.chunk_size,
         overlap=args.overlap or settings.chunk_overlap,
+        strip_boilerplate=settings.strip_boilerplate,
+        encoding_name=settings.token_encoding,
     )
 
     logging.info("Initializing RabbitMQ client...")

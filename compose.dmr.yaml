@@ -109,7 +109,8 @@ services:
 
   text_chunker:
     build:
-      context: ./text_chunker
+      context: .
+      dockerfile: text_chunker/Dockerfile
     restart: unless-stopped
     container_name: text_chunker
     env_file:
@@ -141,7 +142,8 @@ services:
 
   vector_indexer:
     build:
-      context: ./vector_indexer
+      context: .
+      dockerfile: vector_indexer/Dockerfile
     restart: unless-stopped
     container_name: vector_indexer
     env_file:

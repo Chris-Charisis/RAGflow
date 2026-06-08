@@ -12,14 +12,21 @@ class Settings(BaseSettings):
     rabbitmq_exchange: str = Field("events", validation_alias="RABBITMQ_EXCHANGE")
     rabbitmq_prefetch_count: int = Field(16, validation_alias="RABBITMQ_PREFETCH_COUNT")
 
-    # Input settings
+    # Input settings (embeddings -> index)
     rabbitmq_input_exchange: str = Field("events", validation_alias="INPUT_EXCHANGE")
     rabbitmq_input_queue: str = Field("embeddings", validation_alias="INPUT_QUEUE")
     rabbitmq_input_routing_key: str = Field("embeddings", validation_alias="INPUT_ROUTING_KEY")
 
+    # Deletion settings (deletion events -> remove from index). Must match pdf_reader.
+    rabbitmq_delete_exchange: str = Field("events", validation_alias="RABBITMQ_DELETE_EXCHANGE")
+    rabbitmq_delete_queue: str = Field("deletions", validation_alias="RABBITMQ_DELETE_QUEUE")
+    rabbitmq_delete_routing_key: str = Field("deletions", validation_alias="RABBITMQ_DELETE_ROUTING_KEY")
+
    # Backend selection
     backend: str = Field("weaviate", validation_alias="INDEX_BACKEND")  # 'weaviate' (default) | 'other'
     collection: str = Field("recursive_with_overlap", validation_alias="COLLECTION")
+    # Companion collection holding deletion tombstones (one per doc_id).
+    tombstone_collection: str = Field("Tombstones", validation_alias="TOMBSTONE_COLLECTION")
 
     # Weaviate (v4) settings    
     weaviate_url: str | None = Field(None, validation_alias="WEAVIATE_URL")

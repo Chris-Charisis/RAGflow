@@ -3,7 +3,7 @@ import re
 from minio import Minio
 from minio.error import S3Error
 from typing import Any, Iterable, Optional
-import json, logging, tempfile
+import json, logging, tempfile, time
 from pypdf import PdfReader
 from pypdf.errors import PdfReadError
 import pdfplumber
@@ -222,13 +222,16 @@ class PDFReader:
             # Create message payload and publish to RabbitMQ
             try:
                 payload: dict[str, Any] = {
-                    "schema": 1,
+                    "schema": 2,
                     "event": "ingest",
+                    # Millisecond timestamp carried through the whole pipeline so the
+                    # vector_indexer can resolve the "deleted while in flight" race.
+                    "published_at": int(time.time() * 1000),
                     "source": {
                         "bucket": self.bucket,
                         "object": obj.object_name,
                         "etag": obj.etag,
-                    }     
+                    }
                 }
                 payload.update(processed_pdf_info)
 
@@ -358,8 +361,11 @@ class PDFReader:
 
             # Publish a single deletion event for this key (use current marker's etag)
             deletion_msg = {
-                "schema": 1,
+                "schema": 2,
                 "event": "deletion",
+                # Any chunk published at or before this instant belongs to the
+                # deleted generation and must be removed / rejected downstream.
+                "deleted_at": int(time.time() * 1000),
                 "source": {"bucket": self.bucket, "object": src_key, "etag": etag},
             }
             try:

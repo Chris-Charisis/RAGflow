@@ -83,23 +83,24 @@ class RAGPipeline:
         blocks = []
         for i, d in enumerate(docs, start=1):
             meta = d.metadata or {}
-            title = meta.get("title") or (meta.get("metadata") or {}).get("title") or ""
+            title = meta.get("title") or ""
             header = f"[{i}]" + (f" {title}" if title else "")
             blocks.append(f"{header}\n{d.page_content}")
         return "\n\n".join(blocks)
 
     @staticmethod
     def _sources(docs: List[Document]) -> List[Dict[str, Any]]:
+        # Flat schema (vector_indexer v2): identifiers live at the top level.
         out = []
         for i, d in enumerate(docs, start=1):
             meta = d.metadata or {}
-            nested = meta.get("metadata") or {}
             out.append(
                 {
                     "n": i,
-                    "title": meta.get("title") or nested.get("title"),
-                    "doc_id": nested.get("doc_id"),
-                    "object": nested.get("object"),
+                    "title": meta.get("title"),
+                    "doc_id": meta.get("doc_id"),
+                    "object": meta.get("object"),
+                    "chunk_index": meta.get("chunk_index"),
                     "score": meta.get("rerank_score", meta.get("score")),
                     "snippet": (d.page_content or "")[:300],
                 }

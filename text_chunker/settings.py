@@ -22,9 +22,16 @@ class Settings(BaseSettings):
     rabbitmq_output_routing_key: str = Field("chunks", validation_alias="OUTPUT_ROUTING_KEY")
 
     # Chunker settings
-    chunk_strategy: str = Field("recursive", validation_alias="CHUNK_STRATEGY")
-    chunk_size: int = Field(350, validation_alias="CHUNK_SIZE")
-    chunk_overlap: int = Field(52, validation_alias="CHUNK_OVERLAP")
+    # 'tokens' (default, token-aware) | 'words' | 'sentences' | 'recursive'
+    chunk_strategy: str = Field("tokens", validation_alias="CHUNK_STRATEGY")
+    # Size/overlap are in TOKENS for the 'tokens' strategy, words otherwise.
+    chunk_size: int = Field(400, validation_alias="CHUNK_SIZE")
+    chunk_overlap: int = Field(60, validation_alias="CHUNK_OVERLAP")
+    # Strip pre-introduction / post-references boilerplate (academic-paper
+    # heuristic). Set False for general documents.
+    strip_boilerplate: bool = Field(True, validation_alias="STRIP_BOILERPLATE")
+    # tiktoken encoding used for token counting / token chunking.
+    token_encoding: str = Field("cl100k_base", validation_alias="TOKEN_ENCODING")
 
     # General settings
     log_level: str = Field("INFO", validation_alias="LOG_LEVEL")

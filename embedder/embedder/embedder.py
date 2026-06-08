@@ -28,9 +28,12 @@ class Embedder:
         if not isinstance(text, str):
             raise EmbeddingError("Input text must be a string but got: ", type(text))
 
+        # Documents are embedded WITHOUT the mxbai retrieval instruction — that
+        # prompt is for the QUERY side only (applied in rag_api). Prepending it to
+        # documents creates a query/document asymmetry that degrades recall.
         ollama_payload: Dict[str, Any] = {
             "model": self.model,
-            "input": ["Represent this sentence for searching relevant passages:" + text],
+            "input": [text],
             "truncate": self.truncate,
         }
         if self.dimensions is not None:

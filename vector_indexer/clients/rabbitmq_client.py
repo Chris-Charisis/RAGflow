@@ -14,10 +14,15 @@ def init_rabbitmq(cfg: Settings):
     connection = pika.BlockingConnection(parameters=parameters)
     channel = connection.channel()
 
-    # RabbitMQ input setup for incoming 'text' events
+    # RabbitMQ input setup for incoming 'embeddings' events
     channel.exchange_declare(exchange=cfg.rabbitmq_input_exchange, exchange_type="topic", durable=True)
     channel.queue_declare(queue=cfg.rabbitmq_input_queue, durable=True)
     channel.queue_bind(queue=cfg.rabbitmq_input_queue, exchange=cfg.rabbitmq_input_exchange, routing_key=cfg.rabbitmq_input_routing_key)
+
+    # RabbitMQ setup for incoming 'deletion' events
+    channel.exchange_declare(exchange=cfg.rabbitmq_delete_exchange, exchange_type="topic", durable=True)
+    channel.queue_declare(queue=cfg.rabbitmq_delete_queue, durable=True)
+    channel.queue_bind(queue=cfg.rabbitmq_delete_queue, exchange=cfg.rabbitmq_delete_exchange, routing_key=cfg.rabbitmq_delete_routing_key)
 
     channel.confirm_delivery()
     # Set how many messages are prefetched before they start being consumed

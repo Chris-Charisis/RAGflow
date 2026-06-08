@@ -1,0 +1,16 @@
+[project]
+name = "ragflow-contracts"
+version = "2.0.0"
+description = "Shared message-envelope contract for RAGflow services"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "pydantic>=2.7",
+]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["ragflow_contracts"]

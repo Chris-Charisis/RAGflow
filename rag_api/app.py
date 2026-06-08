@@ -34,6 +34,7 @@ class Source(BaseModel):
     title: Optional[str] = None
     doc_id: Optional[str] = None
     object: Optional[str] = None
+    chunk_index: Optional[int] = None
     score: Optional[float] = None
     snippet: Optional[str] = None
 
